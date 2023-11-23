@@ -1,0 +1,25 @@
+.header-button{
+    border: none;
+    background:none;
+}
+
+.language-container{
+    cursor:pointer;
+    position: relative;
+}
+.language-dropdown{
+    position: absolute;
+    list-style: none;
+    padding-left:0;
+    
+}
+.language-dropdown-item:hover{
+    background-color: bisque;
+    padding: 2px;
+    cursor:pointer
+}
+.login{
+    text-decoration: none;
+    color: black;
+    padding-left: 1vw;
+}
