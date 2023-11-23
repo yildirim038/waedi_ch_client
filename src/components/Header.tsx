@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './img/logo.png'
 import AccountIcon from './img/account_icon_138984 1.png'
+import SearchIcon from './img/suche.png'
 import LanguageSwitcher from './LanguageSwitcher';
 import './Header.css'
 import {useTranslation} from 'react-i18next';
@@ -23,9 +24,9 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
               <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <form className="d-flex  offset-md-2  col-4" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success" type="submit">Search</button>
+            <form className="d-flex form-container offset-md-2  col-4">
+              <input className="me-2 search-input" placeholder="Search" aria-label="Search"/>
+              <button className="btn search-icon-button" type="submit"><img src={SearchIcon} alt="search" className='search-icon'/></button>
             </form>
             <span className="col-2 offset-md-4">
               <LanguageSwitcher/>

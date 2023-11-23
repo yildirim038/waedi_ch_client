@@ -23,3 +23,25 @@
     color: black;
     padding-left: 1vw;
 }
+.form-container{
+    position: relative;
+}
+.search-input{
+    border-radius: 50px;
+    border-color: blue;
+    height: 3vw;
+    width: 30vw;
+}
+.search-input::placeholder{
+    color:blue;
+    text-align: center;
+}
+.search-icon-button{
+    position: absolute;
+    left: 19vw;
+    top: -2px;
+}
+.search-icon{
+   width: 2vw;
+
+}
