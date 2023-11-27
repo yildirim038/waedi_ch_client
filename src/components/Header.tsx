@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './img/logo.png'
-import AccountIcon from './img/account_icon_138984 1.png'
-import SearchIcon from './img/suche.png'
+import AccountIcon from '../img/account_icon_138984 1.png'
+import SearchIcon from '../img/suche.png'
 import LanguageSwitcher from './LanguageSwitcher';
 import './Header.css'
 import {useTranslation} from 'react-i18next';
@@ -28,21 +28,21 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
               <input className="me-2 search-input" placeholder="Search" aria-label="Search"/>
               <button className="btn search-icon-button" type="submit"><img src={SearchIcon} alt="search" className='search-icon'/></button>
             </form>
-            <span className="col-2 offset-md-4">
+            <span className="col-4 offset-md-2 d-flex justify-content-end">
               <LanguageSwitcher/>
-              <img src={AccountIcon} alt="AccountIcon" className="offset-md-1 col-2"/>
-              {isAuthenticated ? (<button onClick={onLogout}className="col-5 header-button">{t('header_logout')}</button>) 
+              <img src={AccountIcon} alt="AccountIcon" className="offset-md-1 col-1"/>
+              {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
               : (<Link  className='login' to="/login">{t('header_login')}</Link>)}
             </span>
           </div>
       </nav>
       <div>
         <nav className="nav justify-content-center">
-            <a className="navigation-element" href="/">Startseite</a>
-            <a className="navigation-element" href="/">Event</a>
-            <a className="navigation-element" href="/">Verzeichnisse</a>
+            <a className="navigation-element" href="/">{t('nav_home')}</a>
+            <a className="navigation-element" href="/">{t('nav_event')}</a>
+            <a className="navigation-element" href="/">{t('nav_directories')}</a>
             <a className="navigation-element" href="/">Wädi</a>
-            <a className="navigation-element" href="/">Fotogalerie</a>
+            <a className="navigation-element" href="/">{t('nav_photo_gallery')}</a>
             <a className="navigation-element" href="/">Interviews</a>
             <a className="navigation-element" href="/">Service</a>
           </nav>

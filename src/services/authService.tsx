@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 const API_URL = 'http://localhost:3001/auth';
 
 export const login = async (email: string, password: string) => {
@@ -45,7 +43,6 @@ export const checkToken = async () => {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      // Token yoksa, isAuthenticated false döndür
       return {
         isAuthenticated: false,
         role: null,
@@ -57,8 +54,8 @@ export const checkToken = async () => {
     'Authorization': `Bearer ${token}`,
       },
     });
+    console.log(response.data)
 
-    // response.data.user değeri undefined değilse role'ü kullan, aksi halde null döndür
     const role =  response.data.role;
 
     return {

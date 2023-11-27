@@ -25,6 +25,8 @@
 }
 .form-container{
     position: relative;
+    justify-content: right;
+    align-items: center;
 }
 .search-input{
     border-radius: 50px;
@@ -38,12 +40,12 @@
 }
 .search-icon-button{
     position: absolute;
-    right: 2px;
-    top: -2px;
+    right: 3px;
+   
 }
 .search-icon{
-   width: 2vw;
-
+   width:2vw;
+   margin-bottom: 3px;
 }
 .navigation-element{
     color: black;
