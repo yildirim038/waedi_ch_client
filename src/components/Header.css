@@ -33,6 +33,7 @@
     border-color: blue;
     height: 7vh;
     width: 30vw;
+    min-height: 3vw
 }
 .search-input::placeholder{
     color:blue;
@@ -53,4 +54,17 @@
     font-weight: 700;
     text-decoration: none;
     margin: 0 2vw;
+}
+.hamburger-menu-button{
+    border: none;
+    background: none;
+    display: none;
+}
+@media only screen and (max-width: 766px) {
+    .hamburger-menu-button{
+        display: block;
+    }
+  }
+.hamburger-menu {
+    width: 4vw;
 }

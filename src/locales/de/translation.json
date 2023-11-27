@@ -1,5 +1,6 @@
 {
-    "welcome": "Willkommen auf unsere WebSeite!",
+    "title_on": "Wädi Online",
+    "title_under":"Internet für Wädenswil",
     "header_language":"DE",
     "header_login":"Anmelden",
     "header_logout":"Abmelden",

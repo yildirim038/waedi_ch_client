@@ -1,5 +1,6 @@
 {
-    "welcome": "Welcome to our website!",
+    "title_on": "Waedi Online",
+    "title_under":"Internet for Wädenswil",
     "header_language":"EN",
     "header_login":"Login",
     "header_logout":"Logout",

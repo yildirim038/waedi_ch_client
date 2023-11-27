@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './img/logo.png'
+import Logo from '../img/logo.png'
+import HamburgerLogo from '../img/menu-icon-min.svg'
 import AccountIcon from '../img/account_icon_138984 1.png'
 import SearchIcon from '../img/suche.png'
 import LanguageSwitcher from './LanguageSwitcher';
@@ -20,8 +21,8 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
     <header>
       <nav className="navbar navbar-expand-md navbar-light">
           <a className="navbar-brand" href="/"><img src={Logo} alt="waedi_ch" className="col-6 offset-md-1"/></a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
+          <button className="hamburger-menu-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <img className="hamburger-menu" src={HamburgerLogo}/>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <form className="d-flex form-container offset-md-2  col-4">
