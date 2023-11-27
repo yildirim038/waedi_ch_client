@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
   console.log(isAuthenticated)
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light">
+      <nav className="navbar navbar-expand-md navbar-light">
           <a className="navbar-brand" href="/"><img src={Logo} alt="waedi_ch" className="col-6 offset-md-1"/></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -38,13 +38,13 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
       </nav>
       <div>
         <nav className="nav justify-content-center">
-            <a className="nav-link" href="/">Startseite</a>
-            <a className="nav-link" href="/">Event</a>
-            <a className="nav-link" href="/">Verzeichnisse</a>
-            <a className="nav-link" href="/">Wädi</a>
-            <a className="nav-link" href="/">Fotogalerie</a>
-            <a className="nav-link" href="/">Interviews</a>
-            <a className="nav-link" href="/">Service</a>
+            <a className="navigation-element" href="/">Startseite</a>
+            <a className="navigation-element" href="/">Event</a>
+            <a className="navigation-element" href="/">Verzeichnisse</a>
+            <a className="navigation-element" href="/">Wädi</a>
+            <a className="navigation-element" href="/">Fotogalerie</a>
+            <a className="navigation-element" href="/">Interviews</a>
+            <a className="navigation-element" href="/">Service</a>
           </nav>
       </div>
     </header>
