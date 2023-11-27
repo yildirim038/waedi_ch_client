@@ -6,12 +6,15 @@
 .language-container{
     cursor:pointer;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 .language-dropdown{
     position: absolute;
+    top: 2vh;
     list-style: none;
-    padding-left:0;
-    
+    padding-left: 0;
+    background: white;
 }
 .language-dropdown-item:hover{
     background-color: bisque;
@@ -60,11 +63,17 @@
     background: none;
     display: none;
 }
-@media only screen and (max-width: 766px) {
+
+@media only screen and (max-width: 576px) {
     .hamburger-menu-button{
         display: block;
     }
-  }
+}
+@media only screen and (min-width: 576px) {
+    .hamburger-menu-container {
+        display: none;
+    }
+}
 .hamburger-menu {
     width: 4vw;
 }
