@@ -5,8 +5,7 @@ const API_URL = 'http://localhost:3001/auth';
 export const login = async (email: string, password: string) => {
   try {
     const response = await axios.post(`${API_URL}/login`, { email, password });
-    console.log(response.data.token)
-    return response.data.token;
+    return response.data;
     
   } catch (error:any) {
     throw error.response.data.error;
@@ -32,47 +31,11 @@ export const register = async (data: Register) => {
 export const logout = async () => {
   try {
     await axios.post(`${API_URL}/logout`);
+    localStorage.removeItem('role');
+    localStorage.removeItem('token');
     return true;
   } catch (error:any) {
     throw error.response.data.error;
   }
 };
-
-export const checkToken = async () => {
-  try {
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-      return {
-        isAuthenticated: false,
-        role: null,
-      };
-    }
-
-    const response = await axios.get(`${API_URL}/tokenCheck`, {
-      headers: {
-    'Authorization': `Bearer ${token}`,
-      },
-    });
-    console.log(response.data)
-
-    const role =  response.data.role;
-
-    return {
-      isAuthenticated: true,
-      role: role,
-    };
-  } catch (error) {
-    console.error('Token Check Error:', error);
-
-    // Token doğrulanamazsa veya hata alınırsa isAuthenticated false döndür
-    return {
-      isAuthenticated: false,
-      role: null,
-    };
-  }
-};
-
-
-
 ;

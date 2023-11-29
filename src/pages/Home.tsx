@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
-import { checkToken, logout } from '../services/authService';
 import Header from '../components/Header';
 import {useTranslation} from 'react-i18next'
 import banner_foto from '../img/img_home.png'
+import { logout } from "../services/authService";
 import './Home.css'
+import {handleTokenCheck } from '../untils/untils'
 const Home: React.FC = () => {
   const [authInfo, setAuthInfo] = useState({
     isAuthenticated: false,
@@ -11,34 +12,19 @@ const Home: React.FC = () => {
   });
  const {t} = useTranslation();
   useEffect(() => {
-    const handleTokenCheck = async () => {
-      try {
-        const authResult = await checkToken();
-        setAuthInfo(authResult);
-        
-      } catch (error) {
-        setAuthInfo({
-          isAuthenticated: false,
-          role: '',
-        });
-      }
-    };
+   
+    handleTokenCheck(setAuthInfo);
+  }, []); 
 
-    handleTokenCheck();
-  }, []);
- 
   const handleLogout = async () => {
     await logout();
-    localStorage.removeItem('token');
     setAuthInfo({
       isAuthenticated: false,
       role: '',
     });
   };
-
-console.log(authInfo)
+ 
   return (
-    
     <div >
       <Header isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
       <div className='main-container'>
@@ -48,7 +34,6 @@ console.log(authInfo)
          <h2> {t('title_under')}</h2>
         </div>
       </div>
-      
     </div>
   );
 };

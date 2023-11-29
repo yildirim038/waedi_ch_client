@@ -11,9 +11,9 @@ const Login: React.FC = () => {
   const handleLogin = async () => {
     try {
       const token = await login(email, password);
-      localStorage.setItem('token', token);
+      localStorage.setItem('token', token.token)
+      localStorage.setItem('role', token.role);
       setError(null);
-
       navigate('/'); 
 
     } catch (error) {

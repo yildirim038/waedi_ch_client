@@ -19,7 +19,35 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isAuthenticated, onLogout
       <LanguageSwitcher/>
         {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
               : (<Link  className='login' to="/login">{t('header_login')}</Link>)}
+
+        <nav className="mobil-nav">
+            <ul>
+                <li>
+                    <a className="" href="/">{t('nav_home')}</a>
+                </li>
+                <li>
+                    <a className="" href="/">{t('nav_event')}</a>
+                </li>
+                <li>
+                    <a className="" href="/">{t('nav_directories')}</a>
+                </li>
+                <li>
+                    <a className="" href="/">Wädi</a>
+                </li>
+                <li>
+                    <a className="" href="/">{t('nav_photo_gallery')}</a>
+                </li>
+                <li>
+                    <a className="" href="/">Interviews</a>
+                </li>
+                <li>
+                    <a className="" href="/">Service</a>
+                </li>
+
+            </ul> 
+        </nav>
      </div>
+     
     );
   };
   

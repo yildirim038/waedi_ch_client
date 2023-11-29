@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
               <input className="me-2 search-input" placeholder="Search" aria-label="Search"/>
               <button className="btn search-icon-button" type="submit"><img src={SearchIcon} alt="search" className='search-icon'/></button>
             </form>
-            <span className="col-4  offset-4 offset-sm-1 d-flex justify-content-end">
+            <span className="col-4  offset-4 offset-sm-1 d-flex justify-content-end align-items-center">
               <LanguageSwitcher/>
               <img src={AccountIcon} alt="AccountIcon" className="offset-1 col-1 col-md-1"/>
               {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
                       <HamburgerMenu isAuthenticated={isAuthenticated} onLogout={onLogout}/> 
                     ) :<></>
           }
-      <div>
+      <div className='page-navigation'>
         <nav className="nav justify-content-center">
             <a className="navigation-element" href="/">{t('nav_home')}</a>
             <a className="navigation-element" href="/">{t('nav_event')}</a>
