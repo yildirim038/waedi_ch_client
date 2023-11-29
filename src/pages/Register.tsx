@@ -25,7 +25,7 @@ const Register: React.FC = () => {
 
   return (
     <div className='form-main-container'>
-      <div className='form-container'>
+      <div className='login-register-container'>
         <h2>Register</h2>
         <div className='form-input-element'>
          <label>Vorname:</label>

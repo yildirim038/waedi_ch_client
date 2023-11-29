@@ -5,28 +5,16 @@ import banner_foto from '../img/img_home.png'
 import { logout } from "../services/authService";
 import './Home.css'
 import {handleTokenCheck } from '../untils/untils'
-const Home: React.FC = () => {
-  const [authInfo, setAuthInfo] = useState({
-    isAuthenticated: false,
-    role: '',
-  });
- const {t} = useTranslation();
-  useEffect(() => {
-   
-    handleTokenCheck(setAuthInfo);
-  }, []); 
+import { isAuthenticated } from '../type/dataType';
 
-  const handleLogout = async () => {
-    await logout();
-    setAuthInfo({
-      isAuthenticated: false,
-      role: '',
-    });
-  };
+
+
+const Home: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout }) => {
+  const {t} = useTranslation();
  
   return (
     <div >
-      <Header isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
+      <Header isAuthenticated={isAuthenticated} onLogout={onLogout} />
       <div className='main-container'>
         <img className='main-img' src={banner_foto} alt="wädeswil_foto" />
         <div className='main-title'>

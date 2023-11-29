@@ -24,7 +24,7 @@ const Login: React.FC = () => {
 
   return (
     <div className='form-main-container'>
-      <div className='form-container'>
+      <div className='login-register-container'>
         <h2>Login</h2>
         <div className='form-input-element'>
           <label>Email:</label>

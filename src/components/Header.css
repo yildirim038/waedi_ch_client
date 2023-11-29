@@ -23,6 +23,8 @@
 .login{
     text-decoration: none;
     color: black;
+    align-self: center;
+    margin: 0 2vw;
 }
 .form-container{
     position: relative;
@@ -41,9 +43,7 @@
     text-align: center;
 }
 .search-icon-button{
-    position: absolute;
-    right: 3px;
-   
+    position: absolute; 
 }
 .search-icon{
    width:2vw;
@@ -84,7 +84,7 @@
     width: 4vw;
 }
 .mobil-nav ul{
- padding: 0;
+    padding: 0;
 }
 .mobil-nav li{
   
@@ -112,6 +112,6 @@
     min-height: 3vw
 }
 .hamburger-menu-search-icon{
-    width:5vw;
-   margin-bottom: 3px;
+    width:4vw;
+    margin-bottom: 3px;
 }

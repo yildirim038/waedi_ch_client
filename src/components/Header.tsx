@@ -8,16 +8,13 @@ import LanguageSwitcher from './LanguageSwitcher';
 import './Header.css'
 import {useTranslation} from 'react-i18next';
 import HamburgerMenu from './HamburgerMenu';
-
-
-interface HeaderProps {
-  isAuthenticated: boolean;
-  onLogout: () => void;
-}
+import { isAuthenticated } from '../type/dataType';
 
 
 
-const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
+
+
+const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout }) => {
   const [isOpen, setOpen] = useState(false);
 
   const onHamburgerMenu = () => {
@@ -54,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, onLogout }) => {
       <div className='page-navigation'>
         <nav className="nav justify-content-center">
             <a className="navigation-element" href="/">{t('nav_home')}</a>
-            <a className="navigation-element" href="/">{t('nav_event')}</a>
+            <a className="navigation-element" href="/events">{t('nav_event')}</a>
             <a className="navigation-element" href="/">{t('nav_directories')}</a>
             <a className="navigation-element" href="/">Wädi</a>
             <a className="navigation-element" href="/">{t('nav_photo_gallery')}</a>
