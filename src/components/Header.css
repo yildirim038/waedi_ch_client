@@ -100,3 +100,18 @@
     margin-left: 5vw;
     color: black;
 }
+.hamburger-menu-search-login-container{
+    display: flex;
+    justify-content: space-between;
+}
+.hamburger-menu-search-input{
+    border-radius: 50px;
+    border-color: blue;
+    height: 6vh;
+    width: 50vw;
+    min-height: 3vw
+}
+.hamburger-menu-search-icon{
+    width:5vw;
+   margin-bottom: 3px;
+}

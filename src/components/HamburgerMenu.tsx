@@ -12,14 +12,18 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isAuthenticated, onLogout
     console.log(isAuthenticated)
     return (
      <div className='hamburger-menu-container'>
-         <form className="d-flex form-container offset-md-2  col-4">
-              <input className="me-2 search-input" placeholder="Search" aria-label="Search"/>
-              <button className="btn search-icon-button" type="submit"><img src={SearchIcon} alt="search" className='search-icon'/></button>
+        <div className='hamburger-menu-search-login-container'>    
+            <form className="d-flex form-container">
+              <input className="me-2 hamburger-menu-search-input" placeholder="Search" aria-label="Search"/>
+              <button className="btn search-icon-button" type="submit"><img src={SearchIcon} alt="search" className='hamburger-menu-search-icon'/></button>
             </form>
-      <LanguageSwitcher/>
-        {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
-              : (<Link  className='login' to="/login">{t('header_login')}</Link>)}
-
+            <div className='d-flex'>
+                <LanguageSwitcher/>
+                {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
+                : (<Link  className='login' to="/login">{t('header_login')}</Link>)}
+            </div>
+        </div>
+     
         <nav className="mobil-nav">
             <ul>
                 <li>

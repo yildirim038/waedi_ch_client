@@ -1,0 +1,31 @@
+.form-main-container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: blueviolet;
+ 
+}
+.form-container{
+    width: 40vw;
+    background-color: white;
+    padding: 2vw;
+    border-radius: 10px
+}
+.form-container h2 {
+    text-align: center;
+}
+.form-input-element{
+    margin: 3vh auto
+}
+.form-container input{
+    width: 100%;
+}
+.form-button{
+    border: none;
+    border-radius: 50px;
+    background-color: aqua;
+    height: 6vh;
+    padding: 0 5vw;
+}
