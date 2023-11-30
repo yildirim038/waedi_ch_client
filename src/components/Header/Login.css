@@ -1,0 +1,49 @@
+.login-main-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: blueviolet;
+    opacity:0.5;
+    z-index: 1;
+}
+
+.login-container{
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding: 2vw;
+    border-radius: 10px
+}
+.login-container h2 {
+    text-align: center;
+}
+.login-input-element{
+    margin: 3vh 3vw
+}
+.login-container input{
+    width: 100%;
+}
+.login-button{
+    border: none;
+    border-radius: 50px;
+    background-color: aqua;
+    height: 6vh;
+    padding: 0 5vw;
+}
+.login-close-button{
+    background-color: rgb(255, 0, 0);
+}
+.login-close {
+    border: none;
+    background: none;
+    text-align: right;
+}

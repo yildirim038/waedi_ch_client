@@ -1,34 +1,36 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../img/logo.png'
-import HamburgerLogo from '../img/menu-icon-min.svg'
-import AccountIcon from '../img/account_icon_138984 1.png'
-import SearchIcon from '../img/suche.png'
+import Logo from '../../img/logo.png'
+import HamburgerLogo from '../../img/menu-icon-min.svg'
+import AccountIcon from '../../img/account_icon_138984 1.png'
+import SearchIcon from '../../img/suche.png'
 import LanguageSwitcher from './LanguageSwitcher';
-import './Header.css'
 import {useTranslation} from 'react-i18next';
 import HamburgerMenu from './HamburgerMenu';
-import { isAuthenticated } from '../type/dataType';
+import { isAuthenticated } from '../../type/dataType';
+import './Header.css'
+import Login from './Login'
 
-
-
-
-
-const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout }) => {
+const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout,handleSomeAction }) => {
   const [isOpen, setOpen] = useState(false);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const onHamburgerMenu = () => {
     console.log('click')
     setOpen(isOpen ? false : true);
   }
   const {t} = useTranslation();
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-light">
           <a className="navbar-brand col-5 col-sm-3 col-md-2" href="/"><img src={Logo} alt="waedi_ch" className="col-12 offset-md-1"/></a>
           <button className="hamburger-menu-button"onClick={onHamburgerMenu} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <img className="hamburger-menu" src={HamburgerLogo} />
+              <img className="hamburger-menu" src={HamburgerLogo} alt='hamburger-menu' />
           </button>
               
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
@@ -40,7 +42,11 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout }) => {
               <LanguageSwitcher/>
               <img src={AccountIcon} alt="AccountIcon" className="offset-1 col-1 col-md-1"/>
               {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
-              : (<Link  className='login' to="/login">{t('header_login')}</Link>)}
+              : (<button onClick={openModal}  className='login'>{t('header_login')}{isModalOpen && (
+                <div>
+                  <Login closeModal= {closeModal} handleSomeAction={handleSomeAction|| (() => {})} />
+                </div>
+              )}</button>)}
             </span>
           </div>
       </nav>

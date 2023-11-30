@@ -2,7 +2,7 @@ import React from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import {useTranslation} from 'react-i18next';
 import { Link } from 'react-router-dom';
-import SearchIcon from '../img/suche.png'
+import SearchIcon from '../../img/suche.png'
 interface HamburgerMenuProps {
     isAuthenticated: boolean;
     onLogout: () => void;
@@ -30,7 +30,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isAuthenticated, onLogout
                     <a className="" href="/">{t('nav_home')}</a>
                 </li>
                 <li>
-                    <a className="" href="/">{t('nav_event')}</a>
+                    <a className="" href="/events">{t('nav_event')}</a>
                 </li>
                 <li>
                     <a className="" href="/">{t('nav_directories')}</a>

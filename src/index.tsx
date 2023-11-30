@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'i18next';
+
 i18n.init({
   interpolation: { escapeValue: false },  
   lng: 'de',                              

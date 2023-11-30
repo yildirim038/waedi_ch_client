@@ -21,6 +21,8 @@
     cursor:pointer
 }
 .login{
+    border: none;
+    background: transparent;
     text-decoration: none;
     color: black;
     align-self: center;

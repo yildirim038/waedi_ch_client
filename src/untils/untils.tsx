@@ -1,4 +1,7 @@
-export const handleTokenCheck =  (pInfo :Function) => {
+import { setAuthInfo } from "../type/dataType";
+
+
+export const handleTokenCheck =  (pInfo :setAuthInfo) => {
     try {
       const authRole = localStorage.getItem('role')
       if(authRole){

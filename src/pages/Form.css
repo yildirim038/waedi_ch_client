@@ -29,3 +29,6 @@
     height: 6vh;
     padding: 0 5vw;
 }
+.form-close-button{
+    background-color: rgb(255, 0, 0);
+}
