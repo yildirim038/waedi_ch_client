@@ -20,3 +20,12 @@ export const getEventData = async (pSetEvent:any) => {
       console.error("Error fetching events:", error);
     }
   };
+
+  export const deleteEventData = async (eventId: string) => {
+    try {
+      await axios.delete(`${API_URL}/events/${eventId}`);
+      return true;
+    } catch (error: any) {
+      throw error.response?.data?.error || "Error";
+    }
+  };

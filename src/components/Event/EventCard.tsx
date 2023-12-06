@@ -1,9 +1,26 @@
 import React from "react";
 import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
-//import { EventFormState } from "../../type/dataType";
+import { deleteEventData, getEventData } from "../../services/eventService";
 
-const EventCard : React.FC<any> = (event) => {
+
+interface EventCardProps {
+  event: {
+    id: string;
+    name: string;
+    startdatum: string;
+    enddatum: string;
+    adresse: string;
+    plz: number;
+    ort: string;
+    link: string;
+    image: string;
+  };
+  setEventList: React.Dispatch<React.SetStateAction<any>>;
+}
+
+const EventCard: React.FC<EventCardProps> = ({ event, setEventList }) => {
+ 
   let  role = false
 
     if(localStorage.getItem("role")==="admin"){
@@ -12,12 +29,22 @@ const EventCard : React.FC<any> = (event) => {
       else {
       role = false
     } 
+
+    const handleDeleteEvent = async () => {
+      try {
+        await deleteEventData(event.id);
+        getEventData(setEventList);
+      } catch (error) {
+        alert("Event could not be deleted.");
+      }
+    };
+    
     return(
-        <div key={event.event.id} className="card-container  col-12 col-sm-6 col-md-4">
+        <div key={event.id} className="card-container  col-12 col-sm-6 col-md-4">
         <div className="card">
           <img src="..." className="card-img-top" alt="..."/>
           <div className="card-body">
-              <h5 className="card-title">{event.event.name}</h5>
+              <h5 className="card-title">{event.name}</h5>
               <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <div className="update-card-button-container">
                 <div>
@@ -27,7 +54,7 @@ const EventCard : React.FC<any> = (event) => {
                 {role ? (
                   <div>
                         <button ><img src={Update} alt="update" /></button>
-                        <button><img src={Delete} alt="delete" /></button>
+                        <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
                   </div>                
                 ) 
               : (<div></div>
@@ -39,4 +66,4 @@ const EventCard : React.FC<any> = (event) => {
     )
 }
 
-export default EventCard
+export default EventCard;

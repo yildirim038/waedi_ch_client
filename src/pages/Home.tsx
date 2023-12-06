@@ -8,6 +8,7 @@ import './Home.css';
 import { getEventData } from '../services/eventService';
 import EventCard from '../components/Event/EventCard';
 
+
 const Home: React.FC = () => {
   const { t } = useTranslation();
   const { authInfo, setAuthInfo } = useAuth();
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
       <div className='event-main-container'>
       <section className="row">
             {homeEventList.map((event,index) => (
-              <EventCard key={index} event={event} />
+              <EventCard key={index} event={event} setEventList={setEventList} />
             ))}
           </section>
       </div>

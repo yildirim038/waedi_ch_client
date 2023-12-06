@@ -42,7 +42,7 @@
         <div className="events-container">
           <div className="row">
             {eventList.map((event,index) => (
-              <EventCard key={index} event={event} />
+              <EventCard key={index} event={event}  setEventList={setEventList}/>
             ))}
           </div>
           <button onClick={openModal} className="event-plus-icon">
