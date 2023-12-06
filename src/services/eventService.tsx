@@ -15,7 +15,7 @@ export const addEvent=  async(data:EventFormState)=>{
 export const getEventData = async (pSetEvent:any) => {
     try {
       const response = await axios.get(`${API_URL}/events`);
-      pSetEvent(response.data);
+      pSetEvent(response.data.reverse());
     } catch (error) {
       console.error("Error fetching events:", error);
     }
