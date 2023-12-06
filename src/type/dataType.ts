@@ -6,17 +6,7 @@ export type isAuthenticated = {
 }
   
 export interface EventFormState {
-    name:string,
-    startdatum:string,
-    enddatum:string,
-    adresse:string,
-    plz:number,
-    ort:string,
-    link:string,
-    image:string
-}
-export interface EventFormState2 {
-    id:number,
+    id?:string,
     name:string,
     startdatum:string,
     enddatum:string,

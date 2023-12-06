@@ -2,20 +2,11 @@ import React from "react";
 import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
 import { deleteEventData, getEventData } from "../../services/eventService";
+import { EventFormState } from "../../type/dataType";
 
 
 interface EventCardProps {
-  event: {
-    id: string;
-    name: string;
-    startdatum: string;
-    enddatum: string;
-    adresse: string;
-    plz: number;
-    ort: string;
-    link: string;
-    image: string;
-  };
+  event: EventFormState;
   setEventList: React.Dispatch<React.SetStateAction<any>>;
 }
 
@@ -32,7 +23,8 @@ const EventCard: React.FC<EventCardProps> = ({ event, setEventList }) => {
 
     const handleDeleteEvent = async () => {
       try {
-        await deleteEventData(event.id);
+        event.id?
+        await deleteEventData(event.id):(console.log("error"))
         getEventData(setEventList);
       } catch (error) {
         alert("Event could not be deleted.");
@@ -50,7 +42,6 @@ const EventCard: React.FC<EventCardProps> = ({ event, setEventList }) => {
                 <div>
                   <a href="/events">Go Web Page</a>
                 </div>
-              
                 {role ? (
                   <div>
                         <button ><img src={Update} alt="update" /></button>
