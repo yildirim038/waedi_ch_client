@@ -16,7 +16,38 @@
 .modal-add-event-open{
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     
+}
+
+.add-event-input-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+}
+.add-event-container{
+    width: 80vw;
+    background-color: white;
+    padding: 2vw;
+    border-radius: 10px
+}
+.event-input-element{
+ display: grid;
+ grid-template-columns: 1fr 2fr;
+ margin: 2vh 1vw;
+}
+
+@media only screen and (max-width: 768px) {
+    .add-event-input-container{
+        display: block;
+      
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .event-input-element{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
 }
