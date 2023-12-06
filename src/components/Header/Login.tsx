@@ -19,8 +19,8 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
       localStorage.setItem('token', token.token)
       localStorage.setItem('role', token.role);
       setError(null);
-      handleSomeAction()
-      closeModal()
+      handleSomeAction();
+      closeModal();
       navigate('/'); 
 
     } catch (error) {

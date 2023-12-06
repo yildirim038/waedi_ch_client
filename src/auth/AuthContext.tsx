@@ -24,7 +24,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   });
 
   useEffect(() => {
-
     handleTokenCheck(setAuthInfo);
   }, []); 
 

@@ -31,6 +31,7 @@ const Home: React.FC = () => {
       role: '',
     });
   };
+  console.log(authInfo.role)
   return (
     <div>
       <Header handleSomeAction={handleSomeAction} isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
