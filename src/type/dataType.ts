@@ -14,7 +14,8 @@ export interface EventFormState {
     plz:number,
     ort:string,
     link:string,
-    image:string
+    image:any,
+    text:string
 }
 
 export type setAuthInfo = React.Dispatch<React.SetStateAction<{

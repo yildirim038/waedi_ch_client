@@ -7,7 +7,7 @@
   import EventCard from "../components/Event/EventCard";
   import { useAuth } from '../auth/AuthContext';
   import { logout } from "../services/authService";
-  import { addEvent } from "../services/eventService";
+
   const Events: React.FC = () => {
     const { authInfo, setAuthInfo } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,7 +28,6 @@
     };
   
     const handleLogout = async () => {
-      // Kullanıcı çıkış yaptığında bu fonksiyonu çağırarak auth durumunu güncelleyebilirsiniz.
       await logout();
       setAuthInfo({
         isAuthenticated: false,
@@ -50,7 +49,7 @@
           </button>
           {isModalOpen && (
             <div className="modal-add-event-open">
-                <AddEvent closeModal={closeModal} addEvent={addEvent} setEventList={setEventList} />
+                <AddEvent closeModal={closeModal} setEventList={setEventList} />
             </div>
           )}
         </div>
