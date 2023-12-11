@@ -1,12 +1,10 @@
-.main-card-container{
- width: 33vw;
-
-}
 .events-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 95vw;
+    margin: auto;
 }
 .event-plus-icon{
     background:none;
@@ -14,11 +12,12 @@
 }
 
 .modal-add-event-open{
-    width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 5vh;
-    
+    position: absolute;  
+    z-index: 1;
+    top: 0;
+    left: -1vw;
+    bottom: 0;
 }
 
 .add-event-input-container{
@@ -46,15 +45,6 @@
         display: block;
       
     }
-    .modal-add-event-open{
-        top: 18vh;
-    }
-}
-
-@media only screen and (max-width: 576px) {
-    .modal-add-event-open{
-        top: 10vh;
-    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -74,4 +64,11 @@
 .update-card-button-container button {
     background:none;
     border: none;
+}
+.update-card-button-container button img{
+    width: 3vw;
+}
+
+.card-container {
+    margin: 3vh auto;
 }

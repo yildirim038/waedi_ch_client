@@ -3,6 +3,7 @@ header{
     top:0;
     z-index: 1;
     background-color: white;
+    margin-bottom: 3vh;
 }
 .header-button{
     border: none;

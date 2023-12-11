@@ -13,6 +13,7 @@
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [eventList, setEventList] = useState([]);
   
+  
     useEffect(() => {
       getEventData(setEventList);
     }, []);
@@ -39,14 +40,16 @@
       <div className="events-main-container">
         <Header isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
         <div className="events-container">
-          <div className="row">
-            {eventList.map((event,index) => (
-              <EventCard key={index} event={event}  setEventList={setEventList}/>
-            ))}
-          </div>
-          <button onClick={openModal} className="event-plus-icon">
-            <img src={plusIcon} alt="add Event" />
-          </button>
+        {!isModalOpen && (
+          <><div className="row">
+          {eventList.map((event,index) => (
+            <EventCard key={index} event={event} setEventList={setEventList}/>
+          ))}
+        </div>
+        <button onClick={openModal} className="event-plus-icon">
+          <img src={plusIcon} alt="add Event" />
+        </button></>
+        )}
           {isModalOpen && (
             <div className="modal-add-event-open">
                 <AddEvent closeModal={closeModal} setEventList={setEventList} />
