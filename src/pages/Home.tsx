@@ -44,11 +44,11 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className='event-main-container'>
-      <section className="row">
-            {homeEventList.map((event,index) => (
-              <EventCard key={index} event={event} setEventList={setEventList} />
-            ))}
-          </section>
+        <section className="row">
+              {homeEventList.map((event,index) => (
+                <EventCard key={index} event={event} setEventList={setEventList} />
+              ))}
+        </section>
       </div>
     </div>
   );

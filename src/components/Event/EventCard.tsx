@@ -9,8 +9,6 @@ import UpdateEvent from "./UpdateEvent";
 interface EventCardProps {
   event: EventFormState;
   setEventList: React.Dispatch<React.SetStateAction<any>>;
- // openModal?:() => void;
-//  closeModal?: () => void;
 }
 const EventCard: React.FC<EventCardProps> = ({ event, setEventList}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

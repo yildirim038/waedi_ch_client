@@ -1,0 +1,36 @@
+.interview-container{
+    background-color: rgb(246, 242, 242);
+}
+.interview-container h2{
+    text-align: center;
+}
+.interview-card-container {
+    margin: auto 5vw;
+}
+.interview-card{
+    margin: 5vh auto;
+    padding: 2vw;
+    background-color: white;
+    border-radius: 2vw;
+}
+.interview-card:nth-child(2n){
+    flex-direction: row-reverse;
+}
+
+.interview-title{
+    display: flex;
+    justify-content: space-between;
+}
+.interview-title button {
+    background:none;
+    border: none;
+}
+
+.interview-title button img {
+width: 3vw;
+}
+.interview-plus-icon {
+    margin: auto;
+    background:none;
+    border:none;
+}
