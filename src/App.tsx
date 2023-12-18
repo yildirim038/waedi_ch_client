@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Interviews from './pages/Interviews';
 import Galleries from './pages/Galleries';
 import Events from './pages/Events';
+import AddInterview from './components/Interview/AddInterview';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Route path="/interviews" element={<Interviews />} />
           <Route path="/galleries" element={<Galleries />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/addInterview" element={<AddInterview/>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>

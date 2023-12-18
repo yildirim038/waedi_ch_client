@@ -22,3 +22,14 @@ export type setAuthInfo = React.Dispatch<React.SetStateAction<{
     isAuthenticated: boolean;
     role: string;
 }>>
+
+export interface InterviewFormState {
+    id?:string,
+    title:string,
+    imageTitel:string,
+    descriptionOfImage:string,
+    coverText:string,
+    author:string,
+    datum:string,
+    image:any,
+}

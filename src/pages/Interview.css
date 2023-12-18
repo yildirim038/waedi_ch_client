@@ -1,22 +1,45 @@
 .interview-container{
     background-color: rgb(246, 242, 242);
 }
+.interview-img{
+    width: 10vw;
+}
 .interview-container h2{
     text-align: center;
 }
 .interview-card-container {
-    margin: auto 5vw;
+    margin: auto 8vw;
 }
 .interview-card{
     margin: 5vh auto;
     padding: 2vw;
     background-color: white;
     border-radius: 2vw;
+    align-items: center;
 }
 .interview-card:nth-child(2n){
     flex-direction: row-reverse;
 }
 
+.interview-header{
+    display: flex;
+    align-items: center;
+}
+
+.interview-header > h2 {
+    width: 100vw;
+}
+
+.interview-header > button {
+    border: none;
+    position: fixed;
+    right: 0;
+    bottom:0;
+    background-color: transparent;
+}
+.interview-header > button > img {
+    width: 5vw;
+}
 .interview-title{
     display: flex;
     justify-content: space-between;
@@ -30,7 +53,27 @@
 width: 3vw;
 }
 .interview-plus-icon {
-    margin: auto;
     background:none;
     border:none;
+}
+.add-interview{
+    width: 80vw;
+    margin: 5vw auto;
+    display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.add-interview-img-container{
+    width: 80vw;
+    text-align: center;
+}
+.interview-ok-button{
+    background: none;
+    border: none;
+    position: fixed;
+    bottom: 2px;
+    right: 2px;
+}
+.interview-ok-button > img {
+    width: 5vw;
 }

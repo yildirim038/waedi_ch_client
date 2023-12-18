@@ -17,7 +17,8 @@
 }
 
 .event-main-container{
-    margin: 4vh 3vw;
+    margin: 4vh auto;
+    width: 75vw;
 }
 
 section > .card-container:nth-child(2n+1){
