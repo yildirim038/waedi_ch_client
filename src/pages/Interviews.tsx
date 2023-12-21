@@ -7,6 +7,7 @@ import { getInterviewData} from "../services/interviewService";
 import { useNavigate } from 'react-router-dom';
 import InterviewPage from '../components/Interview/InterviewPage';
 import HeaderComponent from '../components/Header/HeaderComponents';
+import Footer from '../components/Footer/Footer'
 
 const Interviews: React.FC = () => {
   const [interviewList, setInterviewList] = useState<InterviewFormState[]>([]);
@@ -82,8 +83,9 @@ console.log(clickInterview)
                 <InterviewPage interview={clickInterview} closeInterviewModal={closeInterviewModal}/>
             </div>
         )}  
+      <Footer/>
     </div>
-          
+    
   );
 };
 

@@ -5,6 +5,7 @@
   import { getEventData } from "../services/eventService";
   import EventCard from "../components/Event/EventCard";
   import HeaderComponent from "../components/Header/HeaderComponents";
+  import Footer from '../components/Footer/Footer'
 
   const Events: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,6 +46,7 @@
             </div>
           )}
         </div>
+        <Footer/>
       </div>
     );
   };

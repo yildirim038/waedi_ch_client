@@ -1,4 +1,5 @@
 import HeaderComponent from "../components/Header/HeaderComponents";
+import Footer from '../components/Footer/Footer'
 
 const Directory: React.FC = () => {
     return (
@@ -17,6 +18,7 @@ const Directory: React.FC = () => {
                     <p>Eklerung</p>
             </div>
         </div>
+        <Footer/>
     </div>
     
     );

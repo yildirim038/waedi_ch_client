@@ -7,6 +7,7 @@ import HomeInterviewComponent from '../components/Home/HomeInterviewComponent';
 import SBBApp from '../components/SBBApp';
 import WeatherWidget from '../components/WeatherWidget';
 import HeaderComponent from '../components/Header/HeaderComponents';
+import Footer from '../components/Footer/Footer'
 
 
 const Home: React.FC = () => {
@@ -32,6 +33,9 @@ const Home: React.FC = () => {
               <SBBApp/>
               <WeatherWidget/>
         </section>
+        <footer>
+          <Footer/>
+        </footer>
       </div>
     </div>
   );
