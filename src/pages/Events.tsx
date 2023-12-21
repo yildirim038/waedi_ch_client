@@ -43,7 +43,7 @@
         {!isModalOpen && (
           <><div className="row">
           {eventList.map((event,index) => (
-            <EventCard key={index} event={event} setEventList={setEventList}/>
+            <EventCard key={index} data={event} setEventList={setEventList}/>
           ))}
         </div>
         <button onClick={openModal} className="event-plus-icon">

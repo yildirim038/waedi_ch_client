@@ -59,10 +59,8 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout,handleSom
             <a className="navigation-element" href="/">{t('nav_home')}</a>
             <a className="navigation-element" href="/events">{t('nav_event')}</a>
             <a className="navigation-element" href="/">{t('nav_directories')}</a>
-            <a className="navigation-element" href="/">Wädi</a>
             <a className="navigation-element" href="/">{t('nav_photo_gallery')}</a>
             <a className="navigation-element" href="/interviews">Interviews</a>
-            <a className="navigation-element" href="/">Service</a>
           </nav>
       </div>
     </header>

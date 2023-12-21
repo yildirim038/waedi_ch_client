@@ -8,8 +8,8 @@ import { useAuth } from "../auth/AuthContext";
 import { InterviewFormState } from "../type/dataType";
 import { getInterviewData, getQuestionData } from "../services/interviewService";
 import { useNavigate } from 'react-router-dom';
+import InterviewPage from '../components/Interview/InterviewPage';
 
-const API_URL = 'http://localhost:3001';
 
 interface Question {
   id: string;
@@ -23,6 +23,34 @@ const Interviews: React.FC = () => {
   const { authInfo, setAuthInfo } = useAuth();
   const [interviewList, setInterviewList] = useState<InterviewFormState[]>([]);
   const [question, setQuestion] = useState<Question[]>([]);
+  const [isModalOpen,setIsModalOpen] = useState (false)
+  const [clickInterview, setClickInterview] = useState<InterviewFormState>({
+    title: '',
+    author: '',
+    coverText: '',
+    imageTitel: '',
+    descriptionOfImage: '',
+    image: '',
+    datum: '',
+  })
+  useEffect(()=>{
+    if(clickInterview.title !== ''){
+      setIsModalOpen(true)
+     }
+      
+  },[clickInterview])
+console.log(clickInterview)
+  function closeInterviewModal() {
+    setIsModalOpen(false)
+    setClickInterview({ title: '',
+    author: '',
+    coverText: '',
+    imageTitel: '',
+    descriptionOfImage: '',
+    image: '',
+    datum: '',})
+  }
+
   let  role = false
 
   if(localStorage.getItem("role")==="admin"){
@@ -59,15 +87,24 @@ const handleLogout = async () => {
       <div className='interview-header'>
         <h2>Interviews</h2>
         {  role ? (
-            <button ><img src={plusIcon}  onClick={handleAddInterview} alt="add interview"/></button>
+            <button >{!isModalOpen && (<img src={plusIcon}  onClick={handleAddInterview} alt="add interview"/>)}</button>
         ):(<></>)}
       </div>
-      <div className="interview-card-container">
-       {interviewList.map((interview) => (
-            <InterviewCard key={interview.id} interview={interview} setInterviewList={setInterviewList}/>
-        ))}
-      </div>
+   
+      {!isModalOpen && (
+               <div className="interview-card-container">
+               {interviewList.map((interview) => (
+                    <InterviewCard key={interview.id} interview={interview} setClickInterview={setClickInterview} setInterviewList={setInterviewList}/>
+                ))}
+              </div>
+        )}  
+      {isModalOpen && (
+            <div className="read-interview">
+                <InterviewPage interview={clickInterview} closeInterviewModal={closeInterviewModal}/>
+            </div>
+        )}  
     </div>
+          
   );
 };
 

@@ -1,27 +1,20 @@
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 import Header from '../components/Header/Header';
 import { useTranslation } from 'react-i18next';
 import banner_foto from '../img/img_home.png';
 import { useAuth } from '../auth/AuthContext';
 import { logout } from '../services/authService';
 import './Home.css';
-import { getEventData } from '../services/eventService';
-import EventCard from '../components/Event/EventCard';
+import HomeEventComponent from '../components/Home/HomeEventComponent';
+import HomeInterviewComponent from '../components/Home/HomeInterviewComponent';
+import SBBApp from '../components/SBBApp';
+import WeatherWidget from '../components/WeatherWidget';
 
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
   const { authInfo, setAuthInfo } = useAuth();
-  const [eventList, setEventList] = useState([]);
-  
-  useEffect(() => {
-    getEventData(setEventList);
-  }, []);
-
-
-  let homeEventList = eventList.slice(0,3)
-  console.log('homeEventList:',homeEventList)
-
+ 
   const handleSomeAction = () => {
      setAuthInfo({ isAuthenticated: true, role: 'newRole' });
   };
@@ -32,7 +25,7 @@ const Home: React.FC = () => {
       role: '',
     });
   };
-  console.log(authInfo.role)
+
   return (
     <div>
       <Header handleSomeAction={handleSomeAction} isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
@@ -45,9 +38,14 @@ const Home: React.FC = () => {
       </div>
       <div className='event-main-container'>
         <section className="row">
-              {homeEventList.map((event,index) => (
-                <EventCard key={index} event={event} setEventList={setEventList} />
-              ))}
+              <HomeEventComponent/>
+        </section>
+        <section className="row">
+              <HomeInterviewComponent/>
+        </section>
+        <section className="row">
+              <SBBApp/>
+              <WeatherWidget/>
         </section>
       </div>
     </div>

@@ -18,9 +18,41 @@
 
 .event-main-container{
     margin: 4vh auto;
-    width: 75vw;
+}
+.event-main-container > section {
+    margin: 2vh auto;
+}
+.event-main-container > section > h2{
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 2vw auto;
+}
+.event-main-container > section:nth-child(2n){
+    background-color: rgb(246, 242, 242);
 }
 
 section > .card-container:nth-child(2n+1){
     margin-top: 10vh;
+}
+
+.all-interview-button{
+    background: rgb(255, 255, 255);
+    padding: 1vw;
+    border: 1px solid transparent;
+    border-radius: 2vw;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.2px;
+    position: absolute;
+    right: 0;
+}
+
+.home-interview{
+    margin: 5vh auto;
+    padding: 2vw;
+    background-color: transparent;
+    border-radius: 3px;
+    align-items: center;
 }
