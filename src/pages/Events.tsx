@@ -1,15 +1,12 @@
   import React, { useEffect, useState } from "react";
-  import Header from "../components/Header/Header";
   import plusIcon from '../img/plus-svgrepo-com 1.png';
   import './Events.css';
   import AddEvent from "../components/Event/AddEvent";
   import { getEventData } from "../services/eventService";
   import EventCard from "../components/Event/EventCard";
-  import { useAuth } from '../auth/AuthContext';
-  import { logout } from "../services/authService";
+  import HeaderComponent from "../components/Header/HeaderComponents";
 
   const Events: React.FC = () => {
-    const { authInfo, setAuthInfo } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [eventList, setEventList] = useState([]);
   
@@ -27,18 +24,10 @@
     const closeModal = () => {
       setIsModalOpen(false);
     };
-  
-    const handleLogout = async () => {
-      await logout();
-      setAuthInfo({
-        isAuthenticated: false,
-        role: '',
-      });
-    };
-  
+
     return (
       <div className="events-main-container">
-        <Header isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
+        <HeaderComponent/>
         <div className="events-container">
         {!isModalOpen && (
           <><div className="row">

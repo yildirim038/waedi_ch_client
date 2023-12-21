@@ -4,9 +4,10 @@ import { AuthProvider } from './auth/AuthContext';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Interviews from './pages/Interviews';
-import Galleries from './pages/Galleries';
+import Galeries from './pages/Galeries';
 import Events from './pages/Events';
 import AddInterview from './components/Interview/AddInterview';
+import Directory from './pages/Directory';
 
 const App: React.FC = () => {
   return (
@@ -16,7 +17,8 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/interviews" element={<Interviews />} />
-          <Route path="/galleries" element={<Galleries />} />
+          <Route path='/directory' element={<Directory/>}/>
+          <Route path="/galerie" element={<Galeries />} />
           <Route path="/events" element={<Events />} />
           <Route path="/addInterview" element={<AddInterview/>}/>
           <Route path="*" element={<Navigate to="/" />} />

@@ -2,27 +2,14 @@ import plusIcon from '../img/plus-svgrepo-com 1.png'
 import { useEffect, useState } from "react";
 import InterviewCard  from "../components/Interview/InterviewCard";
 import './Interview.css'
-import Header from "../components/Header/Header";
-import { logout } from "../services/authService";
-import { useAuth } from "../auth/AuthContext";
 import { InterviewFormState } from "../type/dataType";
-import { getInterviewData, getQuestionData } from "../services/interviewService";
+import { getInterviewData} from "../services/interviewService";
 import { useNavigate } from 'react-router-dom';
 import InterviewPage from '../components/Interview/InterviewPage';
-
-
-interface Question {
-  id: string;
-  interviewId: string;
-  question: string;
-  antwort: string;
-}
-
+import HeaderComponent from '../components/Header/HeaderComponents';
 
 const Interviews: React.FC = () => {
-  const { authInfo, setAuthInfo } = useAuth();
   const [interviewList, setInterviewList] = useState<InterviewFormState[]>([]);
-  const [question, setQuestion] = useState<Question[]>([]);
   const [isModalOpen,setIsModalOpen] = useState (false)
   const [clickInterview, setClickInterview] = useState<InterviewFormState>({
     title: '',
@@ -70,20 +57,12 @@ console.log(clickInterview)
   }
 
   useEffect(() => {
-    getInterviewData(setInterviewList);
-    getQuestionData(setQuestion);
+    getInterviewData(setInterviewList)
   }, []);
-console.log(question)
-const handleLogout = async () => {
-  await logout();
-  setAuthInfo({
-    isAuthenticated: false,
-    role: '',
-  });
-};
+
   return (
     <div className="interview-container">
-      <Header isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
+      <HeaderComponent/>
       <div className='interview-header'>
         <h2>Interviews</h2>
         {  role ? (
