@@ -8,6 +8,7 @@ import Galeries from './pages/Galeries';
 import Events from './pages/Events';
 import AddInterview from './components/Interview/AddInterview';
 import Directory from './pages/Directory';
+import Verein from './pages/Verein';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route path="/galerie" element={<Galeries />} />
           <Route path="/events" element={<Events />} />
           <Route path="/addInterview" element={<AddInterview/>}/>
+          <Route path="/verein" element={<Verein/>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>

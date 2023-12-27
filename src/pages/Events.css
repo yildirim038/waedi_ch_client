@@ -24,7 +24,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr ;
 }
-.add-event-container>h2{
+.add-event-container>h2 ,h3{
     text-align: center
 }
 .add-event-container{

@@ -18,6 +18,24 @@ export interface EventFormState {
     text:string
 }
 
+export interface DirectoryFormState {
+    id?:string,
+    category:string,
+    companyType:string,
+    organization:string,
+    adresse:string,
+    plz:number,
+    ort:string,
+    image:any,
+    website:string,
+    description?:string,
+    contactFirstname:string,
+    contactLastname:string,
+    tel?:string,
+    fax?:string,
+    email:string,
+}
+
 export type setAuthInfo = React.Dispatch<React.SetStateAction<{
     isAuthenticated: boolean;
     role: string;
