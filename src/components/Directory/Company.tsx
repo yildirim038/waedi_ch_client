@@ -39,7 +39,7 @@ const Company: React.FC = () => {
           <ul>
             {typeList.map((data) => (
               <li key={data}>
-                <button onClick={() => filterList(data,companyList ,setCompanyList,setIsFiltered)}>{data}</button>
+                <button className="directory-side-menu-button" onClick={() => filterList(data,companyList ,setCompanyList,setIsFiltered)}>{data}</button>
               </li>
             ))}
           </ul>
