@@ -23,8 +23,10 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className='event-main-container'>
-        <section className="row">
-              <HomeEventComponent/>
+        <section className="container">
+          <div className='row'>
+            <HomeEventComponent/>
+          </div>
         </section>
         <section className="row">
               <HomeInterviewComponent/>

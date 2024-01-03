@@ -34,12 +34,12 @@ const Company: React.FC = () => {
     <div>
       <HeaderComponent />
       <div className="row">
-        <div className="directory-side-bar-container col-6 col-sm-4 col-md-3">
+        <div className="directory-side-bar-container col-12 col-sm-4 col-md-3">
           <h3>Geschäfte</h3>
           <ul>
             {typeList.map((data) => (
               <li key={data}>
-                <button className="directory-side-menu-button" onClick={() => filterList(data,companyList ,setCompanyList,setIsFiltered)}>{data}</button>
+            <button className="directory-side-menu-button" onClick={() => filterList(data,companyList ,setCompanyList,setIsFiltered)}>{data}</button>
               </li>
             ))}
           </ul>
@@ -54,7 +54,7 @@ const Company: React.FC = () => {
           }
         
         </div>
-        <div className="directory-text col-6 col-sm-8 col-md-9">
+        <div className="directory-text col-12 col-sm-8 col-md-9">
           <div className="row">
             {companyList.map((data) => (
               <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />

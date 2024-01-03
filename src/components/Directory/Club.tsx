@@ -31,7 +31,7 @@ useEffect(() => {
     <div>
         <HeaderComponent/>
         <div className="row">
-            <div className="directory-side-bar-container col-6 col-sm-4 col-md-3">
+            <div className="directory-side-bar-container col-12 col-sm-4 col-md-3">
                 <h3>Verein</h3>
                 <ul>
                 {typeList.map((data) => (
@@ -50,7 +50,7 @@ useEffect(() => {
           </a>
           }
             </div>
-            <div className="directory-text col-6 col-sm-8 col-md-9">
+            <div className="directory-text col-12 col-sm-8 col-md-9">
             <div className="row">
             {clubList.map(data => {
                 return (

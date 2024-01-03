@@ -32,7 +32,7 @@ cultureList.forEach((company) => {
     <div>
         <HeaderComponent/>
         <div className="row">
-            <div className="directory-side-bar-container col-6 col-sm-4 col-md-3">
+            <div className="directory-side-bar-container col-12 col-sm-4 col-md-3">
                 <h3>Kultur</h3>
                 <ul>
                 {typeList.map((data) => (
@@ -51,7 +51,7 @@ cultureList.forEach((company) => {
           </a>
           }
             </div>
-            <div className="directory-text col-6 col-sm-8 col-md-9">
+            <div className="directory-text col-12 col-sm-8 col-md-9">
             <div className="row">
             {cultureList.map(data => {
                 return (

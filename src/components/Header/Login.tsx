@@ -12,7 +12,6 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<Error | null>(null);
-  const navigate = useNavigate();
   const handleLogin = async () => {
     try {
       const token = await login(email, password);
@@ -20,8 +19,7 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
       localStorage.setItem('role', token.role);
       setError(null);
       handleSomeAction()
-      closeModal();
-      navigate('/'); 
+      closeModal()
 
     } catch (error) {
       setError(error as Error);

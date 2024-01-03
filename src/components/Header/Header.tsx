@@ -10,21 +10,15 @@ import { isAuthenticated } from '../../type/dataType';
 import './Header.css'
 import Login from './Login'
 
-const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout,handleSomeAction }) => {
+const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogout,handleSomeAction,openModal,closeModal }) => {
   const [isOpen, setOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const onHamburgerMenu = () => {
-    console.log('click')
     setOpen(isOpen ? false : true);
   }
   const {t} = useTranslation();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-light">
@@ -42,11 +36,12 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout,handleSom
               <LanguageSwitcher/>
               <img src={AccountIcon} alt="AccountIcon" className="offset-1 col-1 col-md-1"/>
               {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
-              : (<button onClick={openModal}  className='login'>{t('header_login')}{isModalOpen && (
+              : (<button onClick={openModal}  className='login'>{t('header_login')}</button>)}
+              {isModalOpen && (
                 <div>
                   <Login closeModal= {closeModal} handleSomeAction={handleSomeAction|| (() => {})} />
                 </div>
-              )}</button>)}
+              )}
             </span>
           </div>
       </nav>

@@ -1,7 +1,10 @@
 
 export type isAuthenticated = {
     isAuthenticated: boolean;
+    openModal: () => void;
+    closeModal: () => void;
     onLogout: () => void;
+    isModalOpen:boolean;
     handleSomeAction?:() => void
 }
   

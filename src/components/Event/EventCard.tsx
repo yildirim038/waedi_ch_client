@@ -7,11 +7,11 @@ import UpdateEvent from "./UpdateEvent";
 
 
 interface EventCardProps {
-  data: EventFormState; // Değişiklik burada: event prop'u yerine data prop'u kullanıldı
+  data: EventFormState; 
   setEventList: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ data, setEventList }) => { // Değişiklik burada: event prop'u yerine data prop'u kullanıldı
+const EventCard: React.FC<EventCardProps> = ({ data, setEventList }) => { 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [clickEvent, setClickEvent] = useState({});
   let role = false;

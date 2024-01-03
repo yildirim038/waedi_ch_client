@@ -45,16 +45,25 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
 
   return (
     <>
-        <div key={data.id} className="card-container  col-12 col-sm-6 col-md-4">
+        <div key={data.id} className="card-container  col-12 col-md-6">
           <div className="card">
-            <img src={`http://localhost:3001/images/${data.image}`} className="company-card-img" alt="logo" />
-            <div className="card-body">
+            <div className="row card-body">
+            <div className="col-3 m-auto">
+              <img src={`http://localhost:3001/images/${data.image}`} className="col-12" alt="logo" />
+            </div>
+            <div className="col-9">
               <h5>{data.organization}</h5>
               <p>{data.adresse}</p>
               <p>{data.plz}  {data.ort}</p>
-              <p>{data.contactFirstname} {data.contactLastname}</p>
-              <p>Tel {data.tel} Fax {data.fax} Email {data.email}</p>
+              
+            </div>    
+            <div>
+            <h6>Kontak Person</h6>
+            <p>{data.contactFirstname} {data.contactLastname}</p>
+              <p>Tel {data.tel} Fax {data.fax} Email {data.email}</p></div>       
+
               <div className="update-card-button-container">
+                
                 <div>
                   <a href={`${data.website}`}>Go to Website</a>
                 </div>
@@ -65,7 +74,9 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
                   </div>
                 ) : (<div></div>)}
               </div>
+              
             </div>
+        
           </div>
         </div>
       

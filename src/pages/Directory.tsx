@@ -20,6 +20,7 @@ const Directory: React.FC = () => {
          {!isModalOpen &&
          <div>
             <HeaderComponent/>
+            <div className="container-fluid">
             <div className="row">
                 <div className="directory-side-bar-container col-6 col-sm-4 col-md-3">
                     <h3>Verzeichnisse</h3>
@@ -45,6 +46,8 @@ const Directory: React.FC = () => {
         
             </div>
         
+       
+            </div>
             <Footer/>
         </div>
         }     
