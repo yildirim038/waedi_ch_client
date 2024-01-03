@@ -2,50 +2,59 @@ import HeaderComponent from "../components/Header/HeaderComponents";
 import Footer from '../components/Footer/Footer'
 import './Directory.css'
 import AddDirectory from "../components/Directory/AddDirectory";
-import CompanyCard from "../components/Directory/CompanyCard";
-import { getDirectoryData } from "../services/directoryService";
-import { useEffect, useState } from "react";
-import { DirectoryFormState } from "../type/dataType";
+import plusIcon from '../img/plus-svgrepo-com 1.png';
+import {  useState } from "react";
+
 const Directory: React.FC = () => {
-  const [allDirectory, setAllDirectory] = useState <DirectoryFormState[]>([]);
-  useEffect(()=>{
-    getDirectoryData(setAllDirectory)
-  },[])
-    
+  const [isModalOpen, setIsModalOpen] = useState(false);    
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
     
     return (
     <div>
-        <HeaderComponent/>
-        <div className="row">
-            <div className="directory-side-bar-container col-6 col-sm-4 col-md-3">
-                <h3>Verzeichnisse</h3>
-                <ul>
-                    <li><a href="/verein">Verein</a></li>
-                    <li><a href="/geschäfte">Geschäfte</a></li>
-                    <li><a href="/kultur">Kultur</a></li>
-                    <li><a href="/offentliches">Öffentliches</a></li>
-                </ul>
-            </div>
-            <div className="directory-text col-6 col-sm-8 col-md-9">
+         {!isModalOpen &&
+         <div>
+            <HeaderComponent/>
+            <div className="row">
+                <div className="directory-side-bar-container col-6 col-sm-4 col-md-3">
+                    <h3>Verzeichnisse</h3>
+                    <ul>
+                        <li><a href="/club">Verein</a></li>
+                        <li><a href="/company">Geschäfte</a></li>
+                        <li><a href="/kultur">Kultur</a></li>
+                        <li><a href="/public">Öffentliches</a></li>
+                    </ul>
+                </div>
+                <div className="directory-text col-6 col-sm-8 col-md-9">
                     <p>Suchen Sie einen Handwerker, ein bestimmtes Geschäft oder einen Verein?
                        Brauchen Sie ein bestimmtes Produkt oder benötigen Sie eine Dienstleistung?
                        Hier finden Sie für jeden Belang die passende Lösung </p>
                     <p> Viel Spass beim Stöbern durch die Listen!</p>
+                    <div className="directory-plus-icon">
+                        <button onClick={openModal} className="event-plus-icon">
+                            <img src={plusIcon} alt="add" />
+                        </button>
+                    </div>
+   
+                 </div>
+        
             </div>
+        
+            <Footer/>
         </div>
-        <AddDirectory/>
-        <div className="row">
-        {allDirectory.map(data => {
-            return(
-              
-      <CompanyCard data={data} setComponyList={setAllDirectory} />
-           
-          
-            )
-              
-        })}
-        </div>
-        <Footer/>
+        }     
+
+        {isModalOpen && (
+            <div className="modal-add-event-open">
+                <AddDirectory closeModal={closeModal}/>
+            </div>
+          )}
+       
     </div>
     
     );

@@ -34,3 +34,25 @@
     background-color: rgb(245, 244, 244);
     padding: 4vh;
 }
+
+.side-menu-back{
+    position: sticky;
+    top: 90%;
+}
+.directory-plus-icon{
+    display: flex;
+    justify-content: center;
+}
+
+.company-card-img{
+    width: 6vw;
+    margin: auto;
+}
+
+.directory-side-menu-button{
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    text-align: left;
+}

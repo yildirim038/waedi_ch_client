@@ -9,6 +9,9 @@ header{
     border: none;
     background:none;
 }
+.header-logo{
+    border-radius: 50%;
+}
 
 .language-container{
     cursor:pointer;

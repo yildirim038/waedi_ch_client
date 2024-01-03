@@ -1,4 +1,4 @@
-import { setAuthInfo } from "../type/dataType";
+import { DirectoryFormState, setAuthInfo } from "../type/dataType";
 
 
 export const handleTokenCheck =  (pInfo :setAuthInfo) => {
@@ -17,5 +17,11 @@ export const handleTokenCheck =  (pInfo :setAuthInfo) => {
       });
       
     }
+}
+
+export   function filterList(type: string, List:DirectoryFormState[] ,setList:React.SetStateAction<any> , setIsFiltered:React.SetStateAction<any>) {
+  const filteredList = List.filter((company) => company.companyType === type);
+  setList(filteredList);
+  setIsFiltered(true)
 }
 

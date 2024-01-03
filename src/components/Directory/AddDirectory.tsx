@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { addDirectory } from "../../services/directoryService"; 
 import { DirectoryFormState } from "../../type/dataType";
 
+interface AddDirectoryType {
+  closeModal: () => void;
+}
 
-
-const AddDirectory: React.FC = () => {
+const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
   const [values, setValue] = useState<DirectoryFormState>({
     category: '',
     companyType: '',
@@ -40,7 +42,7 @@ const AddDirectory: React.FC = () => {
       formData.append('image', values.image || ''); 
       console.log(formData)
       await addDirectory(formData);
-     
+      closeModal()
       navigate('/directory');
     } catch (error) {
       alert("Event could not be added.");
@@ -55,7 +57,7 @@ const vereine =['Arbeitgebervereine','Buddhistische Gemeinden','Chorverein','Com
                 'Röm.-kath. Kirchgemeinden', 'Sammelvereine','Schiessvereine', 'Seniorenvereine', 'sonstige Vereine',
                 'Sportclub','Stenografieverein','Tanzvereine','Textilvereine', 'Tier- & tierbezogene Vereine',
                 'Verein für Baugewerbe', 'Verschiedenes', 'Volksvereine', 'Zunft'];
-const geschäfte =['IT','2','3'];
+const companys =['IT','2','3'];
 const kultur =['Einzelmusiker','Freiräume','Jungwacht/Blauring','Museen','Pfadfinder','Sport','Theater'];
 const facts = ['AHV Dienstleistung', 'Asyldienste', 'Ausbildungsstätte', 'Beruf & Bildung', 'Biblio- & Ludotheken',
                'Diverse & Spezielle','Eltern & Erwachsene','Energie','Entsorgung/Reinigung','Feuerwehr',
@@ -69,8 +71,8 @@ const facts = ['AHV Dienstleistung', 'Asyldienste', 'Ausbildungsstätte', 'Beruf
     switch (values.category) {
       case 'verein':
         return vereine.map((verein) => `${verein}`);
-      case 'geschäft':
-        return geschäfte.map((geschäft) => `${geschäft}`);
+      case 'company':
+        return companys.map((company) => `${company}`);
       case 'kultur':
         return kultur.map((kultur) => `${kultur}`);
       case 'facts':
@@ -89,7 +91,7 @@ const facts = ['AHV Dienstleistung', 'Asyldienste', 'Ausbildungsstätte', 'Beruf
             <label>Category</label>
             <select value={values.category} onChange={e => setValue({ ...values, category: e.target.value })}>
               <option value="verein">Vereine</option>
-              <option value="geschäft">Geschäfte</option>
+              <option value="company">Geschäfte</option>
               <option value="kultur">Kultur</option>
               <option value="facts">Facts</option>
             </select>
@@ -161,7 +163,7 @@ const facts = ['AHV Dienstleistung', 'Asyldienste', 'Ausbildungsstätte', 'Beruf
             </div>
           </div>    
           <button className='form-button' onClick={handleAddCompony}>Add Eintrag</button>
-          <button className='form-button form-close-button' >Close</button>
+          <button className='form-button form-close-button' onClick={closeModal}>Close</button>
       </div>
      
     </div>

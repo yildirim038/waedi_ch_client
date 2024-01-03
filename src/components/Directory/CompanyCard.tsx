@@ -47,7 +47,7 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
     <>
         <div key={data.id} className="card-container  col-12 col-sm-6 col-md-4">
           <div className="card">
-            <img src={`http://localhost:3001/images/${data.image}`} className="card-img-top" alt="logo" />
+            <img src={`http://localhost:3001/images/${data.image}`} className="company-card-img" alt="logo" />
             <div className="card-body">
               <h5>{data.organization}</h5>
               <p>{data.adresse}</p>

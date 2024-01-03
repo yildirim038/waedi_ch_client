@@ -8,7 +8,10 @@ import Galeries from './pages/Galeries';
 import Events from './pages/Events';
 import AddInterview from './components/Interview/AddInterview';
 import Directory from './pages/Directory';
-import Verein from './pages/Verein';
+import Club from './components/Directory/Club';
+import Company from './components/Directory/Company';
+import Culture from './components/Directory/Culture';
+import Public from './components/Directory/Public';
 
 const App: React.FC = () => {
   return (
@@ -22,7 +25,10 @@ const App: React.FC = () => {
           <Route path="/galerie" element={<Galeries />} />
           <Route path="/events" element={<Events />} />
           <Route path="/addInterview" element={<AddInterview/>}/>
-          <Route path="/verein" element={<Verein/>}/>
+          <Route path="/club" element={<Club/>}/>
+          <Route path="/company" element={<Company/>}/>
+          <Route path="/kultur" element={<Culture/>}/>
+          <Route path="/public" element={<Public/>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Logo from '../../img/logo.png'
+import Logo from '../../img/logo7.png'
 import HamburgerLogo from '../../img/menu-icon-min.svg'
 import AccountIcon from '../../img/account_icon_138984 1.png'
 import SearchIcon from '../../img/suche.png'
@@ -28,7 +28,7 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated, onLogout,handleSom
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-light">
-          <a className="navbar-brand col-5 col-sm-3 col-md-2" href="/"><img src={Logo} alt="waedi_ch" className="col-12 offset-md-1"/></a>
+          <a className="navbar-brand col-5 col-sm-3 col-md-2" href="/"><img src={Logo} alt="waedi_ch" className=" col-12 offset-md-1"/></a>
           <button className="hamburger-menu-button"onClick={onHamburgerMenu} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <img className="hamburger-menu" src={HamburgerLogo} alt='hamburger-menu' />
           </button>
