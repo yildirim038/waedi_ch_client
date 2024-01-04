@@ -6,11 +6,13 @@
   import EventCard from "../components/Event/EventCard";
   import HeaderComponent from "../components/Header/HeaderComponents";
   import Footer from '../components/Footer/Footer'
+import UpdateEvent from "../components/Event/UpdateEvent";
 
   const Events: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [eventList, setEventList] = useState([]);
-  
+    const [isUpdateModalOpen, setUpdateIsModalOpen] = useState(false);
+    const [clickEvent, setClickEvent] = useState({});
   
     useEffect(() => {
       getEventData(setEventList);
@@ -25,15 +27,20 @@
     const closeModal = () => {
       setIsModalOpen(false);
     };
-
+    const closeUpdateModal = () => {
+      setUpdateIsModalOpen(false);
+    };
     return (
       <div className="events-main-container">
-        <HeaderComponent/>
+           {!isUpdateModalOpen && (
+            <>
+             <HeaderComponent/>
         <div className="events-container">
+       
         {!isModalOpen && (
           <><div className="row">
           {eventList.map((event,index) => (
-            <EventCard key={index} data={event} setEventList={setEventList}/>
+            <EventCard key={index} data={event} setClickEvent={setClickEvent} setEventList={setEventList} setIsUpdateModalOpen={setUpdateIsModalOpen} isUpdateModalOpen={isUpdateModalOpen}/>
           ))}
         </div>
         <button onClick={openModal} className="event-plus-icon">
@@ -47,6 +54,14 @@
           )}
         </div>
         <Footer/>
+            </>
+            )}
+            {isUpdateModalOpen && (
+              <>
+               <UpdateEvent closeModal={closeUpdateModal} setEventList={setEventList} clickEvent={clickEvent}/>
+              </>
+            )}
+       
       </div>
     );
   };

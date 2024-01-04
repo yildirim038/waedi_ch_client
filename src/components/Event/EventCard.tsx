@@ -9,20 +9,20 @@ import UpdateEvent from "./UpdateEvent";
 interface EventCardProps {
   data: EventFormState; 
   setEventList: React.Dispatch<React.SetStateAction<any>>;
+  setIsUpdateModalOpen:React.Dispatch<React.SetStateAction<boolean>>;
+  isUpdateModalOpen:boolean;
+  setClickEvent:React.Dispatch<React.SetStateAction<any>>;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ data, setEventList }) => { 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [clickEvent, setClickEvent] = useState({});
+const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent,setIsUpdateModalOpen, isUpdateModalOpen }) => { 
+
   let role = false;
 
   const openModal = () => {
-    setIsModalOpen(true);
+    setIsUpdateModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
 
   if (localStorage.getItem("role") === "admin") {
     role = true;
@@ -53,7 +53,7 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList }) => {
 
   return (
     <>
-      {!isModalOpen && (
+      {!isUpdateModalOpen && (
         <div key={data.id} className="card-container  col-12 col-sm-6 col-md-4">
           <div className="card">
             <img src={`http://localhost:3001/images/${data.image}`} className="card-img-top" alt="..." />
@@ -75,12 +75,6 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList }) => {
               </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {isModalOpen && (
-        <div className="modal-add-event-open">
-          <UpdateEvent closeModal={closeModal} setEventList={setEventList} clickEvent={clickEvent} />
         </div>
       )}
     </>
