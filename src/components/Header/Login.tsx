@@ -20,7 +20,7 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
       setError(null);
       handleSomeAction()
       closeModal()
-
+      window.location.reload()
     } catch (error) {
       setError(error as Error);
     }

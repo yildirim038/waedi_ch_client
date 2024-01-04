@@ -15,6 +15,7 @@ const HeaderComponent: React.FC = () => {
       isAuthenticated: false,
       role: '',
     });
+    window.location.reload()
   };
 
   

@@ -10,7 +10,7 @@ import { isAuthenticated } from '../../type/dataType';
 import './Header.css'
 import Login from './Login'
 
-const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogout,handleSomeAction,openModal,closeModal }) => {
+const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogout, handleSomeAction,openModal,closeModal }) => {
   const [isOpen, setOpen] = useState(false);
 
   const onHamburgerMenu = () => {
