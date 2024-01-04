@@ -1,31 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { addDirectory } from "../../services/directoryService"; 
-import { DirectoryFormState } from "../../type/dataType";
+import { DirectoryFormState, EventFormState } from "../../type/dataType";
+import { Dispatch, SetStateAction } from 'react';
+import { getEventData, updateEvent } from "../../services/eventService"; 
+import { getDirectoryData, updateDirectory } from "../../services/directoryService";
 import { companys, facts, kultur, vereine } from "./DirectoryData";
 
-interface AddDirectoryType {
+type addDirectoryType = {
   closeModal: () => void;
-}
+  setDirectoryList: Dispatch<SetStateAction<any>>;
+  clickEvent: any
+};
 
-const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
+const UpdateDirectory: React.FC<addDirectoryType> = ({ closeModal, setDirectoryList ,clickEvent }) => {
+
   const [values, setValue] = useState<DirectoryFormState>({
-    category: '',
-    companyType: '',
-    organization: '',
-    adresse: 'Schmidgass 2',
-    plz: 8820,
-    ort: 'Wädenswil',
+    category: clickEvent.category,
+    companyType: clickEvent.companyType,
+    organization: clickEvent.organization,
+    adresse: clickEvent.adresse,
+    plz: clickEvent.plz,
+    ort: clickEvent.ort,
     image: null,
-    website: 'https://',
-    contactFirstname:'',
-    contactLastname:'',
-    email:''
+    website: clickEvent.website,
+    contactFirstname: clickEvent.contactFirstname,
+    contactLastname:clickEvent.contactLastname,
+    email:clickEvent.email,
+    tel:clickEvent.tel,
+    fax:clickEvent.fax
   });
 
-  const navigate = useNavigate();
-
-  const handleAddCompony = async () => {
+  const handleUpdateEvent = async () => {
     try {
       const formData = new FormData();
       formData.append('category', values.category);
@@ -41,16 +46,15 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
       formData.append('tel', values.tel || '');
       formData.append('fax', values.fax || '') ;
       formData.append('image', values.image || ''); 
-   
-      await addDirectory(formData);
-      closeModal()
-      navigate('/directory');
+  
+      
+      await updateDirectory(formData,clickEvent.id);
+      getDirectoryData(setDirectoryList);
+      closeModal();
     } catch (error) {
-      alert("Event could not be added.");
+      alert("Event could not be updated.");
     }
   };
-
-
   const generateCompanyTypeOptions = () => {
     switch (values.category) {
       case 'verein':
@@ -65,13 +69,12 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
         return [];
     }
   };
-
    return (
     <div className='form-main-container'>
       <div className='add-event-container'>
-        <h2>Neuen Eintrag erstellen</h2>
+        <h2>Update Directory</h2>
         <div className="add-event-input-container">
-          <div className='event-input-element'>
+        <div className='event-input-element'>
             <label>Category</label>
             <select value={values.category} onChange={e => setValue({ ...values, category: e.target.value })}>
               <option value="verein">Vereine</option>
@@ -145,13 +148,13 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
                 <label>Email</label>
                 <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
             </div>
-          </div>    
-          <button className='form-button' onClick={handleAddCompony}>Add Eintrag</button>
+          <div className='event-input-element'></div>
+          <button className='form-button' onClick={handleUpdateEvent}>Update Compony</button>
           <button className='form-button form-close-button' onClick={closeModal}>Close</button>
+        </div>
       </div>
-     
     </div>
   );
 }
 
-export default AddDirectory;
+export default UpdateDirectory;
