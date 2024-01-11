@@ -22,16 +22,16 @@ const Home: React.FC = () => {
           <h2> {t('title_under')}</h2>
         </div>
       </div>
-      <div className='event-main-container'>
-        <section className="container">
-          <div className='row'>
+      <div>
+        <section className="event-container">
+          <div>
             <HomeEventComponent/>
           </div>
         </section>
-        <section className="row">
+        <section>
               <HomeInterviewComponent/>
         </section>
-        <section className="row">
+        <section>
               <SBBApp/>
               <WeatherWidget/>
         </section>

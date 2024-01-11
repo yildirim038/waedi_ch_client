@@ -11,8 +11,9 @@ type addEventType = {
 };
 
 const UpdateEvent: React.FC<addEventType> = ({ closeModal, setEventList,clickEvent }) => {
-
+  const eventType = ["Party","Jubiläum","Kino","Konferenz","Chilbi","Seminare"]
   const [values, setValue] = useState<EventFormState>({
+    eventType:clickEvent.type,
     name: clickEvent.name,
     startdatum: clickEvent.startdatum,
     enddatum:clickEvent.enddatum,
@@ -29,6 +30,7 @@ const UpdateEvent: React.FC<addEventType> = ({ closeModal, setEventList,clickEve
   const handleUpdateEvent = async () => {
     try {
       const formData = new FormData();
+      formData.append('eventType', values.eventType);
       formData.append('name', values.name);
       formData.append('startdatum', values.startdatum);
       formData.append('enddatum', values.enddatum);
@@ -52,6 +54,15 @@ const UpdateEvent: React.FC<addEventType> = ({ closeModal, setEventList,clickEve
       <div className='add-event-container'>
         <h2>Update Event</h2>
         <div className="add-event-input-container">
+        <div className='event-input-element'>
+            <label>Event Type</label>
+            <select value={values.eventType} onChange={e => setValue({ ...values, eventType: e.target.value })}>
+            <option value="" disabled>Select a type</option>
+              {eventType.map((option, index) => (
+                <option key={index} value={option}>{option}</option>
+              ))}
+            </select>
+         </div>
           <div className='event-input-element'>
             <label>Name:</label>
             <input type="text" value={values.name} onChange={e => setValue({ ...values, name: e.target.value })} />

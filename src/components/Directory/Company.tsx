@@ -2,7 +2,7 @@ import HeaderComponent from "../Header/HeaderComponents";
 import Footer from '../Footer/Footer'
 import '../../pages/Directory.css'
 import { useEffect, useState } from "react";
-import { DirectoryFormState } from "../../type/dataType";
+import { DirectoryFormState } from "../../type/directoryTypes";
 import { getDirectoryData } from "../../services/directoryService";
 import CompanyCard from "./CompanyCard";
 import { filterList } from "../../untils/untils";

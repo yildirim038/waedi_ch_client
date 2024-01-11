@@ -11,6 +11,7 @@ type addEventType = {
 
 const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
   const [values, setValue] = useState<EventFormState>({
+    eventType: '',
     name: '',
     startdatum: '',
     enddatum: '',
@@ -21,12 +22,14 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
     image: null,
     text: '',
   });
+  const eventType = ["Party","Jubiläum","Kino","Konferenz","Chilbi","Seminare"]
 
   const navigate = useNavigate();
 
   const handleAddEvent = async () => {
     try {
       const formData = new FormData();
+      formData.append('eventType', values.eventType);
       formData.append('name', values.name);
       formData.append('startdatum', values.startdatum);
       formData.append('enddatum', values.enddatum);
@@ -35,9 +38,9 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
       formData.append('ort', values.ort);
       formData.append('link', values.link);
       formData.append('text', values.text);
-      formData.append('image', values.image || ''); // Pass an empty string if no image is provided
+      formData.append('image', values.image || ''); 
   
-      await addEvent(formData); // Do not convert to EventFormState, directly use FormData
+      await addEvent(formData); 
       navigate('/events');
       getEventData(setEventList);
       closeModal();
@@ -50,6 +53,15 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
       <div className='add-event-container'>
         <h2>Add Event</h2>
         <div className="add-event-input-container">
+        <div className='event-input-element'>
+            <label>Event Type</label>
+            <select value={values.eventType} onChange={e => setValue({ ...values, eventType: e.target.value })}>
+            <option value="" disabled>Select a type</option>
+              {eventType.map((option, index) => (
+                <option key={index} value={option}>{option}</option>
+              ))}
+            </select>
+         </div>
           <div className='event-input-element'>
             <label>Name:</label>
             <input type="text" value={values.name} onChange={e => setValue({ ...values, name: e.target.value })} />

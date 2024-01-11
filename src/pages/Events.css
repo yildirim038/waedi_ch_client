@@ -1,14 +1,15 @@
 .events-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 75vw;
     margin: auto;
+   
 }
+
 .event-plus-icon{
     background:none;
     border:none;
+    width: 100%;
 }
 
 .modal-add-event-open{
@@ -24,7 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr ;
 }
-.add-event-container>h2 ,h3{
+.add-event-container > h2 ,h3{
     text-align: center
 }
 .add-event-container{
@@ -62,13 +63,70 @@
 }
 
 .update-card-button-container button {
-    background:none;
     border: none;
 }
-.update-card-button-container button img{
-    width: 3vw;
+.card-img-top {
+height: 20vh;
+}
+.open {
+    display: block;
+}
+.up::after{
+content: '▲';
+position: absolute;
+    right: 1vw;
+}
+.down::after{
+    content: '▼';
+    position: absolute;
+    right: 1vw;
+    }
+.close {
+    display: none;
+}
+.card-container {
+    margin: auto;
+}
+.event-side-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+   
+}
+.event-side-menu > li {
+    margin: 0;
+    padding: 0 0 0 1vw;
+    position: relative;
+}
+.event-side-menu-button{
+    width: 100%;
+    height: 5vh;
+    background: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    text-align: left;
 }
 
-.card-container {
-    margin: 3vh auto;
+.event-side-menu-button:hover{
+    background-color: darkblue;
+    color: white;
+}
+
+.event-side-menu-back-button{
+    width: 100%;
+    height: 5vh;
+    background: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    text-align: left;
+}
+
+.event-side-menu-back-button::after{
+    content: '❮';
+    position: absolute;
+    right: 1vw;
+}
+.update-delete-button {
+    background-color: transparent;
+    border: none;
 }

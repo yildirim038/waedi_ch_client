@@ -2,15 +2,8 @@ import React, { useState } from "react";
 import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
 import { deleteDirectoryData, getDirectoryData, getDirectoryDataById } from "../../services/directoryService";
-import { DirectoryFormState } from "../../type/dataType";
 import UpdateDirectory from "./UpdateDirectory";
-
-
-
-interface ComponyCardProps {
-  data: DirectoryFormState; 
-  setComponyList: React.Dispatch<React.SetStateAction<any>>;
-}
+import { ComponyCardProps } from "../../type/directoryTypes";
 
 const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => { 
   const [clickEvent, setClickDirectory] = useState({});
@@ -80,8 +73,8 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
             </div>
             {role ? (
               <div>
-                <button ><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
-                <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                <button  className="update-delete-button" ><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
+                <button  className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
               </div>
             ) : (<div></div>)}
           </div>

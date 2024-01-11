@@ -20,14 +20,12 @@ const HomeInterviewComponent: React.FC = () => {
   }, []);
 
   const navigate = useNavigate();
-  const goInterview = () =>{
-    navigate('/interviews');
-  }
+  const goInterview = () =>navigate('/interviews');
 
   return (
-    <div className='event-main-container'>
+    <div className='container'>
       <section className="row">
-        <h2>Interview</h2>
+        <h2 className='home-header'>Interview</h2>
       <div key={interviewList[0].id}  className="home-interview row">
            <div className="col-12 col-sm-4 col-md-3">
              <img src={`http://localhost:3001/images/${interviewList[0].image}`}  className="col-12" alt={interviewList[0].imageTitel} />

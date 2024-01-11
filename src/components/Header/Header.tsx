@@ -35,7 +35,7 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogo
             <span className="col-4  offset-4 offset-sm-1 d-flex justify-content-end align-items-center">
               <LanguageSwitcher/>
               <img src={AccountIcon} alt="AccountIcon" className="offset-1 col-1 col-md-1"/>
-              {isAuthenticated ? (<button onClick={onLogout}className=" header-button">{t('header_logout')}</button>) 
+              {isAuthenticated ? (<button onClick={onLogout}className="login header-button">{t('header_logout')}</button>) 
               : (<button onClick={openModal}  className='login'>{t('header_login')}</button>)}
               {isModalOpen && (
                 <div>

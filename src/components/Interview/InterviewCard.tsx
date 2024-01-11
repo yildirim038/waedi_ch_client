@@ -1,42 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
-import { deleteInterviewData, getInterviewData } from "../../services/interviewService";
-import { InterviewFormState } from "../../type/dataType";
+import { deleteInterviewData, getInterviewData, getInterviewDataById, updateInterview } from "../../services/interviewService";
+import { InterviewCardProps} from "../../type/interviewTypes";
 
 
-
-interface InterviewCardProps {
-    interview: InterviewFormState;
-  setInterviewList: React.Dispatch<React.SetStateAction<any>>;
-  setClickInterview:React.Dispatch<React.SetStateAction<any>>
-}
-const EventCard: React.FC<InterviewCardProps> = ({ interview, setInterviewList,setClickInterview}) => {
- 
+const InterviewCard: React.FC<InterviewCardProps> = ({ interview, setInterviewList,setClickInterview ,setClickUpdateInterview}) => {
   let  role = false
 
-    if(localStorage.getItem("role")==="admin"){
+  if(localStorage.getItem("role")==="admin"){
       role = true   
      }
       else {
       role = false
     } 
-    const handleReadInterview = () => {
-      setClickInterview(interview)
-    }
 
-    const handleDeleteInterview = async () => {
-      try {
-        interview.id?
-        await deleteInterviewData(interview.id):(console.log("error"))
-        getInterviewData(setInterviewList);
-      } catch (error) {
-        alert("Event could not be deleted.");
-      }
-    };
-  
-    return(
-      <>
+  const handleReadInterview = () => {
+    setClickInterview(interview)
+  }
+
+  const handleDeleteInterview = async () => {
+    try {
+      interview.id?
+      await deleteInterviewData(interview.id):(console.log("error"))
+      getInterviewData(setInterviewList);
+    } catch (error) {
+      alert("Event could not be deleted.");
+    }
+  };
+  const handleUpdateInterview = async () => {
+    try {
+      setClickUpdateInterview(interview)
+      interview.id ?
+        await getInterviewDataById(setClickUpdateInterview, interview.id) : (console.log("error"))
+      getInterviewData(setInterviewList);
+
+    } catch (error) {
+      alert("Event could not be deleted.");
+    }
+  };
+
+  return(
+      <div>
         <div key={interview.id}  className="interview-card row">
            <div className="col-12 col-sm-4 col-md-3">
              <img src={`http://localhost:3001/images/${interview.image}`}  className="col-12" alt={interview.imageTitel} />
@@ -47,15 +52,12 @@ const EventCard: React.FC<InterviewCardProps> = ({ interview, setInterviewList,s
                  <h4>{interview.title}</h4>
                  <h6 className="interview-card-datum">{interview.datum}</h6>
                </div>
-               {  role ? (
+               {  role && (
                   <div>
-                   <button ><img src={Update}  alt="update"/></button>
-                 <button><img src={Delete}  onClick={handleDeleteInterview} alt="delete" /></button>
+                   <button ><img src={Update} onClick={handleUpdateInterview} alt="update"/></button>
+                   <button><img src={Delete}  onClick={handleDeleteInterview} alt="delete" /></button>
                   </div>                
-                ) 
-              : (<div></div>
-              )}
-                 
+                )}
              </div>
              <div>
                <p>{interview.coverText}</p>
@@ -65,8 +67,9 @@ const EventCard: React.FC<InterviewCardProps> = ({ interview, setInterviewList,s
              </div>
            </div>
          </div>       
-       </>
+       
+       </div>
     )
 }
 
-export default EventCard;
+export default InterviewCard;

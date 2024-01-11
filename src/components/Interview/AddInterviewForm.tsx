@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { InterviewFormState } from "../../type/dataType";
+import { InterviewFormState, addInterviewControlerType } from "../../type/interviewTypes";
 import { addInterview, getInterviewData } from "../../services/interviewService";
-
-
-type addInterviewControlerType = {
-    addInterviewControler: () => void;
-    setInterviewList: React.Dispatch<React.SetStateAction<any>>;
-  };
 
 const AddInterviewForm : React.FC <addInterviewControlerType>  = ({addInterviewControler, setInterviewList}) => {
     const [interview, setInterview] = useState<InterviewFormState>({
@@ -20,13 +14,12 @@ const AddInterviewForm : React.FC <addInterviewControlerType>  = ({addInterviewC
         image: null,
     });
 
-   
-
     const navigate = useNavigate();
     const closeInterviewForm = () =>{
       navigate('/interviews');
     }
-    const handleAddEvent = async () => {
+    
+    const handleAddInterview = async () => {
         try {
           const formData = new FormData();
           formData.append('title', interview.title);
@@ -36,6 +29,7 @@ const AddInterviewForm : React.FC <addInterviewControlerType>  = ({addInterviewC
           formData.append('author', interview.author);
           formData.append('datum', interview.datum);
           formData.append('image', interview.image || ''); 
+          console.log(formData)
           await addInterview(formData);
           navigate('/addInterview');
           addInterviewControler()
@@ -85,7 +79,7 @@ const AddInterviewForm : React.FC <addInterviewControlerType>  = ({addInterviewC
                   }}
                 />
               </div>
-              <button className='form-button' onClick={handleAddEvent}>Add Interview</button>
+              <button className='form-button' onClick={handleAddInterview}>Add Interview</button>
               <button className='form-button form-close-button' onClick={closeInterviewForm}>Close</button>
             </div>
           </div>

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
 import { deleteEventData, getEventData, getEventDataById } from "../../services/eventService";
 import { EventFormState } from "../../type/dataType";
-import UpdateEvent from "./UpdateEvent";
+
 
 
 interface EventCardProps {
@@ -21,7 +21,6 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
   const openModal = () => {
     setIsUpdateModalOpen(true);
   };
-
 
 
   if (localStorage.getItem("role") === "admin") {
@@ -54,7 +53,7 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
   return (
     <>
       {!isUpdateModalOpen && (
-        <div key={data.id} className="card-container  col-12 col-sm-6 col-md-4">
+        <div key={data.id} className="card-container  col-12 col-sm-6 col-md-4 col-lg-3">
           <div className="card">
             <img src={`http://localhost:3001/images/${data.image}`} className="card-img-top" alt="..." />
             <div className="card-body">
@@ -68,8 +67,8 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
                 </div>
                 {role ? (
                   <div>
-                    <button ><img src={Update} onClick={handleUpdateEvent} alt="update" /></button>
-                    <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                    <button className="update-delete-button" ><img src={Update} onClick={handleUpdateEvent} alt="update" /></button>
+                    <button className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
                   </div>
                 ) : (<div></div>)}
               </div>

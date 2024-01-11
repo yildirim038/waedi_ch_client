@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { QuestionItemType } from '../type/interviewTypes';
 const API_URL = 'http://localhost:3001';
 
 export const addInterview = async (data: FormData) => {
@@ -62,12 +63,38 @@ export const getInterviewData = async (pSetEvent:any) => {
     }
   };
   
-export const addQuestion = async (data:any) => {
+export const addQuestion = async (data:QuestionItemType) => {
   try {
-    await axios.post(`${API_URL}/question`, data);
+    await axios.post(`${API_URL}/question`, data)
     return true;
   } catch (error: any) {
     throw error.response?.data?.error || "Error";
   }
 };
 
+export const updateQuestion = async (data: QuestionItemType ,pId:string) => {
+  try {
+    await axios.put(`${API_URL}/question/${pId}`, data);
+    return true;
+  } catch (error: any) {
+    throw error.response?.data?.error || "Error";
+  }
+};
+
+export const deleteQuestionData = async (pId: string) => {
+  try {
+    await axios.delete(`${API_URL}/question/${pId}`);
+    return true;
+  } catch (error: any) {
+    throw error.response?.data?.error || "Error";
+  }
+}
+
+export const getQuestionDataById = async (pSetQuestion:any,pId:string) => {
+  try {
+    const response = await axios.get(`${API_URL}/question/${pId}`);
+    pSetQuestion(response.data);
+  } catch (error) {
+    console.error("Error fetching interviews:", error);
+  }
+};

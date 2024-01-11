@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { addDirectory } from "../../services/directoryService"; 
-import { DirectoryFormState } from "../../type/dataType";
+import { AddDirectoryType, DirectoryFormState } from "../../type/directoryTypes";
 import { companys, facts, kultur, vereine } from "./DirectoryData";
-
-interface AddDirectoryType {
-  closeModal: () => void;
-}
 
 const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
   const [values, setValue] = useState<DirectoryFormState>({
@@ -74,6 +70,7 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
           <div className='event-input-element'>
             <label>Category</label>
             <select value={values.category} onChange={e => setValue({ ...values, category: e.target.value })}>
+            <option value="" disabled>Select a category</option>
               <option value="verein">Vereine</option>
               <option value="company">Geschäfte</option>
               <option value="kultur">Kultur</option>
@@ -83,6 +80,7 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
           <div className='event-input-element'>
             <label>Company Type</label>
             <select value={values.companyType} onChange={e => setValue({ ...values, companyType: e.target.value })}>
+            <option value="" disabled>Select a type</option>
               {generateCompanyTypeOptions().map((option, index) => (
                 <option key={index} value={option}>{option}</option>
               ))}

@@ -5,21 +5,9 @@ import AddQuestion from './AddQuestion'
 import { getInterviewData } from "../../services/interviewService";
 import { useNavigate } from "react-router-dom";
 import okIcon from '../../img/icons8-ok.svg'
+import QuestionCard from "./QuestionCard";
+import { InterviewItemType, QuestionItemType } from "../../type/interviewTypes";
 
-type InterviewItemType ={
-    id:string,
-    author:string,
-    coverText:string,
-    datum:string,
-    image:string,
-    imageTitel:string,
-    title:string
-}
-type QuestionItemType ={
-  interviewId:string,
-  question:string,
-  antwort:string,
-}
 const AddInterview : React.FC  = () => {
     const [interviewList, setInterviewList] = useState<InterviewItemType[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,7 +32,6 @@ const AddInterview : React.FC  = () => {
         setIsModalOpen(false);
       };
 
-   
     return (
         <div className='add-interview-container'>
            {!addInterview && (
@@ -62,12 +49,7 @@ const AddInterview : React.FC  = () => {
                         </div>
                     </div>
                     {interviewQuestionList.map(question => {
-                      return(
-                        <div>
-                          <div><h6>{question.question}</h6></div>
-                          <div><p>{question.antwort}</p></div>
-                        </div>
-                      )
+                     return <QuestionCard question={question} setQuestionList={setAddInterview}/>
                     })}
                 <div>
                 <button onClick={openModal} className="interview-plus-icon col-12">
@@ -84,11 +66,8 @@ const AddInterview : React.FC  = () => {
             </div>
             
            )} 
-        
         </div>
-      );
-   
-
+    );
 }
 
 export default AddInterview
