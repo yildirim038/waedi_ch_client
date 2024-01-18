@@ -67,8 +67,8 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
                 </div>
                 {role ? (
                   <div>
-                    <button className="update-delete-button" ><img src={Update} onClick={handleUpdateEvent} alt="update" /></button>
-                    <button className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                    <button ><img src={Update} onClick={handleUpdateEvent} alt="update" /></button>
+                    <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
                   </div>
                 ) : (<div></div>)}
               </div>

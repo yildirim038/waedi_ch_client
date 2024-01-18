@@ -40,3 +40,7 @@
         width: 20vw;
     }
 }
+.form-button-container{
+    display: flex;
+    justify-content: space-between;
+}

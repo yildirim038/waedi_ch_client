@@ -73,8 +73,8 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
             </div>
             {role ? (
               <div>
-                <button  className="update-delete-button" ><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
-                <button  className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                <button ><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
+                <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
               </div>
             ) : (<div></div>)}
           </div>

@@ -29,6 +29,7 @@
     text-align: center
 }
 .add-event-container{
+
     margin-top: 5vh;
     width: 80vw;
     background-color: white;
@@ -125,8 +126,4 @@ position: absolute;
     content: '❮';
     position: absolute;
     right: 1vw;
-}
-.update-delete-button {
-    background-color: transparent;
-    border: none;
 }

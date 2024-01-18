@@ -13,6 +13,7 @@ import Company from './components/Directory/Company';
 import Culture from './components/Directory/Culture';
 import Public from './components/Directory/Public';
 
+
 const App: React.FC = () => {
   return (
     <Router>

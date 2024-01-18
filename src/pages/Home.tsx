@@ -28,10 +28,10 @@ const Home: React.FC = () => {
             <HomeEventComponent/>
           </div>
         </section>
-        <section>
+        <section className='m-5'>
               <HomeInterviewComponent/>
         </section>
-        <section>
+        <section className='m-5 w-75' >
               <SBBApp/>
               <WeatherWidget/>
         </section>

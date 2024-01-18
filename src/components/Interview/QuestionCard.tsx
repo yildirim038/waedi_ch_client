@@ -47,9 +47,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ question , setQuestionList}
 <>
     <div>
         <h6>{question.question}  
-        <button  className="update-delete-button"><img src={Update} onClick={ handleUpdateQuestion}  alt="update"/></button>
+        <button ><img src={Update} onClick={ handleUpdateQuestion}  alt="update"/></button>
          
-            <button  className="update-delete-button"><img src={Delete}  onClick={handleDeleteQuestion} alt="delete" /></button>
+            <button><img src={Delete}  onClick={handleDeleteQuestion} alt="delete" /></button>
          </h6>
       </div>
       <div>
