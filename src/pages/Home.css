@@ -7,19 +7,15 @@
 .main-img{
     width: 98vw;
 }
-
 .main-title{
     position: absolute;
     text-align: center;
     color: white;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
-
 .event-container{
     margin-left:2vw;
 }
-
 .all-interview-button{
     background: rgb(255, 255, 255);
     padding: 1vw;
@@ -48,7 +44,6 @@
     margin-top: 1vh;
 
 }
-
 .home-interview{
     margin: 5vh auto;
     padding: 2vw;
@@ -56,7 +51,6 @@
     border-radius: 3px;
     align-items: center;
 }
-
 .home-event-button {
     width: 100%;
     height: 100%;
@@ -67,35 +61,31 @@
 }
 .home-event-button:hover{
     color: white;
-    background-color: rgb(80, 79, 79);
+    background-color: rgb(15, 115, 135);
 }
 .home-events-container {
-    background-color:rgb(207, 207, 207);
+    background-color:rgb(235, 245, 250);
     width: 99%;
 }
 .home-event-card {
     margin: 3vh auto;
  }
-
 .home-header {
     text-align: center;
     margin: 2vw;
     text-shadow: 0 0 10px 10px;
 }
-
 .activ {
-    background-color:rgba(200, 200, 200);
+    background-color:rgb(232, 244, 249);
 }
-
 .home-events-container > div > div {
     padding:0
 }
-
 .home-events-container > div > div > ul {
     list-style: none;
     height: 100%;
     min-height: 46vh;
-    background-color: gray;
+    background-color: rgb(68, 163, 192);
     margin: 0;
     padding: 0;
 }

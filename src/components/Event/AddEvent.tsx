@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { EventFormState } from "../../type/dataType";
-import { Dispatch, SetStateAction } from 'react';
+import { EventFormState, addEventType } from "../../type/dataType";
 import { addEvent, getEventData } from "../../services/eventService"; 
-
-type addEventType = {
-  closeModal: () => void;
-  setEventList: Dispatch<SetStateAction<any>>;
-};
 
 const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
   const [values, setValue] = useState<EventFormState>({
@@ -23,9 +17,7 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
     text: '',
   });
   const eventType = ["Party","Jubiläum","Kino","Konferenz","Chilbi","Seminare"]
-
   const navigate = useNavigate();
-
   const handleAddEvent = async () => {
     try {
       const formData = new FormData();
@@ -39,7 +31,6 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
       formData.append('link', values.link);
       formData.append('text', values.text);
       formData.append('image', values.image || ''); 
-  
       await addEvent(formData); 
       navigate('/events');
       getEventData(setEventList);

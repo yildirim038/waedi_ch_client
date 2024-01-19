@@ -1,23 +1,10 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Delete from '../../img/bin 6.png'
-import { addGallery, addImage, deletePhotoData, getGalleryData, getImageData, updateGallery } from "../../services/galleryService";
+import { addImage, deletePhotoData, getGalleryData, getImageData, updateGallery } from "../../services/galleryService";
 import { useNavigate } from "react-router-dom";
-type Gallery ={
-    id?:string;
-    name:string;
-    description:string;
-}
+import { Gallery, ImageType, addGalleryType } from "../../type/galleryType";
 
-type addGalleryType = {
-  addGalleryControler:()=>void;
-  setGalleryList: Dispatch<SetStateAction<any>>;
-}
-type ImageType = {
-  id?:string;
-  image: any;
-  photoGalleryId: string ;
-}
-const AddGalleryForm: React.FC<addGalleryType> = ({ addGalleryControler, setGalleryList }) => {
+const AddGalleryForm: React.FC<addGalleryType> = ({ closeModal,addGalleryControler, setGalleryList }) => {
   const [newGalleryList, setNewGalleryList] = useState<Gallery[]>([]);
   const [gallery, setGallery] = useState<Gallery>({
     name: "",
@@ -31,10 +18,6 @@ const AddGalleryForm: React.FC<addGalleryType> = ({ addGalleryControler, setGall
   });
 
   const navigate = useNavigate();
-
-  const closeGalleryForm = () => {
-    navigate('/galerie');
-  }
 
   const handleAddImage = async () => {
     try {
@@ -89,7 +72,6 @@ const AddGalleryForm: React.FC<addGalleryType> = ({ addGalleryControler, setGall
 
   const isFormValid = gallery.name.trim() !== "";
   const isImageFormValid = image.image !== "";
-
   const imageList = addImages.filter(element => element.photoGalleryId === newGalleryList[0]?.id);
 return (
     <div className="form-main-container">
@@ -116,7 +98,7 @@ return (
             {imageList.map(image => (
               <div className="col-2 text-center" >
                <button><img src={Delete} className="col-6"  onClick={()=> handleDeleteImage(image.id||"")} alt="delete" /></button>
-               <img src={`http://localhost:3001/images/${image.image}`} className="col-12" alt="image" />
+               <img src={`http://localhost:3001/images/${image.image}`} className="col-12" alt={`foto${image.photoGalleryId}`} />
               </div>
              
               ))}
@@ -134,19 +116,15 @@ return (
                   }}
                 />
               </div>
-            
               <button className="col-12 col-sm-6 col-md-2" onClick={handleAddImage} disabled={!isImageFormValid}>
-            Add Image
-          </button>
+                Add Image
+              </button>
             </div>
-            
-                      
           </div>
-  
           <button className="form-button" onClick={handleAddGallery} disabled={!isFormValid}>
             Add new Gallery
           </button>
-          <button className="form-button form-close-button" onClick={closeGalleryForm}>
+          <button className="form-button form-close-button" onClick={closeModal}>
             Close
           </button>
         </div>

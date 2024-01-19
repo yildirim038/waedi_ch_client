@@ -8,21 +8,9 @@ import { ComponyCardProps } from "../../type/directoryTypes";
 const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => { 
   const [clickEvent, setClickDirectory] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  let role = false;
-
-  if (localStorage.getItem("role") === "admin") {
-    role = true;
-  } else {
-    role = false;
-  }
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () =>setIsModalOpen(false);
+  const role = localStorage.getItem("role") === "admin";
 
   const handleUpdateCompony = async () => {
     try {
@@ -65,22 +53,18 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
         <h6>Kontak Person</h6>
         <p>{data.contactFirstname} {data.contactLastname}</p>
           <p>Tel {data.tel} Fax {data.fax} Email {data.email}</p></div>       
-
-          <div className="update-card-button-container">
-            
-            <div>
-              <a href={`${data.website}`}>Go to Website</a>
-            </div>
-            {role ? (
+       <div className="update-card-button-container">
+         <div>
+            <a href={`${data.website}`}>Go to Website</a>
+         </div>
+            {role && (
               <div>
-                <button ><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
-                <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                <button className="update-delete-button"><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
+                <button className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
               </div>
-            ) : (<div></div>)}
+            )}
           </div>
-          
         </div>
-    
       </div>
     </div>
       )}

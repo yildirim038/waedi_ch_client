@@ -21,14 +21,10 @@ useEffect(() => {
 }, [directoryList]);
 
 publicList.forEach((company) => {
-    if (typeList.indexOf(company.companyType) === -1) {
-      typeList.push(company.companyType);
-    }
+    if (typeList.indexOf(company.companyType) === -1) typeList.push(company.companyType);
 });
 
-function isNotFiltered () {
-    setIsFiltered(false)
-}
+const isNotFiltered = () => setIsFiltered(false)
 
 return (
     <div>

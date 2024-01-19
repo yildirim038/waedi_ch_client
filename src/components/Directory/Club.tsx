@@ -12,7 +12,7 @@ const Club: React.FC = () => {
   const [clubList, setClubList] = useState<DirectoryFormState[]>([]);
   const [isFiltered, setIsFiltered] = useState(false);  
   const typeList: string[] = [];
-
+  const isNotFiltered = () => setIsFiltered(false);
   useEffect(()=>{
     getDirectoryData(setDirectoryList);
   },[])
@@ -26,9 +26,7 @@ const Club: React.FC = () => {
       typeList.push(company.companyType);
     }
   });
-  function isNotFiltered () {
-    setIsFiltered(false)
- }
+
   return (
     <div>
       <HeaderComponent/>

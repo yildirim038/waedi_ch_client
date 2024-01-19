@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import plusIcon from '../img/plus-svgrepo-com 1.png';
 import './Events.css';
 import AddEvent from "../components/Event/AddEvent";
@@ -25,6 +25,11 @@ const Events: React.FC = () => {
   const places:string[]= [];
   const dates:string[]=[];
   const type:string[]=[];
+  const openModal = () => setIsModalOpen(true);
+  const ortClick = () =>  setIsClick(!isClick);
+  const dayClick = () => setIsClickDay (!isClickDay);
+  const closeModal = () => setIsModalOpen(false);
+  const closeUpdateModal = () => setUpdateIsModalOpen(false);
   
   const handelPlaceClick = (clickedPlace: string) => {
     const list = eventList.filter(event => event.ort.toLowerCase()===clickedPlace.toLowerCase())
@@ -42,13 +47,12 @@ const Events: React.FC = () => {
     setControler(true)
   };
 
-
   const returnAllEvents = () => {
     getEventData(setEventList);
     setControler(false)
   }
   
-  eventList.map(event => {
+  eventList.forEach(event => {
     if(!places.includes(event.ort)){
       places.push(event.ort)
     }
@@ -59,27 +63,7 @@ const Events: React.FC = () => {
       type.push(event.eventType)
     }
   })
-
-  console.log(places);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const ortClick = () =>  {
-    setIsClick(!isClick)
-  }
-
-  const dayClick = () => {
-    setIsClickDay (!isClickDay)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const closeUpdateModal = () => {
-    setUpdateIsModalOpen(false);
-  };
+  
   return (
     <div className="events-main-container">
           {!isUpdateModalOpen && (

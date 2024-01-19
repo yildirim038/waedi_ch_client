@@ -7,14 +7,9 @@ import {  useState } from "react";
 
 const Directory: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);    
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-    
+  const openModal  = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+ 
     return (
     <div>
          {!isModalOpen &&
@@ -41,26 +36,18 @@ const Directory: React.FC = () => {
                             <img src={plusIcon} alt="add" />
                         </button>
                     </div>
-   
                  </div>
-        
-            </div>
-        
-       
+              </div>
             </div>
             <Footer/>
         </div>
         }     
-
         {isModalOpen && (
             <div className="modal-add-event-open">
                 <AddDirectory closeModal={closeModal}/>
             </div>
           )}
-       
     </div>
-    
     );
-};
-  
-  export default Directory;     
+}; 
+export default Directory;     

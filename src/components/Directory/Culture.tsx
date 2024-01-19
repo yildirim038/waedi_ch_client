@@ -12,6 +12,8 @@ const [directoryList, setDirectoryList] = useState <DirectoryFormState[]>([]);
 const [cultureList, setCultureList] = useState<DirectoryFormState[]>([]);
 const [isFiltered, setIsFiltered] = useState(false);  
 const typeList: string[] = [];
+const isNotFiltered = () => setIsFiltered(false)
+
 useEffect(()=>{
  getDirectoryData(setDirectoryList);
 },[])
@@ -21,14 +23,10 @@ useEffect(() => {
   }, [directoryList]);
 
 cultureList.forEach((company) => {
-    if (typeList.indexOf(company.companyType) === -1) {
-      typeList.push(company.companyType);
-    }
+    if (typeList.indexOf(company.companyType) === -1) typeList.push(company.companyType);
   });
-  function isNotFiltered () {
-    setIsFiltered(false)
- }
-    return (
+
+return (
     <div>
         <HeaderComponent/>
         <div className="row">
@@ -48,22 +46,19 @@ cultureList.forEach((company) => {
           }:{isFiltered && 
             <a onClick={isNotFiltered} className="side-menu-back" href="/kultur">
             zurück Kultur
-          </a>
+            </a>
           }
             </div>
             <div className="directory-text col-12 col-sm-8 col-md-9">
             <div className="row">
             {cultureList.map(data => {
-                return (
-                        <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
-                    )    
+                return <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
             })}
         </div>
             </div>
         </div>
         <Footer/>
     </div>
-    
     );
 };
   

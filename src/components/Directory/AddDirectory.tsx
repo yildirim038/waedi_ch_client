@@ -20,7 +20,6 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
   });
 
   const navigate = useNavigate();
-
   const handleAddCompony = async () => {
     try {
       const formData = new FormData();
@@ -37,7 +36,6 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
       formData.append('tel', values.tel || '');
       formData.append('fax', values.fax || '') ;
       formData.append('image', values.image || ''); 
-   
       await addDirectory(formData);
       closeModal()
       navigate('/directory');
@@ -45,7 +43,6 @@ const AddDirectory: React.FC<AddDirectoryType> = ({closeModal}) => {
       alert("Event could not be added.");
     }
   };
-
 
   const generateCompanyTypeOptions = () => {
     switch (values.category) {

@@ -16,10 +16,8 @@ type QuestionItemType = {
 };
 
 const InterviewPage: React.FC<InterviewPageProps> = ({ interview, closeInterviewModal }) => {
-
   const [questionList, setQuestionList] = useState<QuestionItemType[]>([])
   const interviewQuestionList = questionList.filter(element => element.interviewId === interview.id)
-
   useEffect(() => {
     getQuestionData(setQuestionList)
   }, [])
@@ -37,11 +35,9 @@ const InterviewPage: React.FC<InterviewPageProps> = ({ interview, closeInterview
               className="interview-img" alt={interview.imageTitel} />
           </div>
         </div>
-
         {interviewQuestionList.map((question: QuestionItemType, index) => (
           <QuestionCard key={index} question={question} setQuestionList={setQuestionList} />
         ))}
-
         <div>
           <button className='interview-ok-button' onClick={closeInterviewModal}>
             <img src={close} alt="ok-interview" />

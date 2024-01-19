@@ -5,10 +5,8 @@ import './Home.css';
 import HomeEventComponent from '../components/Home/HomeEventComponent';
 import HomeInterviewComponent from '../components/Home/HomeInterviewComponent';
 import SBBApp from '../components/SBBApp';
-import WeatherWidget from '../components/WeatherWidget';
 import HeaderComponent from '../components/Header/HeaderComponents';
 import Footer from '../components/Footer/Footer'
-
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -33,7 +31,6 @@ const Home: React.FC = () => {
         </section>
         <section className='m-5 w-75' >
               <SBBApp/>
-              <WeatherWidget/>
         </section>
         <footer>
           <Footer/>

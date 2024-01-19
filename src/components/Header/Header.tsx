@@ -12,13 +12,8 @@ import Login from './Login'
 
 const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogout, handleSomeAction,openModal,closeModal }) => {
   const [isOpen, setOpen] = useState(false);
-
-  const onHamburgerMenu = () => {
-    setOpen(isOpen ? false : true);
-  }
+  const onHamburgerMenu = () => setOpen(isOpen ? false : true);
   const {t} = useTranslation();
-
-
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-light">
@@ -26,7 +21,6 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogo
           <button className="hamburger-menu-button"onClick={onHamburgerMenu} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <img className="hamburger-menu" src={HamburgerLogo} alt='hamburger-menu' />
           </button>
-              
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <form className="d-flex form-container offset-sm-3  col-4">
               <input className="me-2 search-input" placeholder="Search" aria-label="Search"/>
@@ -45,10 +39,7 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogo
             </span>
           </div>
       </nav>
-      {isOpen ? (
-                      <HamburgerMenu isAuthenticated={isAuthenticated} onLogout={onLogout}/> 
-                    ) :<></>
-          }
+      {isOpen && <HamburgerMenu isAuthenticated={isAuthenticated} onLogout={onLogout}/>}
       <div className='page-navigation'>
         <nav className="nav justify-content-center">
             <a className="navigation-element" href="/">{t('nav_home')}</a>

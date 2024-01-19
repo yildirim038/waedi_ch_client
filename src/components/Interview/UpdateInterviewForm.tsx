@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Dispatch, SetStateAction } from 'react';
-import { InterviewFormState, addInterviewControlerType } from "../../type/interviewTypes";
+import { InterviewFormState} from "../../type/interviewTypes";
 import { getInterviewData, updateInterview } from "../../services/interviewService";
 
 type interviewControlerType = {

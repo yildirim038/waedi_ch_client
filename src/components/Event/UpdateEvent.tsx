@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { EventFormState } from "../../type/dataType";
-import { Dispatch, SetStateAction } from 'react';
+import { EventFormState, addEventType } from "../../type/dataType";
 import { getEventData, updateEvent } from "../../services/eventService"; 
-
-type addEventType = {
-  closeModal: () => void;
-  setEventList: Dispatch<SetStateAction<any>>;
-  clickEvent: any
-};
 
 const UpdateEvent: React.FC<addEventType> = ({ closeModal, setEventList,clickEvent }) => {
   const eventType = ["Party","Jubiläum","Kino","Konferenz","Chilbi","Seminare"]

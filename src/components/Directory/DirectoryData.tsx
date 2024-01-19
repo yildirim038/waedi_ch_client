@@ -6,7 +6,7 @@ export const vereine =['Arbeitgebervereine','Buddhistische Gemeinden','Chorverei
                 'Röm.-kath. Kirchgemeinden', 'Sammelvereine','Schiessvereine', 'Seniorenvereine', 'sonstige Vereine',
                 'Sportclub','Stenografieverein','Tanzvereine','Textilvereine', 'Tier- & tierbezogene Vereine',
                 'Verein für Baugewerbe', 'Verschiedenes', 'Volksvereine', 'Zunft'];
-export const companys =['IT','2','3'];
+export const companys =['IT','Ärtzte','Bau'];
 export const kultur =['Einzelmusiker','Freiräume','Jungwacht/Blauring','Museen','Pfadfinder','Sport','Theater'];
 export const facts = ['AHV Dienstleistung', 'Asyldienste', 'Ausbildungsstätte', 'Beruf & Bildung', 'Biblio- & Ludotheken',
                'Diverse & Spezielle','Eltern & Erwachsene','Energie','Entsorgung/Reinigung','Feuerwehr',

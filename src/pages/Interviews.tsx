@@ -1,7 +1,6 @@
 import plusIcon from '../img/plus-svgrepo-com 1.png'
 import { useEffect, useState } from "react";
 import InterviewCard  from "../components/Interview/InterviewCard";
-import './Interview.css'
 import { InterviewFormState } from "../type/interviewTypes";
 import { getInterviewData} from "../services/interviewService";
 import { useNavigate } from 'react-router-dom';
@@ -10,12 +9,13 @@ import HeaderComponent from '../components/Header/HeaderComponents';
 import Footer from '../components/Footer/Footer'
 import UpdateInterviewForm from '../components/Interview/UpdateInterviewForm';
 import { closeInterviewModals } from '../untils/untils';
+import './Interview.css'
 
 const Interviews: React.FC = () => {
   const [interviewList, setInterviewList] = useState<InterviewFormState[]>([]);
   const [isModalOpen,setIsModalOpen] = useState (false)
   const [isUpdateModalOpen,setIsUpdateModalOpen] = useState (false)
-  
+  const role = localStorage.getItem("role") === "admin";
   const [clickUpdateInterview, setClickUpdateInterview] = useState<InterviewFormState>({
     title: '',
     author: '',
@@ -25,12 +25,6 @@ const Interviews: React.FC = () => {
     image: '',
     datum: '',
   })
-  
-  useEffect(()=>{
-    if(clickUpdateInterview.title !== ''){
-      setIsUpdateModalOpen(true)
-     }
-  },[clickUpdateInterview])
 
   const [clickInterview, setClickInterview] = useState<InterviewFormState>({
     title: '',
@@ -41,30 +35,21 @@ const Interviews: React.FC = () => {
     image: '',
     datum: '',
   })
-  
+
+  useEffect(()=>{
+    if(clickUpdateInterview.title !== ''){
+      setIsUpdateModalOpen(true)
+     }
+  },[clickUpdateInterview])
+
   useEffect(()=>{
     if(clickInterview.title !== ''){
       setIsModalOpen(true)
      }
   },[clickInterview])
 
-
-  function closeInterviewModal() {
-   closeInterviewModals(setIsModalOpen,setClickInterview)
-  }
-
-  function closeUpdateInterviewModal() {
-    closeInterviewModals(setIsUpdateModalOpen,setClickUpdateInterview)
-  }
-
-  let  role = false
-
-  if(localStorage.getItem("role")==="admin"){
-    role = true   
-   }
-    else {
-    role = false
-  } 
+  const  closeInterviewModal       = ()  => closeInterviewModals(setIsModalOpen,setClickInterview)
+  const  closeUpdateInterviewModal = () =>closeInterviewModals(setIsUpdateModalOpen,setClickUpdateInterview)
   const navigate = useNavigate();
 
   const handleAddInterview = async () => {
@@ -81,7 +66,6 @@ const Interviews: React.FC = () => {
 
   return (
     <div className="interview-container">
-    
       {!isModalOpen && !isUpdateModalOpen &&(
         <div>
             <HeaderComponent/>  
@@ -100,7 +84,6 @@ const Interviews: React.FC = () => {
               <Footer/>
         </div>
         )}  
-
       {isModalOpen && (
         <div className="read-interview">
           <InterviewPage interview={clickInterview} closeInterviewModal={closeInterviewModal}/>
@@ -110,7 +93,6 @@ const Interviews: React.FC = () => {
           <UpdateInterviewForm  setInterviewList={setInterviewList} clickInterview={clickUpdateInterview} 
           closeUpdateInterviewModal={closeUpdateInterviewModal}/>
       )}
-         
     </div>    
   );
 };

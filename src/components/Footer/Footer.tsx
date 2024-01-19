@@ -3,7 +3,7 @@ import facebookIcon from '../../img/facebook.svg'
 import twiterxIcon from '../../img/twitterx.png'
 import instagram from  '../../img/instagram.png'
 
-const Galeries: React.FC = () => {
+const Footer: React.FC = () => {
     return (
      <div className="footer-container">
         <div className="row">
@@ -38,4 +38,4 @@ const Galeries: React.FC = () => {
     );
   };
   
-  export default Galeries;
+  export default Footer;

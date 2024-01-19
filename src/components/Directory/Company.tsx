@@ -12,7 +12,7 @@ const Company: React.FC = () => {
   const [companyList, setCompanyList] = useState<DirectoryFormState[]>([]);
   const [isFiltered, setIsFiltered] = useState(false);  
   const typeList: string[] = [];
-
+  const isNotFiltered = () => setIsFiltered(false)
   useEffect(() => {
     getDirectoryData(setDirectoryList);
   }, []);
@@ -27,9 +27,6 @@ const Company: React.FC = () => {
     }
   });
 
- function isNotFiltered () {
-    setIsFiltered(false)
- }
   return (
     <div>
       <HeaderComponent />

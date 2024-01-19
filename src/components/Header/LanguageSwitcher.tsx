@@ -4,16 +4,11 @@ import { useTranslation } from 'react-i18next';
 const LanguageSwitcher: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-
+  const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
     setDropdownOpen(false);
   }
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  }
-
   return (
     <span className="language-container">
       <span className="current-language" onClick={toggleDropdown}>

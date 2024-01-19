@@ -27,3 +27,16 @@ export type setAuthInfo = React.Dispatch<React.SetStateAction<{
     isAuthenticated: boolean;
     role: string;
 }>>
+export interface EventCardProps {
+    data: EventFormState; 
+    setEventList: React.Dispatch<React.SetStateAction<any>>;
+    setIsUpdateModalOpen:React.Dispatch<React.SetStateAction<boolean>>;
+    isUpdateModalOpen:boolean;
+    setClickEvent:React.Dispatch<React.SetStateAction<any>>;
+}
+
+export type addEventType = {
+    closeModal: () => void;
+    setEventList: React.Dispatch<React.SetStateAction<any>>;
+    clickEvent?: any;
+  };

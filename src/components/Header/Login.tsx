@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { login } from '../../services/authService';
 import { Link } from 'react-router-dom'; 
 import './Login.css'
-
 interface loginProps {
   handleSomeAction: () => void
   closeModal:() => void

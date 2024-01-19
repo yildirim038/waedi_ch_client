@@ -1,32 +1,30 @@
-.interview-container{
+.interview-container {
     background-color: rgb(246, 242, 242);
 }
-.interview-img{
+.interview-img {
     width: 10vw;
 }
-.interview-container h2{
+.interview-container h2 {
     text-align: center;
 }
 .interview-card-container {
     margin: auto 8vw;
 }
-.interview-card{
+.interview-card {
     margin: 5vh auto;
     padding: 2vw;
     background-color: white;
     border-radius: 3px;
     align-items: center;
 }
-.interview-card:nth-child(2n){
+.interview-card:nth-child(2) {
     flex-direction: row-reverse;
 }
-
-.interview-header{
+.interview-header {
     display: flex;
     align-items: center;
 }
-
-.interview-button{
+.interview-button {
     border: none;
     background-color: transparent;
     font-size: 1rem;
@@ -37,7 +35,6 @@
 .interview-header > h2 {
     width: 100vw;
 }
-
 .interview-header > button {
     border: none;
     position: fixed;
@@ -47,7 +44,7 @@
 .interview-header > button > img {
     width: 5vw;
 }
-.interview-title{
+.interview-title {
     display: flex;
     justify-content: space-between;
 }
@@ -55,17 +52,13 @@
     background:none;
     border: none;
 }
-
 .interview-title button img {
 width: 3vw;
 }
 .interview-plus-icon {
     background:none;
     border:none;
-
 }
-
-
 .interview-ok-button{
     background: none;
     border: none;
@@ -73,11 +66,9 @@ width: 3vw;
     bottom: 2px;
     right: 2px;
 }
-
 .interview-ok-button > img {
     width: 5vw;
 }
-
 .read-interview{
     background-color: white;
     z-index: 1;
@@ -85,15 +76,14 @@ width: 3vw;
     margin: 0 auto;
 }
 .read-interview h3, .read-interview h5, .read-interview h6 {
-    padding: 3vw;
+    padding: 0 3vw;
 }
 .read-interview p {
-    padding: 3vw;
+    padding: 2vw 3vw;
 }
 .add-interview-img-container{
     display: flex;
     justify-content: center;
-    
 }
 .interview-card-datum{
     padding: 3vw 0;

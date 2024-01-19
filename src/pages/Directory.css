@@ -8,7 +8,6 @@
     text-align: center;
     margin: 2vh 0;
 }
-
 .directory-side-bar-container a{
     text-decoration: none;
     color: white;
@@ -17,24 +16,20 @@
     padding: 0;
     margin: 0;
 }
-
 .directory-side-bar-container li{
     list-style: none;
     margin-right: calc(var(--bs-gutter-x) * -0.5);
     padding: 1vw;
 }
-
 .directory-side-bar-container li:hover{
     background-color: rgb(49, 49, 49);
 }
-
 .directory-text{
     justify-content: center;
     align-items: center;
     background-color: rgb(245, 244, 244);
     padding: 4vh;
 }
-
 .side-menu-back{
     position: sticky;
     top: 90%;
@@ -43,12 +38,10 @@
     display: flex;
     justify-content: center;
 }
-
 .company-card-img{
     width: 6vw;
     margin: auto;
 }
-
 .directory-side-menu-button{
     width: 100%;
     background-color: transparent;

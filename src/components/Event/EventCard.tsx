@@ -2,33 +2,13 @@ import React from "react";
 import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
 import { deleteEventData, getEventData, getEventDataById } from "../../services/eventService";
-import { EventFormState } from "../../type/dataType";
-
-
-
-interface EventCardProps {
-  data: EventFormState; 
-  setEventList: React.Dispatch<React.SetStateAction<any>>;
-  setIsUpdateModalOpen:React.Dispatch<React.SetStateAction<boolean>>;
-  isUpdateModalOpen:boolean;
-  setClickEvent:React.Dispatch<React.SetStateAction<any>>;
-}
+import { EventCardProps} from "../../type/dataType";
 
 const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent,setIsUpdateModalOpen, isUpdateModalOpen }) => { 
-
-  let role = false;
-
   const openModal = () => {
     setIsUpdateModalOpen(true);
   };
-
-
-  if (localStorage.getItem("role") === "admin") {
-    role = true;
-  } else {
-    role = false;
-  }
-
+  const role = localStorage.getItem("role") === "admin";
   const handleUpdateEvent = async () => {
     try {
       data.id ?
@@ -39,7 +19,6 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
       alert("Event could not be deleted.");
     }
   }
-
   const handleDeleteEvent = async () => {
     try {
       data.id ?
@@ -67,8 +46,8 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
                 </div>
                 {role ? (
                   <div>
-                    <button ><img src={Update} onClick={handleUpdateEvent} alt="update" /></button>
-                    <button onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                    <button className="update-delete-button" ><img src={Update} onClick={handleUpdateEvent} alt="update" /></button>
+                    <button className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
                   </div>
                 ) : (<div></div>)}
               </div>
