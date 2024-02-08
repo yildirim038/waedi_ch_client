@@ -42,7 +42,7 @@ const HomeInterviewComponent: React.FC = () => {
               <p>{interviewItem.coverText}</p>
             </div>
             <div>
-              <button className='all-interview-button' onClick={goInterview}>All Interviews</button>
+              <button className='all-interview-button all-homePage-button' onClick={goInterview}>All Interviews</button>
             </div>
           </div>
         </div>

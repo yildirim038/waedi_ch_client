@@ -4,13 +4,14 @@ import Delete from '../../img/bin 6.png'
 import { deleteDirectoryData, getDirectoryData, getDirectoryDataById } from "../../services/directoryService";
 import UpdateDirectory from "./UpdateDirectory";
 import { ComponyCardProps } from "../../type/directoryTypes";
+import { token } from "../../untils/untils";
 
 const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => { 
   const [clickEvent, setClickDirectory] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false)
   const openModal = () => setIsModalOpen(true);
   const closeModal = () =>setIsModalOpen(false);
-  const role = localStorage.getItem("role") === "admin";
+  const role = JSON.parse(token).role=== "admin";
 
   const handleUpdateCompony = async () => {
     try {
@@ -18,7 +19,6 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
         await getDirectoryDataById(setClickDirectory, data.id) : (console.log("error"))
       getDirectoryData(setComponyList);
       openModal()
-    
     } catch (error) {
       alert("Event could not be deleted.");
     }

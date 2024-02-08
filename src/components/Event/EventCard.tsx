@@ -3,12 +3,13 @@ import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
 import { deleteEventData, getEventData, getEventDataById } from "../../services/eventService";
 import { EventCardProps} from "../../type/dataType";
+import { token } from "../../untils/untils";
 
 const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent,setIsUpdateModalOpen, isUpdateModalOpen }) => { 
   const openModal = () => {
     setIsUpdateModalOpen(true);
   };
-  const role = localStorage.getItem("role") === "admin";
+  const role = JSON.parse(token).role=== "admin";
   const handleUpdateEvent = async () => {
     try {
       data.id ?
@@ -34,7 +35,9 @@ const EventCard: React.FC<EventCardProps> = ({ data, setEventList, setClickEvent
       {!isUpdateModalOpen && (
         <div key={data.id} className="card-container  col-12 col-sm-6 col-md-4 col-lg-3">
           <div className="card">
-            <img src={`http://localhost:3001/images/${data.image}`} className="card-img-top" alt="..." />
+            <div className="event-img-container">
+              <img src={`http://localhost:3001/images/${data.image}`} className="event-img" alt="..." />
+            </div>
             <div className="card-body">
               <h5>{data.startdatum.split('-').reverse().join('.')} - {data.enddatum.split('-').reverse().join('.')}</h5>
               <h6 className="card-title">{data.name}</h6>

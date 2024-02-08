@@ -25,7 +25,7 @@ export interface EventFormState {
 
 export type setAuthInfo = React.Dispatch<React.SetStateAction<{
     isAuthenticated: boolean;
-    role: string;
+    role: any;
 }>>
 export interface EventCardProps {
     data: EventFormState; 
@@ -40,3 +40,11 @@ export type addEventType = {
     setEventList: React.Dispatch<React.SetStateAction<any>>;
     clickEvent?: any;
   };
+
+  export type Register  ={
+    firstname:string, 
+    lastname:string, 
+    email: string, 
+    password: string, 
+    role: string
+  }

@@ -3,18 +3,11 @@ import Update from '../../img/arrow 5.png'
 import Delete from '../../img/bin 6.png'
 import { deleteInterviewData, getInterviewData, getInterviewDataById} from "../../services/interviewService";
 import { InterviewCardProps} from "../../type/interviewTypes";
+import { token } from "../../untils/untils";
 
 
 const InterviewCard: React.FC<InterviewCardProps> = ({ interview, setInterviewList,setClickInterview ,setClickUpdateInterview}) => {
-  let  role = false
-
-  if(localStorage.getItem("role")==="admin"){
-      role = true   
-     }
-      else {
-      role = false
-    } 
-
+  const role = JSON.parse(token).role=== "admin";
   const handleReadInterview = () => {
     setClickInterview(interview)
   }

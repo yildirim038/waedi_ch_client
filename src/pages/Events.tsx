@@ -8,6 +8,7 @@ import HeaderComponent from "../components/Header/HeaderComponents";
 import Footer from '../components/Footer/Footer'
 import UpdateEvent from "../components/Event/UpdateEvent";
 import { EventFormState } from "../type/dataType";
+import { token } from "../untils/untils";
 
 const Events: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,15 +23,16 @@ const Events: React.FC = () => {
     getEventData(setEventList);
   }, [])
 
-  const places:string[]= [];
-  const dates:string[]=[];
-  const type:string[]=[];
-  const openModal = () => setIsModalOpen(true);
-  const ortClick = () =>  setIsClick(!isClick);
-  const dayClick = () => setIsClickDay (!isClickDay);
-  const closeModal = () => setIsModalOpen(false);
+  const places: string[] = [];
+  const dates : string[] = [];
+  const type  : string[] = [];
+  const openModal        = () => setIsModalOpen(true);
+  const ortClick         = () => setIsClick(!isClick);
+  const dayClick         = () => setIsClickDay (!isClickDay);
+  const closeModal       = () => setIsModalOpen(false);
   const closeUpdateModal = () => setUpdateIsModalOpen(false);
-  
+  const role             = JSON.parse(token).role=== "admin";
+
   const handelPlaceClick = (clickedPlace: string) => {
     const list = eventList.filter(event => event.ort.toLowerCase()===clickedPlace.toLowerCase())
     setEventList(list)
@@ -106,9 +108,13 @@ const Events: React.FC = () => {
               <EventCard key={index} data={event} setClickEvent={setClickEvent} setEventList={setEventList} setIsUpdateModalOpen={setUpdateIsModalOpen} isUpdateModalOpen={isUpdateModalOpen}/>
             ))}
           </div>
-          <button onClick={openModal} className="event-plus-icon">
-            <img src={plusIcon} alt="add Event" />
-          </button>
+          {role && (
+              <button onClick={openModal} className="event-plus-icon">
+                <img src={plusIcon} alt="add Event" />
+              </button>
+          )
+          }
+        
         </div>
       </div>
       )}

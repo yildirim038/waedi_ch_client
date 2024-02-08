@@ -49,7 +49,7 @@ const HomeEventComponent: React.FC = () => {
           </ul>
         </div>
         <div className='col-12 col-sm-9 col-md-10'>
-          <button className='all-event-button' onClick={goEvents}>All Events</button>
+          <button className='all-event-button all-homePage-button' onClick={goEvents}>All Events</button>
           <h2 className='home-header'>Event</h2>
           <section className='row'>
             {!homeEventList.length && (
@@ -58,8 +58,10 @@ const HomeEventComponent: React.FC = () => {
             {homeEventList.map((event) => (
               <div key={event.id} className='home-event-card col-12 col-sm-6 col-md-3'>
                 <div className='card'>
-                  <img src={`http://localhost:3001/images/${event.image}`} className='card-img-top' alt='...' />
-                  <div className='card-body'>
+                <div className="event-img-container">
+                  <img src={`http://localhost:3001/images/${event.image}`} className="event-img" alt="..." />
+                </div> 
+                <div className='card-body'>
                     <h5>{event.startdatum.split('-').reverse().join('.')} - {event.enddatum.split('-').reverse().join('.')}</h5>
                     <h6 className='card-title'>{event.name}</h6>
                     <p>{event.adresse}</p>

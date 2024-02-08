@@ -14,8 +14,7 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
   const handleLogin = async () => {
     try {
       const token = await login(email, password);
-      localStorage.setItem('token', token.token)
-      localStorage.setItem('role', token.role);
+      localStorage.setItem('token', JSON.stringify(token))
       setError(null);
       handleSomeAction()
       closeModal()

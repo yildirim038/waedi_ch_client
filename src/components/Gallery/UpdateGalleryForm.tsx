@@ -1,13 +1,20 @@
 import React, {  useEffect, useState } from "react";
 import Delete from '../../img/bin 6.png'
 import { addImage, deletePhotoData, getGalleryData, getImageData, updateGallery } from "../../services/galleryService";
-import { Gallery, ImageType, addGalleryType } from "../../type/galleryType";
+import { GalleryType, ImageType } from "../../type/galleryType";
 
-const AddGalleryForm: React.FC<addGalleryType> = ({ closeModal,addGalleryControler, setGalleryList }) => {
-  const [newGalleryList, setNewGalleryList] = useState<Gallery[]>([]);
-  const [gallery, setGallery] = useState<Gallery>({
-    name: "",
-    description: "",
+type updateGalleryType = {
+  closeUpdateModal: () => void ;
+  setGalleryList: React.Dispatch<React.SetStateAction<any>>;
+  clickedGallery: GalleryType;
+  setImageList:React.Dispatch<React.SetStateAction<any>>
+}
+
+const UpdateGalleryForm: React.FC<updateGalleryType> = ({ closeUpdateModal,setGalleryList, clickedGallery,setImageList }) => {
+  const [gallery, setGallery] = useState<GalleryType>({
+    id:clickedGallery.id,
+    name: clickedGallery.name,
+    description: clickedGallery.description,
   });
 
   const [addImages, setAddImage] = useState<ImageType[]>([]);
@@ -16,11 +23,23 @@ const AddGalleryForm: React.FC<addGalleryType> = ({ closeModal,addGalleryControl
     photoGalleryId: "",
   });
 
+  const handleUpdateGallery = async () => {
+    try {
+      await updateGallery(gallery,clickedGallery.id);
+      getGalleryData(setGalleryList);
+      getImageData(setImageList)
+      closeUpdateModal()
+    } catch (error) {
+      console.error("Error adding gallery:", error);
+      alert("Gallery could not be added.");
+    }
+  };
+
   const handleAddImage = async () => {
     try {
       const formData = new FormData();
-      formData.append('image', image.image || '');
-      formData.append('photoGalleryId', newGalleryList[0]?.id || '');
+      formData.append('image', image.image);
+      formData.append('photoGalleryId', clickedGallery.id);
       await addImage(formData);
       getImageData(setAddImage);
     } catch (error) {
@@ -39,41 +58,17 @@ const AddGalleryForm: React.FC<addGalleryType> = ({ closeModal,addGalleryControl
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await getGalleryData(setNewGalleryList);
-      } catch (error) {
-        console.error("Error fetching gallery data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    getImageData(setAddImage);
-  }, []);
-
-  const handleAddGallery = async () => {
-    try {
-      await updateGallery(gallery,newGalleryList[0].id||"");
-      getGalleryData(setGalleryList);
-      addGalleryControler();
-      closeModal()
-    } catch (error) {
-      console.error("Error adding gallery:", error);
-      alert("Gallery could not be added.");
-    }
-  };
+useEffect(() => {
+  getImageData(setAddImage)
+}, []);
 
   const isFormValid = gallery.name.trim() !== "";
   const isImageFormValid = image.image !== "";
-  const imageList = addImages.filter(element => element.photoGalleryId === newGalleryList[0]?.id);
+  const imageList = addImages.filter(element => element.photoGalleryId === clickedGallery.id);
 return (
     <div className="form-main-container">
       <div className="add-event-container">
-        <h2>Add Gallery</h2>
+        <h2>Update Gallery</h2>
         <div className="add-event-input-container">
         <div className="event-input-element">
             <label>Name:</label>
@@ -118,10 +113,10 @@ return (
               </button>
             </div>
           </div>
-          <button className="form-button" onClick={handleAddGallery} disabled={!isFormValid}>
-            Add new Gallery
+          <button className="form-button mt-5" onClick={handleUpdateGallery} disabled={!isFormValid}>
+            Update Gallery
           </button>
-          <button className="form-button form-close-button" onClick={closeModal}>
+          <button className="form-button mt-5 form-close-button" onClick={closeUpdateModal}>
             Close
           </button>
         </div>
@@ -130,4 +125,4 @@ return (
   );
 };
 
-export default AddGalleryForm;
+export default UpdateGalleryForm;

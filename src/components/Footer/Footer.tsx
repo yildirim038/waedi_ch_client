@@ -4,6 +4,8 @@ import twiterxIcon from '../../img/twitterx.png'
 import instagram from  '../../img/instagram.png'
 
 const Footer: React.FC = () => {
+    const date = new Date ()
+    const year = date.getFullYear()
     return (
      <div className="footer-container">
         <div className="row">
@@ -20,20 +22,21 @@ const Footer: React.FC = () => {
                     <div className=" col-12  col-sm-6">
                         <div><a href="/">Startseite</a></div>
                         <div><a href="/events">Event</a></div>
-                        <div><a href="/galerie">Fotogalerie</a></div>
+                        <div><a href="/gallery">Fotogalerie</a></div>
                         <div><a href="/interviews">Interviews</a></div>
                     </div>
                     <div className=" col-12  col-sm-6 ">
                         <div><a href="/directory">Verzeichnisse</a></div>
-                        <div>Vereine</div>
-                        <div>Kultur</div>
-                        <div>Öffentliches</div>
+                        <div><a href="/club">Vereine</a></div>    
+                        <div><a href="/company">Geschäfte</a></div>
+                        <div><a href="/kultur">Kultur</a></div>
+                        <div><a href="/public">Öffentliches</a></div>
                     </div>
                 </div>
             </div>
         </div>
         <hr />
-        <div><p className="footer-text">Copyright © 2023 waedi.ch, abc4IT GmbH, Instruct AG - Impressum </p></div>
+        <div><p className="footer-text">Copyright © 2023 - {year} waedi.ch, abc4IT GmbH, Instruct AG - Impressum </p></div>
      </div>
     );
   };

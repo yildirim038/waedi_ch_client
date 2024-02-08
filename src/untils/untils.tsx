@@ -1,9 +1,10 @@
 import { setAuthInfo } from "../type/dataType";
 import { DirectoryFormState } from "../type/directoryTypes";
+export const token = localStorage.getItem("token")|| '{"token":"","email":"","role":""}'
 
 export const handleTokenCheck =  (pInfo :setAuthInfo) => {
     try {
-      const authRole = localStorage.getItem('role')
+      const authRole = JSON.parse(token).role=== "admin"
       if(authRole){
         pInfo({
           isAuthenticated: true,

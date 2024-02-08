@@ -6,3 +6,33 @@
     width: 80vw;
     margin: auto;
 }
+.gallery-header-container{
+    position: relative;
+
+}
+.gallery-header-button-container{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.gallery-update-delete-image {
+ width: 2vw;
+}
+
+
+@media only screen and (max-width: 992px){
+    .gallery-update-delete-image {
+        width: 3vw;
+       }
+}
+@media only screen and (max-width: 768px){
+    .gallery-update-delete-image {
+        width: 5vw;
+       }
+}
+@media only screen and (max-width: 576px){
+    .gallery-update-delete-image {
+        width: 7vw;
+       }
+}

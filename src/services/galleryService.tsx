@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const API_URL = 'http://localhost:3001';
 
 export const addGallery = async (data: any) => {
@@ -18,10 +19,10 @@ export const getGalleryData = async (pSetGallery:any) => {
       console.error("Error fetching gallerys:", error);
     }
   };
-  export const getGalleryDataById = async (pSetGallery:any,pGalleryId:string) => {
+  export const getGalleryDataById = async (pSetEvent:any,pGalleryId:string) => {
     try {
       const response = await axios.get(`${API_URL}/photogallery/${pGalleryId}`);
-      pSetGallery(response.data);
+      pSetEvent(response.data)
     } catch (error) {
       console.error("Error fetching gallery:", error);
     }
@@ -88,10 +89,10 @@ export const deletePhotoData = async (pId: string) => {
   }
 }
 
-export const getPhotoDataById = async (pSetPhoto:any,pId:string) => {
+export const getPhotoDataById = async (pId:string) => {
   try {
     const response = await axios.get(`${API_URL}/photo/${pId}`);
-    pSetPhoto(response.data);
+    return response.data;
   } catch (error) {
     console.error("Error fetching Photos:", error);
   }

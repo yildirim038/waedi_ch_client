@@ -4,19 +4,18 @@ import { ImagesType } from "../../type/galleryType";
 
 const GalleryCard: React.FC<{ images: ImagesType[] }> = ({ images }) => {
     return (
-        <>
+        <div className="bg-dark">
             <ImageGallery
                 items={images}
                 showPlayButton={true}
                 showFullscreenButton={true}
-                slideInterval={1000}
+                slideInterval={5000}
                 slideOnThumbnailOver={true}
-                showIndex={true}
-                onPlay={() => {
-                    alert("slideshow is now playing!");
-                }}
+                showIndex={false}
+                
+            
             />
-        </>
+        </div>
     )
 }
 

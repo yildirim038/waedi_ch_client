@@ -16,7 +16,7 @@
 .event-container{
     margin-left:2vw;
 }
-.all-interview-button{
+.all-homePage-button {
     background: rgb(255, 255, 255);
     padding: 1vw;
     border: 1px solid transparent;
@@ -27,23 +27,24 @@
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
     letter-spacing: 0.2px;
     position: absolute;
+}
+.all-interview-button{
     right: 3vw;
 }
 .all-event-button{
-    background: rgb(255, 255, 255);
-    padding: 1vw;
-    border: 1px solid transparent;
-    border-radius: 2vw;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
-    letter-spacing: 0.2px;
-    position: absolute;
     right: 3vw;
     margin-top: 1vh;
 
 }
+.gallery-left-container{
+    position: relative;
+    margin: 0 auto;
+}
+
+.all-gallery-button{
+    bottom:50%;
+}
+
 .home-interview{
     margin: 5vh auto;
     padding: 2vw;
@@ -68,7 +69,7 @@
     width: 99%;
 }
 .home-event-card {
-    margin: 3vh auto;
+    margin: auto;
  }
 .home-header {
     text-align: center;
@@ -104,3 +105,4 @@
         align-items: center;
     }
 }
+

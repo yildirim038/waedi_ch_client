@@ -61,8 +61,13 @@
 .card{
     margin: 3vh 0;
 }
-.card-img-top {
-height: 25vh;
+.event-img {
+width: 100%;
+height: 100%;
+}
+.event-img-container{
+    width: 100%;
+    height:15vh;
 }
 .open {
     display: block;
