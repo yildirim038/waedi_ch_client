@@ -47,6 +47,7 @@ const Header: React.FC<isAuthenticated> = ({ isAuthenticated,isModalOpen, onLogo
             <a className="navigation-element" href="/directory">{t('nav_directories')}</a>
             <a className="navigation-element" href="/gallery">{t('nav_photo_gallery')}</a>
             <a className="navigation-element" href="/interviews">Interviews</a>
+            <a className="navigation-element" href="/advert">Werbung</a>
           </nav>
       </div>
     </header>

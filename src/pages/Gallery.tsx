@@ -11,7 +11,9 @@ import Delete from '../img/bin 6.png';
 import { GalleryType, ImageType, ImagesType, GalleryDataType, ImgType } from "../type/galleryType";
 import GalleryCard from "../components/Gallery/GalleryCard";
 import UpdateGalleryForm from "../components/Gallery/UpdateGalleryForm";
-import { token } from "../untils/untils";
+import { pageAdverts, token } from "../untils/untils";
+import { AdvertUpdateType } from "../type/advertType";
+import { getAdvertData } from "../services/advertService";
 
 const Galeries: React.FC = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,6 +21,7 @@ const Galeries: React.FC = () => {
    const [addGallerys, setAddGallery] = useState(false)
    const [imageList, setImageList] = useState<ImageType[]>([]);
    const [updateModalOpen, setUpadateModalOpen] = useState(false)
+   const [advertData, setAdvertData] = useState<AdvertUpdateType[]>([]);
    const [clickedGallery, setClickedGallery] = useState<GalleryType>({
     id: "",
     name: "",
@@ -35,7 +38,11 @@ const Galeries: React.FC = () => {
    useEffect(() => {
       getGalleryData(setGalleryList);
       getImageData(setImageList);
+      getAdvertData(setAdvertData)
    }, [])
+  
+   const galleryAdverts = advertData.filter(advert => advert.advertPage === "gallery" && advert.publish);
+   const adverts = pageAdverts(galleryAdverts);
 
    const galleryAllData: GalleryDataType[] = galleryList.map(gallery => {
       const images: ImgType[] = imageList.filter(image => image.photoGalleryId === gallery.id)
@@ -109,6 +116,7 @@ const Galeries: React.FC = () => {
                   <img src={plusIcon} alt="add Event" />
                </button>
                    )}
+               <div className="row my-3">{adverts}</div>
                <Footer />
             </div>
          )}

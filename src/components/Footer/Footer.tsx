@@ -24,6 +24,7 @@ const Footer: React.FC = () => {
                         <div><a href="/events">Event</a></div>
                         <div><a href="/gallery">Fotogalerie</a></div>
                         <div><a href="/interviews">Interviews</a></div>
+                        <div><a href="/advert">Werbung</a></div>
                     </div>
                     <div className=" col-12  col-sm-6 ">
                         <div><a href="/directory">Verzeichnisse</a></div>

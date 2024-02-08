@@ -3,10 +3,22 @@ import Footer from '../components/Footer/Footer'
 import './Directory.css'
 import AddDirectory from "../components/Directory/AddDirectory";
 import plusIcon from '../img/plus-svgrepo-com 1.png';
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
+import { AdvertUpdateType } from "../type/advertType";
+import { pageAdverts } from "../untils/untils";
+import { getAdvertData } from "../services/advertService";
 
 const Directory: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);    
+  const [advertData, setAdvertData] = useState<AdvertUpdateType[]>([]);
+
+  useEffect(()=>{
+    getAdvertData(setAdvertData)
+  },[])
+
+  const directoryAdverts = advertData.filter(advert => advert.advertPage === "directory" && advert.publish);
+  const adverts = pageAdverts(directoryAdverts);
+
   const openModal  = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
  
@@ -39,6 +51,7 @@ const Directory: React.FC = () => {
                  </div>
               </div>
             </div>
+            <div className="row my-3">{adverts}</div>
             <Footer/>
         </div>
         }     

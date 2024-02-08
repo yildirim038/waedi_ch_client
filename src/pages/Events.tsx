@@ -8,7 +8,9 @@ import HeaderComponent from "../components/Header/HeaderComponents";
 import Footer from '../components/Footer/Footer'
 import UpdateEvent from "../components/Event/UpdateEvent";
 import { EventFormState } from "../type/dataType";
-import { token } from "../untils/untils";
+import { pageAdverts, token } from "../untils/untils";
+import { AdvertUpdateType } from "../type/advertType";
+import { getAdvertData } from "../services/advertService";
 
 const Events: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,11 +20,15 @@ const Events: React.FC = () => {
   const [isClick, setIsClick] = useState(false);
   const [isClickDay, setIsClickDay] = useState(false);
   const [controler, setControler] = useState(false)
+  const [advertData, setAdvertData] = useState<AdvertUpdateType[]>([]);
 
   useEffect(() => {
     getEventData(setEventList);
+    getAdvertData(setAdvertData)
   }, [])
-
+  
+  const eventAdverts = advertData.filter(advert => advert.advertPage === "events" && advert.publish);
+  const adverts = pageAdverts(eventAdverts);
   const places: string[] = [];
   const dates : string[] = [];
   const type  : string[] = [];
@@ -123,6 +129,9 @@ const Events: React.FC = () => {
               <AddEvent closeModal={closeModal} setEventList={setEventList} />
           </div>
         )}
+      </div>
+      <div className="row my-5">
+          {adverts}
       </div>
       <Footer/>
           </>

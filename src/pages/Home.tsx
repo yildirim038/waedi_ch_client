@@ -8,6 +8,7 @@ import SBBApp from '../components/SBBApp';
 import HeaderComponent from '../components/Header/HeaderComponents';
 import Footer from '../components/Footer/Footer'
 import HomeGalleryComponent from '../components/Home/HomeGalleryComponent';
+import HomePageAdverts from '../components/Home/HomePageAdverts';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -32,6 +33,9 @@ const Home: React.FC = () => {
         </section>
         <section className='m-5'>
               <HomeGalleryComponent/>
+        </section>
+        <section>
+        <HomePageAdverts/>
         </section>
         <section className='m-5 w-75' >
               <SBBApp/>

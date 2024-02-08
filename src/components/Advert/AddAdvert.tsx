@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { addAdvert } from "../../services/advertService"; 
+import { addAdvert, getAdvertData } from "../../services/advertService"; 
 import { AdvertType } from "../../type/advertType";
 
 type AddAdvertType = {
     closeModal:() => void;
+    setAdvertData:React.Dispatch<React.SetStateAction<any>>
 }
 
-const AddAdvert: React.FC <AddAdvertType>= ({closeModal}) => {
+const AddAdvert: React.FC <AddAdvertType>= ({closeModal,setAdvertData}) => {
   const [values, setValue] = useState<AdvertType>({
     id:'',
     name: '',
@@ -20,7 +20,6 @@ const AddAdvert: React.FC <AddAdvertType>= ({closeModal}) => {
     link: 'https://'
   });
 
-  const navigate = useNavigate();
   const handleAddCompony = async () => {
     try {
       const formData = new FormData();
@@ -34,7 +33,7 @@ const AddAdvert: React.FC <AddAdvertType>= ({closeModal}) => {
       formData.append('image', values.image || ''); 
       await addAdvert(formData);
       closeModal()
-      navigate('/adverts');
+      getAdvertData(setAdvertData)
     } catch (error) {
       alert("Event could not be added.");
     }

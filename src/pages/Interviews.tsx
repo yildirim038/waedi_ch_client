@@ -8,14 +8,24 @@ import InterviewPage from '../components/Interview/InterviewPage';
 import HeaderComponent from '../components/Header/HeaderComponents';
 import Footer from '../components/Footer/Footer'
 import UpdateInterviewForm from '../components/Interview/UpdateInterviewForm';
-import { closeInterviewModals } from '../untils/untils';
+import { closeInterviewModals, pageAdverts, token } from '../untils/untils';
 import './Interview.css'
+import { AdvertUpdateType } from '../type/advertType';
+import { getAdvertData } from '../services/advertService';
 
 const Interviews: React.FC = () => {
   const [interviewList, setInterviewList] = useState<InterviewFormState[]>([]);
   const [isModalOpen,setIsModalOpen] = useState (false)
   const [isUpdateModalOpen,setIsUpdateModalOpen] = useState (false)
-  const role = localStorage.getItem("role") === "admin";
+  const role = JSON.parse(token).role=== "admin";
+  const [advertData, setAdvertData] = useState<AdvertUpdateType[]>([]);
+
+  useEffect(()=>{
+    getAdvertData(setAdvertData)
+  },[])
+
+  const interviewAdverts = advertData.filter(advert => advert.advertPage === "interview" && advert.publish);
+  const adverts = pageAdverts(interviewAdverts);
   const [clickUpdateInterview, setClickUpdateInterview] = useState<InterviewFormState>({
     title: '',
     author: '',
@@ -81,6 +91,7 @@ const Interviews: React.FC = () => {
                   setClickUpdateInterview={setClickUpdateInterview} setInterviewList={setInterviewList}/>
               ))}
             </div>
+            <div className='row my-3'>{adverts}</div>
               <Footer/>
         </div>
         )}  

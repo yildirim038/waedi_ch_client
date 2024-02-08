@@ -70,6 +70,11 @@ console.group(advertData)
                  <div className="directory-text col-6 col-sm-8 col-md-9">
                  <AdvertCard advertData={data} setAdvertData={setAdvertData} setIsModalUpdateOpen={setIsModalUpdateOpen} setClickId={setClickId}/>
                  </div> 
+                 <div className="directory-plus-icon text-center">
+                     <button onClick={openModal} className="event-plus-icon">
+                         <img src={plusIcon} alt="add" />
+                     </button>
+                 </div>
               </div>
             )}
             {!role && (
@@ -90,12 +95,12 @@ console.group(advertData)
         }     
         {isModalOpen && (
             <div className="modal-add-event-open">
-                <AddAdvert closeModal={closeModal} />
+                <AddAdvert closeModal={closeModal} setAdvertData={setAdvertData}/>
             </div>
           )}
           {
             isModalUpdateOpen && (
-              <UpdateAdvert clickId = {clickId} closeModal={closeUpdateModal}/>
+              <UpdateAdvert clickId = {clickId} closeModal={closeUpdateModal} setAdvertData={setAdvertData} returnAllAdvert={returnAllAdvert}/>
             )
           }
     </div>

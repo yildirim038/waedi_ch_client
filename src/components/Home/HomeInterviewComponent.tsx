@@ -21,7 +21,7 @@ const HomeInterviewComponent: React.FC = () => {
   const navigate = useNavigate();
   const goInterview = () => navigate('/interviews');
 
-  const interviewItem = interviewList[0];
+  const interviewItem = interviewList[0] ||"";
 
   return (
     <div className='container'>
