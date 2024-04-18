@@ -10,12 +10,12 @@
 .sbb-form-label-container {
     width:50%; 
     display:flex; 
-    border-bottom: 1px solid #000000; 
+    border-bottom: 1px solid var(--color-black); 
     margin-right: 4rem;
 }
 .sbb-form-label{
     padding-left:0px; 
-    color:#0a0a0a; 
+    color:var(--color-black); 
     padding-right:10px;
 }
 .sbb-form-input{
@@ -29,9 +29,9 @@
     padding-right:2em;
 }
 .sbb-search{
-    background:red; 
+    background:var(--color-danger); 
     display:inline-block; 
-    color:#fefefe; margin:0 0 1rem;
+    color:var(--color-white); margin:0 0 1rem;
     padding: .85em 1em; 
     border:1px solid transparent; 
     font-family:inherit; 
