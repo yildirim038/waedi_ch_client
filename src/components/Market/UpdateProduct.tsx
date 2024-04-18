@@ -1,27 +1,25 @@
 import React, { useState } from "react";
-import { addProduct, getProductData } from "../../services/marketService";
-import { AddProductType, ProductType } from "../../type/productType";
-import { token } from "../../untils/untils";
+import { useNavigate } from 'react-router-dom';
+import { ProductType, UpdateProductType } from "../../type/productType";
+import { getProductData, updateProduct } from "../../services/marketService";
 
-const AddProduct: React.FC <AddProductType> = ({closeModal,setProductData}) => {
-  const email = JSON.parse(token).email
+const UpdateProduct: React.FC<UpdateProductType> = ({ closeModal, setProductData,clickProduct }) => { 
+
   const [values, setValue] = useState<ProductType>({
-    id:'',
-    name: '',
-    category:'',
-    weight: 0,
-    info: '',
-    seller: "",
+    id:clickProduct.id,
+    name: clickProduct.name,
+    category:clickProduct.category,
+    weight: clickProduct.weight,
+    info: clickProduct.info,
+    seller: clickProduct.seller,
     image: null,
-    tel: '',
-    email:email,
-    preis:''
+    tel: clickProduct.tel,
+    email:clickProduct.email,
+    preis: clickProduct.preis
   });
+  const navigate = useNavigate();
 
-  const categoryType = ["Baby","Spielzeug","Bücher","Computer","Handy","Lebensmittel","Fahrzeuge", "Filme", "Foto & Video", "Garten", 
-                        "Haushalt", "Immobilien", "Sport","Velos","Scooter", "TV"];
-
-  const handleAddProduct = async () => {
+  const handleUpdateProduct = async () => {
     try {
       const formData = new FormData();
       formData.append('name', values.name);
@@ -32,15 +30,17 @@ const AddProduct: React.FC <AddProductType> = ({closeModal,setProductData}) => {
       formData.append('seller', values.seller);
       formData.append('tel', values.tel);
       formData.append('preis', values.preis.toString());
-      formData.append('image', values.image || ''); 
-      await addProduct(formData);
-      closeModal()
-      getProductData(setProductData)
+      formData.append('image', values.image || '');  
+  
+      await updateProduct(formData,clickProduct.id);
+      navigate('/market');
+      getProductData(setProductData);
+      closeModal();
     } catch (error) {
-      alert("Event could not be added.");
+      alert("Event could not be updated.");
     }
   };
-  return (
+   return (
     <div className='form-main-container'>
       <div className='add-event-container'>
         <h2>Neuen Product erstellen</h2>
@@ -50,17 +50,12 @@ const AddProduct: React.FC <AddProductType> = ({closeModal,setProductData}) => {
             <input type="text" value={values.name} onChange={e => setValue({ ...values, name: e.target.value })} />
           </div>
           <div className='event-input-element'>
-            <label>Email</label>
-            <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
+                <label>Email</label>
+                <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
           </div>
           <div className='event-input-element'>
             <label>Category</label>
-            <select value={values.category} onChange={e => setValue({ ...values, category: e.target.value })}>
-              <option value="" disabled>Select a type</option>c
-                {categoryType.map((option, index) => (
-                  <option key={index} value={option}>{option}</option>
-                ))}
-            </select>
+            <input type="text" value={values.category} onChange={e => setValue({ ...values, category: e.target.value })} />
           </div>
           <div className='event-input-element'>
             <label>Info</label>
@@ -86,13 +81,13 @@ const AddProduct: React.FC <AddProductType> = ({closeModal,setProductData}) => {
               }}}
             />
           </div>
-        </div> 
+        </div>  
         <div className="form-button-container">
-          <button className='form-button' onClick={handleAddProduct}>Add Product</button>
+          <button className='form-button' onClick={handleUpdateProduct}>Update Product</button>
           <button className='form-button form-close-button' onClick={closeModal}>Close</button>
-        </div> 
+        </div>
       </div>
     </div>
-  )
+  );
 }
-export default AddProduct;
+export default UpdateProduct;
