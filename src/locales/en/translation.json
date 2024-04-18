@@ -5,6 +5,7 @@
     "header_login":"Login",
     "header_logout":"Logout",
     "nav_home":"Home",
+    "nav_history":"History",
     "nav_event":"Event",
     "nav_directories":"Directories",
     "nav_photo_gallery":"Photo Gallery"
