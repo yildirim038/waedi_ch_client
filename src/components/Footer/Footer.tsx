@@ -19,18 +19,28 @@ const Footer: React.FC = () => {
             </div>
             <div className="col-12 col-sm-6 col-md-8">
                 <div className="row">
-                    <div className=" col-12  col-sm-6">
+                    <div className=" col-12  col-sm-3">
                         <div><a href="/">Startseite</a></div>
                         <div><a href="/events">Event</a></div>
                         <div><a href="/gallery">Fotogalerie</a></div>
                         <div><a href="/interviews">Interviews</a></div>
-                        <div><a href="/advert">Werbung</a></div>
                     </div>
-                    <div className=" col-12  col-sm-6 ">
+                    <div className=" col-12  col-sm-3">
                         <div><a href="/directory">Verzeichnisse</a></div>
                         <div><a href="/club">Vereine</a></div>    
                         <div><a href="/company">Geschäfte</a></div>
+                        
+                    </div>
+                    <div className=" col-12  col-sm-3">
+                        <div><a href="/advert">Werbung</a></div>
+                        <div><a href="/market">Markt</a></div>
                         <div><a href="/kultur">Kultur</a></div>
+                      
+                    </div>
+                    <div className=" col-12  col-sm-3">
+                        <div><a href="/history">Geschichte</a></div>
+                        <div><a href="/info">Info</a></div>
+                        <div><a href="/contact">Kontakt</a></div>
                         <div><a href="/public">Öffentliches</a></div>
                     </div>
                 </div>

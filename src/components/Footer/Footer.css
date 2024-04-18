@@ -1,12 +1,12 @@
 .footer-container {
-    background-color: #6c6c6c;
-    color: white;
+    background-color: var(--color-gray);
+    color: var(--color-white);
     padding: 3vh;
 }
 
 .footer-container a {
     text-decoration: none;
-    color: white;
+    color: var(--color-white);
     
 }
 
@@ -23,5 +23,5 @@
 }
 
 .sozial-media-icon{
-    width: 4vw;
+    width: 2vw;
 }
