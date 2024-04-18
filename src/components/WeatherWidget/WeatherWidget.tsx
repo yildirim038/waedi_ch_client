@@ -28,7 +28,7 @@ const WeatherWidget = () => {
 
   useEffect( () => {
     weatherData();
-  }, []);
+  }, [location]);
 
   const search = async () => {
     await weatherData();
