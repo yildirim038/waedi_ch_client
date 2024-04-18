@@ -55,11 +55,11 @@ const UpdateInterviewForm: React.FC<interviewControlerType> = ({ setInterviewLis
           </div>
           <div className='event-input-element'>
             <label>Description of image:</label>
-            <input type="text" value={values.descriptionOfImage} onChange={e => setValue({ ...values, descriptionOfImage: e.target.value })} />
+            <textarea className="form-mittel-input" value={values.descriptionOfImage} onChange={e => setValue({ ...values, descriptionOfImage: e.target.value })} />
           </div>
           <div className='event-input-element'>
             <label>Cover Text:</label>
-            <input type="text" value={values.coverText} onChange={e => setValue({ ...values, coverText: e.target.value })} />
+            <textarea className="form-mittel-input" value={values.coverText} onChange={e => setValue({ ...values, coverText: e.target.value })} />
           </div>
           <div className='event-input-element'>
             <label>Author:</label>
@@ -75,21 +75,18 @@ const UpdateInterviewForm: React.FC<interviewControlerType> = ({ setInterviewLis
               type="file"
               onChange={(e) => {
                 if (e.target.files && e.target.files.length > 0) {
-                  setValue({
-                    ...values,
-                    image: e.target.files[0],
-                  });
+                  setValue({...values,image: e.target.files[0],});
                 }
               }}
             />
           </div>
-          <div className='event-input-element'></div>
-          <button className='form-button' onClick={handleUpdateInterview}>Update Event</button>
-          <button className='form-button form-close-button' onClick={closeUpdateInterviewModal} >Close</button>
         </div>
+        <div className="form-button-container">
+            <button className='form-button' onClick={handleUpdateInterview}>Update Event</button>
+            <button className='form-button form-close-button' onClick={closeUpdateInterviewModal} >Close</button>
+          </div>
       </div>
     </div>
   );
 }
-
 export default UpdateInterviewForm;

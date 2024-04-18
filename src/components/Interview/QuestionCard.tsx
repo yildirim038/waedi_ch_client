@@ -44,7 +44,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ question, setQuestionList }
   return (
     <div className="question-container">
       {!isModalOpen && (
-        <>
+        <div>
           <div>
             <h6>
               {question.question}
@@ -59,7 +59,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({ question, setQuestionList }
           <div>
             <p>{question.antwort}</p>
           </div>
-        </>
+        </div>
       )}
       {isModalOpen && (
           <UpdateQuestion closeModal={closeModal} setQuestionList={setQuestionList} clickQuestion={clickQuestion as QuestionItemType} />

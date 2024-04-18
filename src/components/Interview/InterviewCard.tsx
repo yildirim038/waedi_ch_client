@@ -44,7 +44,7 @@ return(
             <h4>{interview.title}</h4>
             <h6 className="interview-card-datum">{interview.datum}</h6>
           </div>
-          {  role && (
+          {role && (
             <div>
               <button ><img src={Update} onClick={handleUpdateInterview} alt="update"/></button>
               <button><img src={Delete}  onClick={handleDeleteInterview} alt="delete" /></button>

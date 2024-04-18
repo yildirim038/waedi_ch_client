@@ -21,28 +21,30 @@ const UpdateQuestion: React.FC<UpdateQuestionProps> = ({ closeModal, setQuestion
       await updateQuestion(values, clickQuestion.id);
       await getQuestionData(setQuestionList);
       closeModal();
-    } catch (error) {
+    } catch (error) {       <div className="form-button-container"></div>
       alert("Question could not be updated.");
     }
   };
 
   return (
-    <div className='form-main-container'>
+    <div className='form-main-container question-modal-container'>
       <div className='add-event-container'>
         <h2>Update Question</h2>
         <div className="add-event-input-container">
           <div className='event-input-element'>
             <label>Question:</label>
-            <input type="text" value={values.question} onChange={e => setValues(prevState => ({ ...prevState, question: e.target.value }))} />
+            <textarea className="form-big-input"  value={values.question} onChange={e => setValues(prevState => ({ ...prevState, question: e.target.value }))} />
           </div>
           <div className='event-input-element'>
             <label>Antwort:</label>
-            <input type="text" value={values.antwort} onChange={e => setValues(prevState => ({ ...prevState, antwort: e.target.value }))} />
+            <textarea className="form-big-input" value={values.antwort} onChange={e => setValues(prevState => ({ ...prevState, antwort: e.target.value }))} />
           </div>
           <div className='event-input-element'></div>
-          <button className='form-button' onClick={handleUpdateQuestion}>Update Question</button>
-          <button className='form-button form-close-button' onClick={closeModal}>Close</button>
         </div>
+        <div className="form-button-container">
+            <button className='form-button' onClick={handleUpdateQuestion}>Update Question</button>
+            <button className='form-button form-close-button' onClick={closeModal}>Close</button>
+          </div>
       </div>
     </div>
   );

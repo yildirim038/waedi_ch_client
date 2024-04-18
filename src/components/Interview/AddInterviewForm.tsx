@@ -35,52 +35,53 @@ const AddInterviewForm : React.FC <addInterviewControlerType>  = ({addInterviewC
       }
     };
   return (
-      <div className='form-main-container'>
-        <div className='add-event-container'>
-          <h2>Add Interview</h2>
-          <div className="add-event-input-container">
-            <div className='event-input-element'>
-              <label>Title:</label>
-              <input type="text" value={interview.title} onChange={e => setInterview({ ...interview, title: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-              <label>Image Titel:</label>
-              <input type="text" value={interview.imageTitel} onChange={e => setInterview({ ...interview, imageTitel: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-              <label>coverText:</label>
-              <input type="text" value={interview.coverText} onChange={e => setInterview({ ...interview, coverText: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-              <label>Description Of Image:</label>
-              <input type="text" value={interview.descriptionOfImage} onChange={e => setInterview({ ...interview, descriptionOfImage: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-              <label>Author:</label>
-              <input type="text" value={interview.author} onChange={e => setInterview({ ...interview, author: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-              <label>Datum:</label>
-              <input type="date" value={interview.datum} onChange={e => setInterview({ ...interview, datum: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-              <label>Image:</label>
-              <input type="file"
-                onChange={(e) => {
-                  if (e.target.files && e.target.files.length > 0) {
-                      setInterview({...interview,image: e.target.files[0],
-                    });
-                  }
-                }}
-              />
-            </div>
-            <button className='form-button' onClick={handleAddInterview}>Add Interview</button>
-            <button className='form-button form-close-button' onClick={closeInterviewForm}>Close</button>
+    <div className='form-main-container'>
+      <div className='add-event-container'>
+        <h2>Add Interview</h2>
+        <div className="add-event-input-container">
+          <div className='event-input-element'>
+            <label>Title:</label>
+            <input type="text" value={interview.title} onChange={e => setInterview({ ...interview, title: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Image Titel:</label>
+            <input type="text" value={interview.imageTitel} onChange={e => setInterview({ ...interview, imageTitel: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>coverText:</label>
+            <textarea value={interview.coverText} onChange={e => setInterview({ ...interview, coverText: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Description Of Image:</label>
+            <textarea value={interview.descriptionOfImage} onChange={e => setInterview({ ...interview, descriptionOfImage: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Author:</label>
+            <input type="text" value={interview.author} onChange={e => setInterview({ ...interview, author: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Datum:</label>
+            <input type="date" value={interview.datum} onChange={e => setInterview({ ...interview, datum: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Image:</label>
+            <input type="file"
+              onChange={(e) => {
+                if (e.target.files && e.target.files.length > 0) {
+                    setInterview({...interview,image: e.target.files[0],
+                  });
+                }
+              }}
+            />
           </div>
         </div>
-
+        <div className="form-button-container">
+          <button className='form-button' onClick={handleAddInterview}>Add Interview</button>
+          <button className='form-button form-close-button' onClick={closeInterviewForm}>Close</button>
+        </div>
       </div>
-    );
+    </div>
+  );
 }
 
 export default AddInterviewForm
