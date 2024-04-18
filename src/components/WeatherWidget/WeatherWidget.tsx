@@ -30,10 +30,6 @@ const WeatherWidget = () => {
     weatherData();
   }, [location]);
 
-  const search = async () => {
-    await weatherData();
-  };
-
   return (
     <div className='weather-container'>
       <div className='top-bar'>
