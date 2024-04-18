@@ -24,3 +24,7 @@ export interface ComponyCardProps {
     data: DirectoryFormState; 
     setComponyList: React.Dispatch<React.SetStateAction<any>>;
 }
+export interface ComponyCardType {
+    data: DirectoryFormState; 
+}
+

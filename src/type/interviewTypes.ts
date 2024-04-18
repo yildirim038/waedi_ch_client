@@ -46,3 +46,6 @@ export interface InterviewCardProps {
   setClickInterview:React.Dispatch<React.SetStateAction<any>>;
   setClickUpdateInterview:React.Dispatch<React.SetStateAction<any>>;
 }
+export interface InterviewCardType {
+  interview: InterviewFormState;
+}
