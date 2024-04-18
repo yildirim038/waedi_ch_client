@@ -1,16 +1,16 @@
 .form-main-container{
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: var(--full-width);
+    height: var(--full-height);
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color:rgba(138,43,216,0.6)
+    background-color:var(--form-backroung)
  
 }
 .login-register-container{
     width: 40vw;
-    background-color: white;
+    background-color: var(--color-white);
     padding: 2vw;
     border-radius: 10px
 }
@@ -26,13 +26,13 @@
 .form-button{
     border: none;
     border-radius: 50px;
-    background-color: aqua;
+    background-color:var(--color-secondary);
     height: 6vh;
     padding: 0 5vw;
 
 }
 .form-close-button{
-    background-color: rgb(255, 0, 0);
+    background-color:var(--color-danger);
     justify-self: end;
 }
 @media only screen and (min-width: 768px) {
@@ -48,4 +48,28 @@
 .update-delete-button{
     border: none;
     background-color: transparent;
+}
+
+.form-button-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-big-input{
+    height: 20vh;
+}
+
+.form-mittel-input{
+    height: 15vh;
+}
+
+.form-small-input {
+    height: 10vh;
+}
+
+.form-flex-input-element{
+    display: flex;
+}
+#form-checkbox{
+    width: 15px;
 }

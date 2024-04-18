@@ -81,20 +81,20 @@ const Interviews: React.FC = () => {
             <HeaderComponent/>  
             <div className='interview-header'>
               <h2>Interviews</h2>
-              {  role ? (
+              {role && (
                   <button >{!isModalOpen && (<img src={plusIcon}  onClick={handleAddInterview} alt="add interview"/>)}</button>
-              ):(<></>)}
+              )}
             </div>
             <div className="interview-card-container">
-              {interviewList.map((interview) => (
-                  <InterviewCard key={interview.id} interview={interview} setClickInterview={setClickInterview} 
+              {interviewList.map((interview, index) => (
+                  <InterviewCard key={index} interview={interview} setClickInterview={setClickInterview} 
                   setClickUpdateInterview={setClickUpdateInterview} setInterviewList={setInterviewList}/>
               ))}
             </div>
             <div className='row my-3'>{adverts}</div>
               <Footer/>
         </div>
-        )}  
+      )}  
       {isModalOpen && (
         <div className="read-interview">
           <InterviewPage interview={clickInterview} closeInterviewModal={closeInterviewModal}/>
@@ -107,5 +107,4 @@ const Interviews: React.FC = () => {
     </div>    
   );
 };
-
 export default Interviews;

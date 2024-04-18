@@ -29,7 +29,7 @@
 
     margin-top: 5vh;
     width: 80vw;
-    background-color: white;
+    background-color: var(--color-white);
     padding: 2vw;
     border-radius: 10px
 }
@@ -104,19 +104,19 @@ position: absolute;
     height: 5vh;
     background: none;
     border: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--color-gray);
     text-align: left;
 }
 .event-side-menu-button:hover{
-    background-color: darkblue;
-    color: white;
+    background-color: var(--backroung-login);
+    color: var(--color-white);
 }
 .event-side-menu-back-button{
     width: 100%;
     height: 5vh;
     background: none;
     border: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--color-gray);
     text-align: left;
 }
 .event-side-menu-back-button::after{

@@ -23,10 +23,10 @@ const Galeries: React.FC = () => {
    const [updateModalOpen, setUpadateModalOpen] = useState(false)
    const [advertData, setAdvertData] = useState<AdvertUpdateType[]>([]);
    const [clickedGallery, setClickedGallery] = useState<GalleryType>({
-    id: "",
-    name: "",
-    description: "",
-  });
+      id: "",
+      name: "",
+      description: "",
+   });
    const galleryNames: string[] = []
    const role = JSON.parse(token).role=== "admin";
    galleryList.forEach(gallery => {
@@ -43,7 +43,6 @@ const Galeries: React.FC = () => {
   
    const galleryAdverts = advertData.filter(advert => advert.advertPage === "gallery" && advert.publish);
    const adverts = pageAdverts(galleryAdverts);
-
    const galleryAllData: GalleryDataType[] = galleryList.map(gallery => {
       const images: ImgType[] = imageList.filter(image => image.photoGalleryId === gallery.id)
       const newImages: ImagesType[] = images.map(image => ({
@@ -111,11 +110,11 @@ const Galeries: React.FC = () => {
                      </div>
                   ))}
                </div>
-                {role && (
-               <button onClick={openModal} className="event-plus-icon mb-5">
-                  <img src={plusIcon} alt="add Event" />
-               </button>
-                   )}
+               {role && (
+                  <button onClick={openModal} className="event-plus-icon mb-5">
+                     <img src={plusIcon} alt="add Event" />
+                  </button>
+               )}
                <div className="row my-3">{adverts}</div>
                <Footer />
             </div>

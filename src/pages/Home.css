@@ -10,23 +10,28 @@
 .main-title{
     position: absolute;
     text-align: center;
-    color: white;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: var(--color-white);
+    text-shadow: 0px 4px 4px var(--text-shadow-color);
 }
 .event-container{
     margin-left:2vw;
 }
 .all-homePage-button {
-    background: rgb(255, 255, 255);
+    background: var(--contact-form-background);
     padding: 1vw;
     border: 1px solid transparent;
-    border-radius: 2vw;
+    border-radius: 10px;
     text-align: center;
     font-size: 20px;
     font-weight: 700;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 3px var(--text-shadow-color);
     letter-spacing: 0.2px;
     position: absolute;
+    transition: var(--login-animation-duration);
+}
+.all-homePage-button:hover{
+    background-color: var(--color-secondary);
+    transition: var(--login-animation-duration);
 }
 .all-interview-button{
     right: 3vw;
@@ -61,11 +66,11 @@
     font-weight: 700;
 }
 .home-event-button:hover{
-    color: white;
-    background-color: rgb(15, 115, 135);
+    color: var(--color-white);
+    background-color: var(--backroung-login);
+    transition: var(--login-animation-duration);
 }
 .home-events-container {
-    background-color:rgb(235, 245, 250);
     width: 99%;
 }
 .home-event-card {
@@ -77,7 +82,7 @@
     text-shadow: 0 0 10px 10px;
 }
 .activ {
-    background-color:rgb(232, 244, 249);
+    background-color: var(--contact-form-background)
 }
 .home-events-container > div > div {
     padding:0
@@ -86,7 +91,7 @@
     list-style: none;
     height: 100%;
     min-height: 46vh;
-    background-color: rgb(68, 163, 192);
+    background-color: var(--color-secondary);
     margin: 0;
     padding: 0;
 }
@@ -108,4 +113,9 @@
 
 .advert-image-new{
     height: 100px;
+}
+.gallery-left-container > h2 , .home-events-container h2 , .home-header{
+    font-weight: 700;
+    font-style: oblique;
+
 }

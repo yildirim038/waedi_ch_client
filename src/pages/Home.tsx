@@ -9,9 +9,11 @@ import HeaderComponent from '../components/Header/HeaderComponents';
 import Footer from '../components/Footer/Footer'
 import HomeGalleryComponent from '../components/Home/HomeGalleryComponent';
 import HomePageAdverts from '../components/Home/HomePageAdverts';
+import WeatherWidget from '../components/WeatherWidget/WeatherWidget';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+ 
   return (
     <div>
       <HeaderComponent/>
@@ -28,17 +30,22 @@ const Home: React.FC = () => {
             <HomeEventComponent/>
           </div>
         </section>
-        <section className='m-5'>
-              <HomeInterviewComponent/>
+        <section className='my-5'>
+          <HomeInterviewComponent/>
+        </section>
+        <section className='container '>
+          <HomeGalleryComponent/>
         </section>
         <section className='m-5'>
-              <HomeGalleryComponent/>
+          <HomePageAdverts/>
         </section>
-        <section>
-        <HomePageAdverts/>
-        </section>
-        <section className='m-5 w-75' >
-              <SBBApp/>
+        <section className='row m-5'>
+          <div className='col-12 col-md-7' >
+            <SBBApp/>
+          </div>
+          <div className='col-12 col-md-5'>
+            <WeatherWidget/>
+          </div>
         </section>
         <footer>
           <Footer/>
