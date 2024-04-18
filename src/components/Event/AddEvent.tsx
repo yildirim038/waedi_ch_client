@@ -44,7 +44,7 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
       <div className='add-event-container'>
         <h2>Add Event</h2>
         <div className="add-event-input-container">
-        <div className='event-input-element'>
+          <div className='event-input-element'>
             <label>Event Type</label>
             <select value={values.eventType} onChange={e => setValue({ ...values, eventType: e.target.value })}>
             <option value="" disabled>Select a type</option>
@@ -52,7 +52,7 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
                 <option key={index} value={option}>{option}</option>
               ))}
             </select>
-         </div>
+          </div>
           <div className='event-input-element'>
             <label>Name:</label>
             <input type="text" value={values.name} onChange={e => setValue({ ...values, name: e.target.value })} />
@@ -83,29 +83,24 @@ const AddEvent: React.FC<addEventType> = ({ closeModal, setEventList }) => {
           </div>
           <div className='event-input-element'>
             <label>Image:</label>
-            <input
-              type="file"
-              onChange={(e) => {
-                if (e.target.files && e.target.files.length > 0) {
-                  setValue({
-                    ...values,
-                    image: e.target.files[0],
-                  });
+            <input type="file" onChange={(e) => {
+                if (e.target.files && e.target.files.length > 0) { 
+                  setValue({ ...values, image: e.target.files[0]});
                 }
               }}
             />
           </div>
           <div className='event-input-element'>
             <label>Text:</label>
-            <input type="text" value={values.text} onChange={e => setValue({ ...values, text: e.target.value })} />
+            <textarea value={values.text} onChange={e => setValue({ ...values, text: e.target.value })} />
           </div>
-          <div className='event-input-element'></div>
+        </div>   
+        <div className="form-button-container">
           <button className='form-button' onClick={handleAddEvent}>Add Event</button>
           <button className='form-button form-close-button' onClick={closeModal}>Close</button>
-        </div>
+        </div>  
       </div>
     </div>
   );
 }
-
 export default AddEvent;
