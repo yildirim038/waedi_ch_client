@@ -1,0 +1,20 @@
+:root {
+  --color-secondary:aqua;
+  --color-black:#000;
+  --color-white: #FFF;
+  --color-danger: rgb(255, 0, 0);
+  --color-gray:#6c6c6c;
+  --backroung-login:blueviolet;
+  --text-shadow-color:rgba(0, 0, 0, 0.25);
+  --contact-form-background:#d9d9d9;
+  --contact-form-border-color:rgb(177, 177, 177);
+  --contact-form-button-color: rgb(18, 90, 90);
+  --form-backroung:rgba(138,43,216,0.6);
+  --login-animation-duration:2s;
+  --login-container-width:40vw;
+  --full-width:100vw;
+  --full-height:100vh;
+
+
+
+}
