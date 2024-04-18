@@ -16,7 +16,7 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
   const handleUpdateCompony = async () => {
     try {
       data.id ?
-        await getDirectoryDataById(setClickDirectory, data.id) : (console.log("error"))
+      await getDirectoryDataById(setClickDirectory, data.id) : (console.log("error"))
       getDirectoryData(setComponyList);
       openModal()
     } catch (error) {
@@ -27,7 +27,7 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
   const handleDeleteEvent = async () => {
     try {
       data.id ?
-        await deleteDirectoryData(data.id) : (console.log("error"))
+      await deleteDirectoryData(data.id) : (console.log("error"))
       getDirectoryData(setComponyList);
     } catch (error) {
       alert("Event could not be deleted.");
@@ -35,47 +35,44 @@ const CompanyCard: React.FC<ComponyCardProps> = ({ data, setComponyList }) => {
   };
 
   return (
-    <>
-    {!isModalOpen && (
-      <div key={data.id} className="card-container  col-12 col-md-6">
-      <div className="card">
-        <div className="row card-body">
-        <div className="col-3 m-auto">
-          <img src={`http://localhost:3001/images/${data.image}`} className="col-12" alt="logo" />
-        </div>
-        <div className="col-9">
-          <h5>{data.organization}</h5>
-          <p>{data.adresse}</p>
-          <p>{data.plz}  {data.ort}</p>
-          
-        </div>    
-        <div>
-        <h6>Kontak Person</h6>
-        <p>{data.contactFirstname} {data.contactLastname}</p>
-          <p>Tel {data.tel} Fax {data.fax} Email {data.email}</p></div>       
-       <div className="update-card-button-container">
-         <div>
-            <a href={`${data.website}`}>Go to Website</a>
-         </div>
-            {role && (
-              <div>
-                <button className="update-delete-button"><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
-                <button className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+    <div>
+      {!isModalOpen && (
+        <div key={data.id} className="card-container  col-12 col-md-6">
+          <div className="card">
+            <div className="row card-body">
+              <div className="col-3 m-auto">
+                <img src={`http://localhost:3001/images/${data.image}`} className="col-12" alt="logo" />
               </div>
-            )}
+              <div className="col-9">
+                <h5>{data.organization}</h5>
+                <p>{data.adresse}</p>
+                <p>{data.plz}  {data.ort}</p>
+              </div>    
+              <div>
+                <h6>Kontak Person</h6>
+                <p>{data.contactFirstname} {data.contactLastname}</p>
+                <p>Tel {data.tel} Fax {data.fax} Email {data.email}</p></div>       
+                <div className="update-card-button-container">
+                  <div>
+                    <a href={`${data.website}`}>Go to Website</a>
+                  </div>
+                  {role && (
+                    <div>
+                      <button className="update-delete-button"><img src={Update} onClick={handleUpdateCompony} alt="update" /></button>
+                      <button className="update-delete-button" onClick={handleDeleteEvent}><img src={Delete} alt="delete" /></button>
+                    </div>
+                  )}
+                </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
       )}
-        {isModalOpen && (
+      {isModalOpen && (
         <div className="modal-add-event-open">
           <UpdateDirectory closeModal={closeModal} setDirectoryList={setComponyList} clickEvent={clickEvent} />
         </div>
       )}
-      
-    </>
+    </div>
   );
 }
-
 export default CompanyCard;

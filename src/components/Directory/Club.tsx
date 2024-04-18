@@ -22,47 +22,33 @@ const Club: React.FC = () => {
   }, [directoryList]);
 
   clubList.forEach((company) => {
-    if (typeList.indexOf(company.companyType) === -1) {
-      typeList.push(company.companyType);
-    }
+    if (!typeList.includes(company.companyType)) typeList.push(company.companyType);
   });
 
   return (
     <div>
       <HeaderComponent/>
-       <div className="row">
+      <div className="row">
         <div className="directory-side-bar-container col-12 col-sm-4 col-md-3">
           <h3>Verein</h3>
           <ul>
             {typeList.map((data) => (
               <li key={data}>
-                <button className="directory-side-menu-button" onClick={() => filterList(data,clubList ,setClubList,setIsFiltered)}>{data}</button>
+                <button className="directory-side-menu-button" onClick = { () => filterList(data,clubList ,setClubList,setIsFiltered)}>{data}</button>
               </li>
             ))}
           </ul>
-          {!isFiltered && 
-           <a className="side-menu-back" href="/directory">
-             zurück Verzeichnisse
-           </a>
-          } : {isFiltered && 
-               <a onClick={isNotFiltered} className="side-menu-back" href="/club">
-                zurück Verein
-              </a>
-          }
-          </div>
-            <div className="directory-text col-12 col-sm-8 col-md-9">
-            <div className="row">
-            {clubList.map(data => {
-                return (
-                        <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
-                    )    
-            })}
-            </div>
+          {!isFiltered && <a className="side-menu-back" href="/directory">zurück Verzeichnisse</a>}:
+          { isFiltered && <a onClick={isNotFiltered} className="side-menu-back" href="/club">zurück Verein</a>}
+        </div>
+        <div className="directory-text col-12 col-sm-8 col-md-9">
+          <div className="row">
+            {clubList.map(data => <CompanyCard key = {data.id} data = {data} setComponyList = {setDirectoryList} /> )}
           </div>
         </div>
-        <Footer/>
+      </div>
+      <Footer/>
     </div>
     );
 };
-  
-  export default Club;     
+export default Club;     

@@ -44,8 +44,6 @@ const UpdateDirectory: React.FC<addDirectoryType> = ({ closeModal, setDirectoryL
       formData.append('tel', values.tel || '');
       formData.append('fax', values.fax || '') ;
       formData.append('image', values.image || ''); 
-  
-      
       await updateDirectory(formData,clickEvent.id);
       getDirectoryData(setDirectoryList);
       closeModal();
@@ -53,6 +51,7 @@ const UpdateDirectory: React.FC<addDirectoryType> = ({ closeModal, setDirectoryL
       alert("Event could not be updated.");
     }
   };
+
   const generateCompanyTypeOptions = () => {
     switch (values.category) {
       case 'verein':
@@ -67,30 +66,29 @@ const UpdateDirectory: React.FC<addDirectoryType> = ({ closeModal, setDirectoryL
         return [];
     }
   };
-   return (
+
+  return (
     <div className='form-main-container'>
       <div className='add-event-container'>
         <h2>Update Directory</h2>
         <div className="add-event-input-container">
-        <div className='event-input-element'>
-            <label>Category</label>
-            <select value={values.category} onChange={e => setValue({ ...values, category: e.target.value })}>
-              <option value="" disabled>Select a category</option>
-              <option value="verein">Vereine</option>
-              <option value="company">Geschäfte</option>
-              <option value="kultur">Kultur</option>
-              <option value="facts">Facts</option>
-            </select>
+          <div className='event-input-element'>
+              <label>Category</label>
+              <select value={values.category} onChange={e => setValue({ ...values, category: e.target.value })}>
+                <option value="" disabled>Select a category</option>
+                <option value="verein">Vereine</option>
+                <option value="company">Geschäfte</option>
+                <option value="kultur">Kultur</option>
+                <option value="facts">Facts</option>
+              </select>
           </div>
           <div className='event-input-element'>
-            <label>Company Type</label>
-            <select value={values.companyType} onChange={e => setValue({ ...values, companyType: e.target.value })}>
-            <option value="" disabled>Select a company type</option>
-              {generateCompanyTypeOptions().map((option, index) => (
-                <option key={index} value={option}>{option}</option>
-              ))}
-            </select>
-         </div>
+              <label>Company Type</label>
+              <select value={values.companyType} onChange={e => setValue({ ...values, companyType: e.target.value })}>
+                <option value="" disabled>Select a company type</option>
+                {generateCompanyTypeOptions().map((option, index) => (<option key={index} value={option}>{option}</option>))}
+              </select>
+          </div>
           <div className='event-input-element'>
             <label>Organization</label>
             <input type="text" value={values.organization} onChange={e => setValue({ ...values, organization: e.target.value })} />
@@ -113,42 +111,38 @@ const UpdateDirectory: React.FC<addDirectoryType> = ({ closeModal, setDirectoryL
           </div>
           <div className='event-input-element'>
             <label>Image:</label>
-            <input
-              type="file"
-              onChange={(e) => {
+            <input type="file" onChange={ (e) => {
                 if (e.target.files && e.target.files.length > 0) {
-                  setValue({
-                    ...values,
-                    image: e.target.files[0],
-                  });
+                  setValue({...values, image: e.target.files[0],});
                 }
               }}
             />
           </div>
+        </div>
+        <h3>Kontak Person</h3>
+        <div className="add-event-input-container">
+          <div className='event-input-element'>
+            <label>Firstname</label>
+            <input type="text" value={values.contactFirstname} onChange={e => setValue({ ...values, contactFirstname: e.target.value })} />
           </div>
-          <h3>Kontak Person</h3>
-          <div className="add-event-input-container">
-            <div className='event-input-element'>
-                <label>Firstname</label>
-                <input type="text" value={values.contactFirstname} onChange={e => setValue({ ...values, contactFirstname: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-            <label>LastName</label>
-                <input type="text" value={values.contactLastname} onChange={e => setValue({ ...values, contactLastname: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-                <label>Telefonnummer</label>
-                <input type="text" value={values.tel} onChange={e => setValue({ ...values, tel: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-                <label>Fax</label>
-                <input type="text" value={values.fax} onChange={e => setValue({ ...values, fax: e.target.value })} />
-            </div>
-            <div className='event-input-element'>
-                <label>Email</label>
-                <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
-            </div>
-          <div className='event-input-element'></div>
+          <div className='event-input-element'>
+          <label>LastName</label>
+            <input type="text" value={values.contactLastname} onChange={e => setValue({ ...values, contactLastname: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Telefonnummer</label>
+            <input type="text" value={values.tel} onChange={e => setValue({ ...values, tel: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Fax</label>
+            <input type="text" value={values.fax} onChange={e => setValue({ ...values, fax: e.target.value })} />
+          </div>
+          <div className='event-input-element'>
+            <label>Email</label>
+            <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
+          </div>
+        </div>
+        <div className="form-button-container">  
           <button className='form-button' onClick={handleUpdateEvent}>Update Compony</button>
           <button className='form-button form-close-button' onClick={closeModal}>Close</button>
         </div>

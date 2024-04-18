@@ -22,9 +22,7 @@ const Company: React.FC = () => {
   }, [directoryList]);
 
   companyList.forEach((company) => {
-    if (typeList.indexOf(company.companyType) === -1) {
-      typeList.push(company.companyType);
-    }
+    if (!typeList.includes(company.companyType)) typeList.push(company.companyType);
   });
 
   return (
@@ -36,20 +34,12 @@ const Company: React.FC = () => {
           <ul>
             {typeList.map((data) => (
               <li key={data}>
-            <button className="directory-side-menu-button" onClick={() => filterList(data,companyList ,setCompanyList,setIsFiltered)}>{data}</button>
+                <button className="directory-side-menu-button" onClick={() => filterList(data,companyList ,setCompanyList,setIsFiltered)}>{data}</button>
               </li>
             ))}
           </ul>
-          {!isFiltered && 
-            <a className="side-menu-back" href="/directory">
-            zurück Verzeichnisse
-          </a>
-          }:{isFiltered && 
-            <a onClick={isNotFiltered} className="side-menu-back" href="/company">
-            zurück Geschäfte
-          </a>
-          }
-        
+          {!isFiltered && <a className="side-menu-back" href="/directory">zurück Verzeichnisse</a>}:
+          { isFiltered && <a className="side-menu-back" href="/company" onClick={isNotFiltered}>zurück Geschäfte</a>}
         </div>
         <div className="directory-text col-12 col-sm-8 col-md-9">
           <div className="row">

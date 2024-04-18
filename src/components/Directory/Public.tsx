@@ -36,31 +36,23 @@ return (
                     <li key={data}>
                         <button className="directory-side-menu-button" onClick={() => filterList(data,publicList ,setPublicList,setIsFiltered)}>{data}</button>
                     </li>
-            ))}
-                {!isFiltered && 
-            <a className="side-menu-back" href="/directory">
-            zurück Verzeichnisse
-          </a>
-          }:{isFiltered && 
-            <a onClick={isNotFiltered} className="side-menu-back" href="/public">
-            zurück Öffentliches
-          </a>
-          }
+                ))}
+                {!isFiltered &&  <a className="side-menu-back" href="/directory">zurück Verzeichnisse</a>}:
+                { isFiltered &&  <a className="side-menu-back" href="/public" onClick={isNotFiltered} >zurück Öffentliches</a>}
             </div>
             <div className="directory-text col-12 col-sm-8 col-md-9">
-            <div className="row">
-            {publicList.map(data => {
-                return (
-                        <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
-                    )    
-            })}
-        </div>
+                <div className="row">
+                    {publicList.map(data => {
+                        return (
+                            <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
+                        )    
+                    })}
+                </div>
             </div>
         </div>
         <Footer/>
     </div>
     
-    );
-};
+)};
   
 export default Public;     

@@ -6,7 +6,12 @@ export const vereine =['Arbeitgebervereine','Buddhistische Gemeinden','Chorverei
                 'Röm.-kath. Kirchgemeinden', 'Sammelvereine','Schiessvereine', 'Seniorenvereine', 'sonstige Vereine',
                 'Sportclub','Stenografieverein','Tanzvereine','Textilvereine', 'Tier- & tierbezogene Vereine',
                 'Verein für Baugewerbe', 'Verschiedenes', 'Volksvereine', 'Zunft'];
-export const companys =['IT','Ärtzte','Bau'];
+export const companys =['IT, EDV & Telekommunikation','Ärtzte','Bau & Handwerk','Ferienwohnung','Hotel, Gaststätten & Übernachtung','Betreuung',
+                'Alternative Medizin & Therapien','Pflege', 'Andere','Coaching','Dienstleistungen','Fahrzeug & Vehikelverkauf',
+                'Finanzen & Börsen','Gastronomie & Bäckereien','Gemeinnützige Organisationen','Immobilien','Kunst & Gestaltung','Kurse- & Schulen',
+                'Läden & Handel','Lebensmittel','Literatur','Mechanik','Medien & Literaturindustrie','Model- & Fotografie Agenturen','Musik',
+                'Privatausbildungen & -Lehrer','Recycling','Sport – Schulen & Verkauf','Technik','Textilien, Kleider, Ausrüstung & Accessoires',
+                'Tiere','Unterhaltung & Dating','Versicherungen','Wellness & Beauty'];
 export const kultur =['Einzelmusiker','Freiräume','Jungwacht/Blauring','Museen','Pfadfinder','Sport','Theater'];
 export const facts = ['AHV Dienstleistung', 'Asyldienste', 'Ausbildungsstätte', 'Beruf & Bildung', 'Biblio- & Ludotheken',
                'Diverse & Spezielle','Eltern & Erwachsene','Energie','Entsorgung/Reinigung','Feuerwehr',

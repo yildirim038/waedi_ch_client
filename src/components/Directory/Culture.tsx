@@ -27,39 +27,31 @@ cultureList.forEach((company) => {
   });
 
 return (
-    <div>
-        <HeaderComponent/>
+  <div>
+    <HeaderComponent/>
+    <div className="row">
+      <div className="directory-side-bar-container col-12 col-sm-4 col-md-3">
+        <h3>Kultur</h3>
+        <ul>
+          {typeList.map((data) => (
+            <li key={data}>
+                <button className="directory-side-menu-button" onClick={() => filterList(data,cultureList ,setCultureList,setIsFiltered)}>{data}</button>
+            </li>
+          ))}
+        </ul>
+        {!isFiltered && <a className="side-menu-back" href="/directory">zurück Verzeichnisse</a>}:
+        { isFiltered && <a onClick={isNotFiltered} className="side-menu-back" href="/kultur">zurück Kultur</a>}
+      </div>
+      <div className="directory-text col-12 col-sm-8 col-md-9">
         <div className="row">
-            <div className="directory-side-bar-container col-12 col-sm-4 col-md-3">
-                <h3>Kultur</h3>
-                <ul>
-                {typeList.map((data) => (
-                    <li key={data}>
-                        <button className="directory-side-menu-button" onClick={() => filterList(data,cultureList ,setCultureList,setIsFiltered)}>{data}</button>
-                    </li>
-            ))}
-                </ul>
-                {!isFiltered && 
-            <a className="side-menu-back" href="/directory">
-            zurück Verzeichnisse
-          </a>
-          }:{isFiltered && 
-            <a onClick={isNotFiltered} className="side-menu-back" href="/kultur">
-            zurück Kultur
-            </a>
-          }
-            </div>
-            <div className="directory-text col-12 col-sm-8 col-md-9">
-            <div className="row">
-            {cultureList.map(data => {
-                return <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
-            })}
+          {cultureList.map(data => {
+            return <CompanyCard key={data.id} data={data} setComponyList={setDirectoryList} />
+          })}
         </div>
-            </div>
-        </div>
-        <Footer/>
+      </div>
     </div>
-    );
+    <Footer/>
+  </div>
+ );
 };
-  
-  export default Culture;     
+export default Culture;     
