@@ -52,10 +52,10 @@ const HomeEventComponent: React.FC = () => {
           <button className='all-event-button all-homePage-button' onClick={goEvents}>All Events</button>
           <h2 className='home-header'>Event</h2>
           <section className='row'>
-            {!homeEventList.length && (
+            {homeEventList.length === 0 && (
               <h4>Leider finden keine Events statt. </h4>
             )}
-            {homeEventList.map((event) => (
+            {homeEventList.length > 0  && (homeEventList.map((event) => (
               <div key={event.id} className='home-event-card col-12 col-sm-6 col-md-3'>
                 <div className='card'>
                 <div className="event-img-container">
@@ -74,7 +74,7 @@ const HomeEventComponent: React.FC = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            )))}
           </section>
         </div>
       </div>
