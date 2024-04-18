@@ -23,7 +23,6 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isAuthenticated, onLogout
                 : (<Link  className='login' to="/login">{t('header_login')}</Link>)}
             </div>
         </div>
-     
         <nav className="mobil-nav">
             <ul>
                 <li>
@@ -33,19 +32,19 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isAuthenticated, onLogout
                     <a className="" href="/events">{t('nav_event')}</a>
                 </li>
                 <li>
-                    <a className="" href="/">{t('nav_directories')}</a>
+                    <a className="" href="/directory">{t('nav_directories')}</a>
                 </li>
                 <li>
-                    <a className="" href="/">Wädi</a>
+                    <a className="" href="/market">Markt</a>
                 </li>
                 <li>
-                    <a className="" href="/">{t('nav_photo_gallery')}</a>
+                    <a className="" href="/gallery">{t('nav_photo_gallery')}</a>
                 </li>
                 <li>
-                    <a className="" href="/">Interviews</a>
+                    <a className="" href="/interviews">Interviews</a>
                 </li>
                 <li>
-                    <a className="" href="/">Service</a>
+                    <a className="" href="/advert">Werbung</a>
                 </li>
 
             </ul> 

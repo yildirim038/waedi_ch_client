@@ -25,8 +25,9 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
   };
 
   return (
-    <div>
-      <div className='login-main-container'></div>
+  
+    <div className='login-main-container'>
+      <div className='login-backround'></div>
       <div className='login-container'>
         <button onClick={closeModal} className='login-close'>X</button>
         <h2>Login</h2>
@@ -46,7 +47,7 @@ const Login: React.FC <loginProps> = ({closeModal , handleSomeAction}) => {
            <Link to="/register">Klicken Sie hier.</Link>
           </p>   
        </div>
-      </div> 
+    </div> 
     </div>
   );
 };

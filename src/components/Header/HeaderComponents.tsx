@@ -22,7 +22,8 @@ const HeaderComponent: React.FC = () => {
   const closeModal = () => setIsModalOpen(false);
  
   return (
-      <Header openModal={openModal} isModalOpen={isModalOpen} closeModal={closeModal} handleSomeAction={handleSomeAction} isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
+      <Header openModal={openModal} isModalOpen={isModalOpen} closeModal={closeModal} handleSomeAction={handleSomeAction} 
+      isAuthenticated={authInfo.isAuthenticated} onLogout={handleLogout} />
   );
 };
 export default HeaderComponent;

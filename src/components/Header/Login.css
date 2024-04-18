@@ -1,12 +1,15 @@
-.login-main-container{
+
+.login-backround {
+    background-color: var(--backroung-login);
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: blueviolet;
+    height: var(--full-height);
+    width: var(--full-width);
     opacity:0.5;
     z-index: 1;
+    animation-name: backround-animation;
+    animation-duration: var(--login-animation-duration);
 }
 
 .login-container{
@@ -14,14 +17,18 @@
     z-index: 2;
     right: 0;
     top: 0;
-    width: 40vw;
-    height: 100vh;
+    width: var(--login-container-width);
+    height: var(--full-height);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+    background-color: var(--color-white);
     padding: 2vw;
-    border-radius: 10px
+    opacity:1;
+    border-radius: 10px;
+    transition: width 20s;
+    animation-name: form-animation;
+    animation-duration: var(--login-animation-duration);
 }
 .login-container h2 {
     text-align: center;
@@ -35,15 +42,21 @@
 .login-button{
     border: none;
     border-radius: 50px;
-    background-color: aqua;
+    background-color: var(--color-secondary);
     height: 6vh;
     padding: 0 5vw;
 }
-.login-close-button{
-    background-color: rgb(255, 0, 0);
-}
+
 .login-close {
     border: none;
     background: none;
     text-align: right;
 }
+@keyframes backround-animation {
+    from {width: 0;}
+    to {width: var(--full-width);}
+  }
+@keyframes form-animation {
+    from {width: 0;}
+    to {width: var(--login-container-width);}
+  }
