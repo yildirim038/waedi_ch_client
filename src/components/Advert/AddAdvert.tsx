@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { addAdvert, getAdvertData } from "../../services/advertService"; 
-import { AdvertType } from "../../type/advertType";
-
-type AddAdvertType = {
-    closeModal:() => void;
-    setAdvertData:React.Dispatch<React.SetStateAction<any>>
-}
+import { AddAdvertType, AdvertType } from "../../type/advertType";
 
 const AddAdvert: React.FC <AddAdvertType>= ({closeModal,setAdvertData}) => {
   const [values, setValue] = useState<AdvertType>({
@@ -43,14 +38,14 @@ const AddAdvert: React.FC <AddAdvertType>= ({closeModal,setAdvertData}) => {
       <div className='add-event-container'>
         <h2>Neuen Werbung erstellen</h2>
         <div className="add-event-input-container">
-                 <div className='event-input-element'>
+          <div className='event-input-element'>
             <label>Firma Name</label>
             <input type="text" value={values.name} onChange={e => setValue({ ...values, name: e.target.value })} />
           </div>
           <div className='event-input-element'>
-                <label>Email</label>
-                <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
-            </div>
+            <label>Email</label>
+            <input type="email" value={values.email} onChange={e => setValue({ ...values, email: e.target.value })} />
+          </div>
           <div className='event-input-element'>
             <label>Adresse</label>
             <input type="text" value={values.adresse} onChange={e => setValue({ ...values, adresse: e.target.value })} />
@@ -69,25 +64,22 @@ const AddAdvert: React.FC <AddAdvertType>= ({closeModal,setAdvertData}) => {
           </div>
           <div className='event-input-element'>
             <label>Image:</label>
-            <input
-              type="file"
-              onChange={(e) => {
+            <input type="file" onChange={(e) => {
                 if (e.target.files && e.target.files.length > 0) {
                   setValue({
                     ...values,
                     image: e.target.files[0],
                   });
                 }
-              }}
-            />
+              }} />
           </div>
-          </div>  
-          <button className='form-button' onClick={handleAddCompony}>Add Eintrag</button>
-          <button className='form-button form-close-button' onClick={closeModal}>Close</button>
+        </div>  
+        <div className="form-button-container">
+            <button className='form-button' onClick={handleAddCompony}>Add Eintrag</button>
+            <button className='form-button form-close-button' onClick={closeModal}>Close</button>
+        </div>
       </div>
-     
     </div>
   );
 }
-
 export default AddAdvert;
