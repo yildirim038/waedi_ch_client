@@ -14,7 +14,8 @@ const WeatherWidget = () => {
   const [locationData, setLocationData] = useState<any>({});
   const api_key = "2b5cf0907605fbfa424a01293a5886b4";
 
-  const weatherData = async () => {
+useEffect (() => {
+  const fetchData = async () => {
     try {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${api_key}`);
       const data = response.data;
@@ -25,10 +26,8 @@ const WeatherWidget = () => {
     }
   };
 
-  useEffect( () => {
-    weatherData();
-  }, [location]);
-
+  fetchData();
+}, [location]);
   return (
     <div className='weather-container'>
       <div className='top-bar'>
