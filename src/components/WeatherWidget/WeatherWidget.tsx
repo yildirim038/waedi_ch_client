@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './WeatherWidget.css';
-import search_icon from '../../img/search.png';
 import rain_icon from '../../img/regen.png';
 import snow_icon from '../../img/snow.png';
 import clear_icon from '../../img/sonne.png';
