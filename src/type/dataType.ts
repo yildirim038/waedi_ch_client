@@ -49,3 +49,17 @@ export type addEventType = {
     role: string
   }
 
+
+export type EventType ={
+    data:EventFormState;
+}
+
+export type user = {
+    id:string;
+    firstname:string;
+    lastname:string;
+    email:string;
+    role:string;
+    password:string;
+    waediEmail:string
+ }

@@ -22,6 +22,35 @@ export const register = async (data: Register) => {
   }
 };
 
+export const userData = async () => {
+  try {
+    const response = await axios.get(`${API_URL}`);
+    return(response.data);
+  } catch (error: any) {
+    throw error.response?.data?.error || "Error";
+  }
+};
+
+export const userData2 = async (pSetUser:any) => {
+  try {
+    const response = await axios.get(`${API_URL}`);
+    pSetUser(response.data);
+  } catch (error: any) {
+    throw error.response?.data?.error || "Error";
+  }
+};
+
+export const updateUser =async (data: any ,pId:string) => {
+  try {
+    await axios.put(`${API_URL}/${pId}`, data);
+    return true;
+  } catch (error: any) {
+    throw error.response?.data?.error || "Error";
+  }
+}
+
+
+
 
 export const logout = async () => {
   try {
@@ -32,4 +61,13 @@ export const logout = async () => {
     throw error.response.data.error;
   }
 };
-;
+
+
+export const deleteUserData = async (userId: string) => {
+  try {
+    await axios.delete(`${API_URL}/${userId}`);
+    return true;
+  } catch (error: any) {
+    throw error.response?.data?.error || "Error";
+  }
+};

@@ -12,6 +12,11 @@ import Company from './components/Directory/Company';
 import Culture from './components/Directory/Culture';
 import Public from './components/Directory/Public';
 import Advert from './pages/Advert';
+import Contact from './pages/Contact';
+import Market from './pages/Market';
+import UserUpdatePage from './components/User/UserUpdatePage';
+import Info from './pages/Info';
+import History from './pages/History';
 
 
 const MainApp: React.FC = () => {
@@ -27,13 +32,17 @@ const MainApp: React.FC = () => {
           <Route path="/addInterview" element={<AddInterview/>}/>
           <Route path="/club" element={<Club/>}/>
           <Route path="/company" element={<Company/>}/>
+          <Route path="/contact" element={<Contact/>}/>
           <Route path="/kultur" element={<Culture/>}/>
           <Route path="/public" element={<Public/>}/>
           <Route path="/advert" element={<Advert/>}/>
+          <Route path="/market" element={<Market/>}/>
+          <Route path="/userUpdate" element={<UserUpdatePage/>}/>
+          <Route path='/info' element={<Info/>}/>
+          <Route path='/history' element={<History/>}/>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     </Router>
   );
 };
-
 export default MainApp;
