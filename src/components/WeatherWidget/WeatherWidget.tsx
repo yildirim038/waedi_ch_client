@@ -34,7 +34,6 @@ const WeatherWidget = () => {
     <div className='weather-container'>
       <div className='top-bar'>
           <input type="text" className='cityInput' placeholder='Search' onChange={e => setLocation(e.target.value)} />
-          <button onClick={search} className='weather-search-icon'><img src={search_icon} alt="search" /></button>
       </div>
       <div className='row'>
         <div className='weather-image col-12 col-lg-5'>
