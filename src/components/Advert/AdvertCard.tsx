@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Update from '../../img/arrow 5.png';
 import Delete from '../../img/bin 6.png';
 import { deleteAdvertData, getAdvertData } from "../../services/advertService";
 import { AdvertType } from "../../type/advertType";
-import UpdateAdvert from "./UpdateAdvert";
 
 type AdvertCardType = {
     advertData :AdvertType[]; 
