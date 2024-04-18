@@ -1,49 +1,45 @@
-import React, { useState } from "react";
-import { addArticle, deleteArticleData, deleteHistoryData, getArticleData, getHistoryData, updateHistory } from "../../services/infoService";
-import { AddHistoryType } from "../../type/historyType";
+import { useState } from "react";
+import { addArticle, deleteArticleData, getArticleData, getHistoryData, updateHistory } from "../../services/infoService";
+import { UpdateHistoryType } from "../../type/historyType";
 
-const AddHistory: React.FC<AddHistoryType> = ({ closeModal, history, setAllHistory, setAllArticle, allArticle }) => {
-  const [article, setArticle] = useState({ article: "", historyId:history.id});
-  const [newHistory, setNewHistory] = useState({ history: history.history });
-  const close = async() =>   {
-    await deleteHistoryData(history.id)
-    await getHistoryData(setAllHistory)
-    closeModal()
-  }
+const UpdateHistory:React.FC<UpdateHistoryType> = ({clickedHistory,allArticle,setAllArticle,setAllHistory, closeUpdateModal}) => {
+  const [newHistory, setNewHistory] = useState({ history: clickedHistory.history });
+  const [article, setArticle] = useState({ article: "", historyId: clickedHistory.id });
+  const filteredArticles = allArticle.filter(article => article.historyId === clickedHistory.id);
+
   const handleDeleteArticle = async (pId:string) =>{
     await deleteArticleData(pId)
-    getArticleData(setAllArticle);
+      getArticleData(setAllArticle);
   }
 
   const handleAddArticle = async () => {
-    try {
+  try {
       await addArticle(article);
-      setArticle({ article: "", historyId:history.id})
       getArticleData(setAllArticle);
     } catch (error) {
       alert("Article could not be added.");
     }
   };
-  const filteredArticles = allArticle.filter(article => article.historyId === history.id)
-  const handleAddHistory = async () => {
+
+  const handleUpdateHistory = async () => {
     try {
-      await updateHistory(newHistory, history.id);
+      await updateHistory(newHistory, clickedHistory.id);
       getHistoryData(setAllHistory)
-      closeModal();
+      closeUpdateModal();
     } catch (error) {
       alert("History could not be added.");
     }
   };
-
+    
   return (
     <div className="form-main-container">
       <div className="add-event-container">
-        <h2>Add History</h2>
+        <h2>Update History</h2>
         <div className="add-event-input-container">
           <div className="event-input-element">
             <label>Title</label>
             <input type="text" value={newHistory.history} onChange={(e) => setNewHistory({ ...newHistory, history: e.target.value })} />
-          </div> 
+          </div>
           <div className="event-input-element d-flex">
             <div className="add-image row">
               <div className="event-input-element">
@@ -58,11 +54,16 @@ const AddHistory: React.FC<AddHistoryType> = ({ closeModal, history, setAllHisto
               <button className="col-12 col-sm-6 col-md-2" onClick={handleAddArticle}>Add Article</button>
             </div>
           </div>
-          <button className="form-button" onClick={handleAddHistory}>Add History</button>
-          <button className="form-button form-close-button" onClick={close}>Close</button>
+          <button className="form-button" onClick={handleUpdateHistory}>
+            Update History
+          </button>
+          <button className="form-button form-close-button" onClick={closeUpdateModal}>
+            Close
+          </button>
         </div>
       </div>      
     </div>
-  );
-};
-export default AddHistory;
+  )
+}
+
+export default UpdateHistory;
